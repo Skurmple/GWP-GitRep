@@ -34,7 +34,9 @@ public class TrashNet : MonoBehaviour
         {
             for (int i = 0; i < trashList.Count; i++)
             {
-                trashToDestroy = trashList[i];
+                trashToDestroy = trashList[0];
+                trashList.RemoveAt(0);
+                moveSpeed /= 0.9f;
                 if (trashToDestroy.gameObject.tag == "PlasticTrash")
                 {
                     plasticTrashAmt++;
@@ -48,8 +50,6 @@ public class TrashNet : MonoBehaviour
                     glassTrashAmt++;
                 }
                 Destroy(trashToDestroy.gameObject);
-                trashList.RemoveAt(i);
-                moveSpeed /= 0.9f;
             }
         }
 
