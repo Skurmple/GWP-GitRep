@@ -5,8 +5,9 @@ using UnityEngine;
 public class RightTrashSpawner : MonoBehaviour
 {
 
-    public Rigidbody2D redTrash;
-    public Rigidbody2D greenTrash;
+    public Rigidbody2D plasticBottle;
+    public Rigidbody2D metalScrap;
+    public Rigidbody2D glassBottle;
     Vector3 spawningPosition;
 
     void Start()
@@ -27,16 +28,22 @@ public class RightTrashSpawner : MonoBehaviour
         int trashChoice = Random.Range(0, 100);
 
         //If random number is less than 50, clone red trash, if it is greater than 50, spawn green trash
-        if (trashChoice <= 49)
+        if (trashChoice <= 33)
         {
             Rigidbody2D clone;
-            clone = Instantiate(redTrash, spawningPosition, transform.rotation);
+            clone = Instantiate(plasticBottle, spawningPosition, transform.rotation);
             clone.velocity = new Vector2(-1.5f, 0f);
         }
-        else if (trashChoice >= 50)
+        else if (trashChoice > 33 && trashChoice <= 66)
         {
             Rigidbody2D clone;
-            clone = Instantiate(greenTrash, spawningPosition, transform.rotation);
+            clone = Instantiate(metalScrap, spawningPosition, transform.rotation);
+            clone.velocity = new Vector2(-1.5f, 0f);
+        }
+        else if (trashChoice > 66)
+        {
+            Rigidbody2D clone;
+            clone = Instantiate(glassBottle, spawningPosition, transform.rotation);
             clone.velocity = new Vector2(-1.5f, 0f);
         }
 

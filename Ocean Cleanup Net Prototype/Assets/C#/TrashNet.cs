@@ -17,8 +17,7 @@ public class TrashNet : MonoBehaviour
     bool onBoat;
 
     public int score;
-    public int redTrashAmt = 0;
-    public int greenTrashAmt = 0;
+    public int plasticTrashAmt = 0, metalTrashAmt = 0, glassTrashAmt = 0;
 
     void Update()
     {
@@ -36,42 +35,44 @@ public class TrashNet : MonoBehaviour
             for (int i = 0; i < trashList.Count; i++)
             {
                 trashToDestroy = trashList[i];
-                if (trashToDestroy.gameObject.name == "RedTrash(Clone)")
+                if (trashToDestroy.gameObject.tag == "PlasticTrash")
                 {
-                    redTrashAmt++;
-                    Destroy(trashToDestroy.gameObject);
-                    trashList.RemoveAt(i);
+                    plasticTrashAmt++;
                 }
-                else if(trashToDestroy.gameObject.name == "GreenTrash(Clone)")
+                else if (trashToDestroy.gameObject.tag == "MetalTrash")
                 {
-                    greenTrashAmt++;
-                    Destroy(trashToDestroy.gameObject);
-                    trashList.RemoveAt(i);
+                    metalTrashAmt++;
                 }
+                else if (trashToDestroy.gameObject.tag == "GlassTrash")
+                {
+                    glassTrashAmt++;
+                }
+                Destroy(trashToDestroy.gameObject);
+                trashList.RemoveAt(i);
                 moveSpeed /= 0.9f;
             }
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (trashList.Count < 5)
         {
-            if (collision.gameObject.tag == "Trash")
+            if (collision.gameObject.tag.Contains("Trash"))
             {
                 trash = collision.gameObject;               
                 trashList.Add(trash);
                 trash.gameObject.transform.SetParent(centerLocation.gameObject.transform);
                 trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
                 trash.gameObject.transform.localPosition = Vector2.zero;
+                trash.gameObject.GetComponent<TrashMovement>().enabled = false;
                 moveSpeed *= 0.9f;
             }
         }
 
         if (collision.gameObject.tag == "Fish")
         {
-            //Destroy(collision.gameObject);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x * -1, Random.Range(-1, 1));
             collision.gameObject.transform.Rotate(new Vector2(0, 180));
             score--;

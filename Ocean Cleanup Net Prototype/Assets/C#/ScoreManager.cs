@@ -9,15 +9,17 @@ public class ScoreManager : MonoBehaviour
     public TrashNet player;
     public Text scoreUI;
     public Text trashUI;
-    public Text redTrashUI;
-    public Text greenTrashUI;
+    public Text plasticTrashUI;
+    public Text metalTrashUI;
+    public Text glassTrashUI;
 
 
     public void Update()
     {
         scoreUI.text = "Score: " + player.score.ToString();
         trashUI.text = "Trash in Net: " + player.trashList.Count.ToString() + "/5";
-        redTrashUI.text = "Red Trash:     " + player.redTrashAmt.ToString();
-        greenTrashUI.text = "Green Trash:     " + player.greenTrashAmt.ToString();
+        plasticTrashUI.text = "Plastic: " + player.plasticTrashAmt.ToString();
+        metalTrashUI.text = "Metal: " + player.metalTrashAmt.ToString();
+        glassTrashUI.text = "Glass: " + player.glassTrashAmt.ToString();
     }
 }
