@@ -23,7 +23,7 @@ public class RightFishSpawner : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Rigidbody2D clone;
         clone = Instantiate(fish, spawningPosition, transform.rotation);
-        clone.transform.localScale = new Vector3(-1, 1, 1);
+        clone.transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         clone.velocity = new Vector2(Random.Range(-5, -10), 0f);
 
         yield return new WaitForSeconds(Random.Range(2, 3));
