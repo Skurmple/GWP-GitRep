@@ -31,19 +31,19 @@ public class LeftTrashSpawner : MonoBehaviour
         if (trashChoice <= 33)
         {
             Rigidbody2D clone;
-            clone = Instantiate(plasticBottle, spawningPosition, transform.rotation);
+            clone = Instantiate(plasticBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-15, 15))));
             clone.velocity = new Vector2(1.5f, 0f);
         }
         else if (trashChoice > 33 && trashChoice <= 66)
         {
             Rigidbody2D clone;
-            clone = Instantiate(metalScrap, spawningPosition, transform.rotation);
+            clone = Instantiate(metalScrap, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-15, 15))));
             clone.velocity = new Vector2(1.5f, 0f);
         }
         else if (trashChoice > 66)
         {
             Rigidbody2D clone;
-            clone = Instantiate(glassBottle, spawningPosition, transform.rotation);
+            clone = Instantiate(glassBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-15, 15))));
             clone.velocity = new Vector2(1.5f, 0f);
         }
 
