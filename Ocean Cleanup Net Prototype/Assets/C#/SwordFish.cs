@@ -28,7 +28,7 @@ public class SwordFish : MonoBehaviour
         distanceToNet = net.transform.position - transform.position;
         distanceNormalized = distanceToNet;
         distanceNormalized.Normalize();
-        transform.up = distanceNormalized;
+        transform.right = -distanceNormalized;
 
 
         if (startTimer)
@@ -61,5 +61,15 @@ public class SwordFish : MonoBehaviour
         rotating = false;
         yield return new WaitForSeconds(2.0f);
         gameObject.GetComponent<Rigidbody2D>().velocity = distanceNormalized * 20;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.name)
+        {
+            case "Net":
+                //Stop the net working not 100% sure exactly to what degree we wanna stop it working
+                break;
+        }
     }
 }
