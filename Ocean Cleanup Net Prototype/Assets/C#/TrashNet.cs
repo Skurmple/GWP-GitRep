@@ -7,6 +7,7 @@ public class TrashNet : MonoBehaviour
     Vector2 mousePosition;
     Vector3 forwardVector;
     public float moveSpeed = 7;
+    public float speedReduction = 0.8f;
 
     public GameObject centerLocation;
 
@@ -36,7 +37,7 @@ public class TrashNet : MonoBehaviour
             {
                 trashToDestroy = trashList[0];
                 trashList.RemoveAt(0);
-                moveSpeed /= 0.9f;
+                moveSpeed /= speedReduction;
                 if (trashToDestroy.gameObject.tag == "PlasticTrash")
                 {
                     plasticTrashAmt++;
@@ -67,7 +68,7 @@ public class TrashNet : MonoBehaviour
                 trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
                 trash.gameObject.transform.localPosition = Vector2.zero;
                 trash.gameObject.GetComponent<TrashMovement>().enabled = false;
-                moveSpeed *= 0.9f;
+                moveSpeed *= speedReduction;
             }
         }
 
@@ -89,6 +90,18 @@ public class TrashNet : MonoBehaviour
         if (collision.gameObject.tag == "Boat")
         {
             onBoat = false;
+        }
+    }
+
+    public void UpgradeNet()
+    {
+        if (plasticTrashAmt > 4 && metalTrashAmt > 4 && glassTrashAmt > 4)
+        {
+            plasticTrashAmt -= 5;
+            metalTrashAmt -= 5;
+            glassTrashAmt -= 5;
+            moveSpeed += 2;
+            speedReduction += 0.05f;
         }
     }
 }
