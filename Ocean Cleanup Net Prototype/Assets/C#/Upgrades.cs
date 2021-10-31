@@ -7,7 +7,7 @@ public class Upgrades : MonoBehaviour
 
     Animator animator;
 
-    bool opened;
+    public bool opened;
 
     void Start()
     {
@@ -37,14 +37,14 @@ public class Upgrades : MonoBehaviour
     IEnumerator Open()
     {
         animator.SetBool("Opened", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         opened = true;
         animator.SetBool("Stay", true);
     }
     IEnumerator Close()
     {
         animator.SetBool("Opened", false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         opened = false;
         animator.SetBool("Stay", true);
     }
