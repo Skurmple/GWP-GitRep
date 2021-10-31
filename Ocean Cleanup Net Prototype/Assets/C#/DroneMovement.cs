@@ -13,7 +13,7 @@ public class DroneMovement : MonoBehaviour
     public float speedReduction = 0.8f;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
