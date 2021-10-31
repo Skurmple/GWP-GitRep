@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: -3221932924253231703}
   - component: {fileID: 693925181634047607}
   - component: {fileID: -5364657717499980300}
+  - component: {fileID: 4329505827330081892}
   m_Layer: 0
   m_Name: Turtle
-  m_TagString: Untagged
+  m_TagString: Turtle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,3 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebea290b826cf4a43b2c166d3e429604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &4329505827330081892
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542516642809336617}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.8684057, y: -0.98353064}
+  m_Size: {x: 8.753971, y: 3.5330381}
+  m_Direction: 1

@@ -11,11 +11,6 @@ public class Menu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject helpMenu;
 
-    void Start()
-    {
-
-    }
-
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -15,8 +15,10 @@ public class TrashMovement : MonoBehaviour
     float magnitude = 0.5f;
 
     bool spawnRight;
+    bool rotateToZero;
 
     Vector3 pos;
+    Quaternion targetRot = Quaternion.Euler(new Vector3(0, 0, 0));
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,11 @@ public class TrashMovement : MonoBehaviour
         {
             MoveRight();
         }
+
+        if (rotateToZero == true)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, Time.time * 0.05f);
+        }
     }
 
     private void MoveRight()
@@ -61,5 +68,21 @@ public class TrashMovement : MonoBehaviour
     {
         pos -= transform.right * Time.deltaTime * moveSpeed;
         transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Surface" || collision.gameObject.name == "Floor")
+        {
+            rotateToZero = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Surface")
+        {
+            rotateToZero = false;
+        }
     }
 }
