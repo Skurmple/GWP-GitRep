@@ -23,21 +23,6 @@ public class DroneMovement : MonoBehaviour
         forwardVector = (new Vector3(mousePosition.x, mousePosition.y, 0) - transform.position);
         forwardVector.Normalize();
         transform.right = forwardVector;
-
-        CheckFacing();
-    }
-    private void CheckFacing()
-    {
-        if ((forwardVector.x < 0 && localScale.y > 0) || (forwardVector.x > 0 && localScale.y < 0))
-        {
-            localScale.y *= -1;
-        }
-        if (forwardVector.x == 0)
-        {
-            localScale.y = 0.25f;
-        }
-
-        transform.localScale = localScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
