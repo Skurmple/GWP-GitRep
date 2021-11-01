@@ -19,9 +19,6 @@ public class DroneSwarmSpawner : MonoBehaviour
                 clone = Instantiate(droneSwarm, spawningPosition, transform.rotation);
                 clone.velocity = new Vector2(Random.Range(5f, 10f), 0f);
             }
-            trashNet.plasticTrashAmt -= 20;
-            trashNet.metalTrashAmt -= 20;
-            trashNet.glassTrashAmt -= 20;
         }
     }
 }

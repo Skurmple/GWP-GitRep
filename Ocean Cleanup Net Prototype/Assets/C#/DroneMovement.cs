@@ -18,13 +18,15 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        if (mousePosition.y < 3.85f && transform.position.y !< 3.85)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
 
-            forwardVector = (new Vector3(mousePosition.x, mousePosition.y, 0) - transform.position);
-            forwardVector.Normalize();
-            transform.right = forwardVector;
+        forwardVector = (new Vector3(mousePosition.x, mousePosition.y, 0) - transform.position);
+        forwardVector.Normalize();
+        transform.right = forwardVector;
+
+        if (transform.position.y > 3.5f)
+        {
+            transform.position = new Vector3(transform.position.x, 3.5f, transform.position.z);
         }
     }
 
@@ -40,7 +42,10 @@ public class DroneMovement : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x * -1, Random.Range(-1, 1));
             collision.gameObject.transform.Rotate(new Vector2(0, 180));
             netChild.score--;
-            netChild.HitFish();
+            if (netChild.trashList.Count > 0)
+            {
+                netChild.HitFish();
+            }
         }
     }
 
