@@ -9,7 +9,7 @@ public class DroneSwarmSpawner : MonoBehaviour
     Vector3 spawningPosition;
     public void SpawnSwarm()
     {
-        if (trashNet.plasticTrashAmt > 14 && trashNet.metalTrashAmt > 19 && trashNet.glassTrashAmt > 11)
+        if (trashNet.plasticTrashAmt > 19 && trashNet.metalTrashAmt > 19 && trashNet.glassTrashAmt > 19)
         {
             for (int i = 0; i < 50; i++)
             {
@@ -19,9 +19,9 @@ public class DroneSwarmSpawner : MonoBehaviour
                 clone = Instantiate(droneSwarm, spawningPosition, transform.rotation);
                 clone.velocity = new Vector2(Random.Range(5f, 10f), 0f);
             }
-            trashNet.plasticTrashAmt -= 15;
+            trashNet.plasticTrashAmt -= 20;
             trashNet.metalTrashAmt -= 20;
-            trashNet.glassTrashAmt -= 12;
+            trashNet.glassTrashAmt -= 20;
         }
     }
 }

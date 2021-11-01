@@ -9,6 +9,7 @@ public class TrashNet : MonoBehaviour
 
     GameObject trash;
     GameObject trashToDestroy;
+    GameObject trashToLose;
     public List<GameObject> trashList = new List<GameObject>();
 
     public bool onBoat;
@@ -80,5 +81,13 @@ public class TrashNet : MonoBehaviour
                 netUpgradeTimes += 1;
             }
         }
+    }
+
+    public void HitFish()
+    {
+        trashToLose = trashList[0];
+        trashList.RemoveAt(0);
+        Destroy(trashToLose.gameObject);
+        droneParent.moveSpeed /= droneParent.speedReduction;
     }
 }

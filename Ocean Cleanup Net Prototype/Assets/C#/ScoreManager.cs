@@ -43,20 +43,40 @@ public class ScoreManager : MonoBehaviour
             case 1:
                 netCounter0.SetActive(false);
                 netCounter1.SetActive(true);
+                netCounter2.SetActive(false);
+                netCounter3.SetActive(false);
+                netCounter4.SetActive(false);
+                netCounter5.SetActive(false);
                 break;
             case 2:
+                netCounter0.SetActive(false);
                 netCounter1.SetActive(false);
                 netCounter2.SetActive(true);
+                netCounter3.SetActive(false);
+                netCounter4.SetActive(false);
+                netCounter5.SetActive(false);
                 break;
             case 3:
+                netCounter0.SetActive(false);
+                netCounter1.SetActive(false);
                 netCounter2.SetActive(false);
                 netCounter3.SetActive(true);
+                netCounter4.SetActive(false);
+                netCounter5.SetActive(false);
                 break;
             case 4:
+                netCounter0.SetActive(false);
+                netCounter1.SetActive(false);
+                netCounter2.SetActive(false);
                 netCounter3.SetActive(false);
                 netCounter4.SetActive(true);
+                netCounter5.SetActive(false);
                 break;
             case 5:
+                netCounter0.SetActive(false);
+                netCounter1.SetActive(false);
+                netCounter2.SetActive(false);
+                netCounter3.SetActive(false);
                 netCounter4.SetActive(false);
                 netCounter5.SetActive(true);
                 break;
@@ -65,7 +85,10 @@ public class ScoreManager : MonoBehaviour
 
     public void DroneSwarmLaunched()
     {
-        StartCoroutine(EndGame());
+        if (trashNet.plasticTrashAmt > 19 && trashNet.metalTrashAmt > 19 && trashNet.glassTrashAmt > 19)
+        {
+            StartCoroutine(EndGame());
+        }
     }
 
     IEnumerator EndGame()
