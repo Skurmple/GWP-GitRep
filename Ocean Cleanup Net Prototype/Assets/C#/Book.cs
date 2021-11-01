@@ -14,6 +14,7 @@ public class Book : MonoBehaviour
     public GameObject page2;
     public GameObject page3;
     public GameObject page4;
+    public GameObject page5;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class Book : MonoBehaviour
             page2.SetActive(false);
             page3.SetActive(false);
             page4.SetActive(false);
+            page5.SetActive(false);
         }
         if (pageNumberBefore == 2)
         {
@@ -37,6 +39,7 @@ public class Book : MonoBehaviour
             page1.SetActive(false);
             page3.SetActive(false);
             page4.SetActive(false);
+            page5.SetActive(false);
         }
         if (pageNumberBefore == 3)
         {
@@ -44,6 +47,7 @@ public class Book : MonoBehaviour
             page1.SetActive(false);
             page2.SetActive(false);
             page4.SetActive(false);
+            page5.SetActive(false);
         }
         if (pageNumberBefore == 4)
         {
@@ -51,6 +55,15 @@ public class Book : MonoBehaviour
             page1.SetActive(false);
             page3.SetActive(false);
             page2.SetActive(false);
+            page5.SetActive(false);
+        }
+        if (pageNumberBefore == 5)
+        {
+            if (pageNumberAfter == 5) { page5.SetActive(true); }
+            page1.SetActive(false);
+            page3.SetActive(false);
+            page2.SetActive(false);
+            page4.SetActive(false);
         }
     }
 
