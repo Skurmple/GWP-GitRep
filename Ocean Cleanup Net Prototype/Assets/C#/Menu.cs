@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
 
     public GameObject mainMenu;
     public GameObject helpMenu;
+    public GameObject creditMenu;
 
     public void Play()
     {
@@ -20,14 +21,22 @@ public class Menu : MonoBehaviour
     {
         mainMenu.SetActive(false);
         helpMenu.SetActive(true);
+        creditMenu.SetActive(false);
     }
 
     public void MainMenu()
     {
         mainMenu.SetActive(true);
         helpMenu.SetActive(false);
+        creditMenu.SetActive(false);
     }
 
+    public void CreditMenu()
+    {
+        mainMenu.SetActive(false);
+        helpMenu.SetActive(false);
+        creditMenu.SetActive(true);
+    }
     public void Quit()
     {
         Application.Quit();

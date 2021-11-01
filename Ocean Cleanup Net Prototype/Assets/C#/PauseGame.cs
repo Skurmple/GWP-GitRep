@@ -6,12 +6,11 @@ public class PauseGame : MonoBehaviour
 {
 
     public bool gamePaused;
-    int time;
 
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
+
     }
 
     // Update is called once per frame
