@@ -15,6 +15,7 @@ public class TrashNet : MonoBehaviour
 
     public int score;
     public int plasticTrashAmt = 0, metalTrashAmt = 0, glassTrashAmt = 0;
+    int netUpgradeTimes = 0;
 
     void Update()
     {
@@ -69,11 +70,15 @@ public class TrashNet : MonoBehaviour
 
     public void UpgradeNet()
     {
-        if (plasticTrashAmt > 4 && metalTrashAmt > 4 && glassTrashAmt > 4)
+        if (netUpgradeTimes < 3)
         {
-            plasticTrashAmt -= 5;
-            metalTrashAmt -= 5;
-            glassTrashAmt -= 5;
+            if (plasticTrashAmt > 3 && metalTrashAmt > 1 && glassTrashAmt > 1)
+            {
+                plasticTrashAmt -= 4;
+                metalTrashAmt -= 2;
+                glassTrashAmt -= 2;
+                netUpgradeTimes += 1;
+            }
         }
     }
 }
