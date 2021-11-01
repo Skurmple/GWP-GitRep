@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
 
     public TrashNet trashNet;
     public GameObject netCounter0, netCounter1, netCounter2, netCounter3, netCounter4, netCounter5;
+    public GameObject GamePlay, GameWon;
 
     public void Update()
     {
@@ -62,7 +63,22 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void ExitToMenu()
+    public void DroneSwarmLaunched()
+    {
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(5f);
+
+        Time.timeScale = 0;
+
+        GamePlay.SetActive(false);
+        GameWon.SetActive(true);
+    }
+
+    public void ExitToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
