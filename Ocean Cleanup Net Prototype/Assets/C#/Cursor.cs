@@ -27,11 +27,6 @@ public class Cursor : MonoBehaviour
                 //score++;
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

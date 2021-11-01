@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -17,6 +19,11 @@ public class ScoreManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitToMenu();
+        }
+
         //scoreUI.text = player.score.ToString();
         plasticTrashUI.text = player.plasticTrashAmt.ToString();
         metalTrashUI.text = player.metalTrashAmt.ToString();
@@ -53,5 +60,10 @@ public class ScoreManager : MonoBehaviour
                 netCounter5.SetActive(true);
                 break;
         }
+    }
+
+    private void ExitToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
