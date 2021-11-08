@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5ade4b84b03d94eb819d470882fd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  speedReduction: 0.8
   centerLocation: {fileID: 3281322616442774656}
+  droneParent: {fileID: 0}
   trashList: []
+  onBoat: 0
   score: 0
   plasticTrashAmt: 0
   metalTrashAmt: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e19a174aa12c79a4fa9743973fc04000, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bbc62962dc35934499d7c1c236eba16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
