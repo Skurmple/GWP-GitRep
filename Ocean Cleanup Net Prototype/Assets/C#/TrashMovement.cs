@@ -31,7 +31,7 @@ public class TrashMovement : MonoBehaviour
 
     private void CheckWhereSpawn()
     {
-        if (pos.y > 0)
+        if (pos.y > -1)
         {
             spawnByBoat = true;
         }
