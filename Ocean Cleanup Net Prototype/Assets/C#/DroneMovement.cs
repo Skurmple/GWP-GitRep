@@ -21,7 +21,10 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        if((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        }
 
         //Gets the direction the drone is moving in, and rotates it to face that direction
         forwardVector = (new Vector3(mousePosition.x, mousePosition.y, 0) - transform.position);

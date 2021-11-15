@@ -15,6 +15,7 @@ public class TrashMovement : MonoBehaviour
     float magnitude = 0.5f;
 
     bool spawnRight;
+    bool spawnByBoat;
     bool rotateToZero;
 
     Vector3 pos;
@@ -30,32 +31,52 @@ public class TrashMovement : MonoBehaviour
 
     private void CheckWhereSpawn()
     {
-        if (pos.x > 10)
+        if (pos.y > -1)
         {
-            spawnRight = true;
+            spawnByBoat = true;
         }
         else
         {
-            spawnRight = false;
+            if (pos.x > 10)
+            {
+                spawnRight = true;
+            }
+            else
+            {
+                spawnRight = false;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnRight == true)
+        if (spawnByBoat == true)
         {
-            MoveLeft();
+            MoveDown();
         }
         else
         {
-            MoveRight();
+            if (spawnRight == true)
+            {
+                MoveLeft();
+            }
+            else
+            {
+                MoveRight();
+            }
         }
 
         if (rotateToZero == true)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, Time.time * 0.05f);
         }
+    }
+
+    private void MoveDown()
+    {
+        pos -= transform.up * Time.deltaTime * moveSpeed;
+        transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
     }
 
     private void MoveRight()
