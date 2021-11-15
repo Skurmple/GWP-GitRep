@@ -6,6 +6,7 @@ public class TrashNet : MonoBehaviour
 {
     public GameObject centerLocation;
     public DroneMovement droneParent;
+    public Coral coral;
 
     GameObject trash;
     GameObject trashToDestroy;
@@ -24,6 +25,9 @@ public class TrashNet : MonoBehaviour
         {
             for (int i = 0; i < trashList.Count; i++)
             {
+                coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
+                coral.tempColor.a += 0.05f;
+                coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
                 trashToDestroy = trashList[0];
                 trashList.RemoveAt(0);
                 droneParent.moveSpeed /= droneParent.speedReduction;
