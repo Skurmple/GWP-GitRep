@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coral : MonoBehaviour
 {
     public Color tempColor;
+    public float oceanTemp;
 
     // Start is called before the first frame update
     void Start()
@@ -12,6 +13,7 @@ public class Coral : MonoBehaviour
         tempColor = GetComponent<SpriteRenderer>().color;
         tempColor.a = 0.2f;
         GetComponent<SpriteRenderer>().color = tempColor;
+        oceanTemp = 0;
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Coral : MonoBehaviour
                 tempColor = GetComponent<SpriteRenderer>().color;
                 tempColor.a -= 0.05f;
                 GetComponent<SpriteRenderer>().color = tempColor;
+                oceanTemp += 1;
                 break;
         }
     }

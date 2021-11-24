@@ -14,6 +14,8 @@ public class TrashNet : MonoBehaviour
     public List<GameObject> trashList = new List<GameObject>();
 
     public bool onBoat;
+    bool holdingCoral;
+    GameObject rainbowCoral;
 
     public int score;
     public int plasticTrashAmt = 0, metalTrashAmt = 0, glassTrashAmt = 0;
@@ -63,6 +65,25 @@ public class TrashNet : MonoBehaviour
                 trash.gameObject.GetComponent<TrashMovement>().enabled = false;
                 droneParent.moveSpeed *= droneParent.speedReduction;
             }
+        }
+
+        //For the pick-uppable coral
+        if(collision.gameObject.tag == "Coral")
+        {
+            rainbowCoral = collision.gameObject;
+            rainbowCoral.gameObject.transform.SetParent(centerLocation.gameObject.transform);
+            rainbowCoral.gameObject.transform.localPosition = Vector2.zero;
+            holdingCoral = true;
+        }
+
+        //For the dying coral
+        if(collision.gameObject.name == "Coral" && holdingCoral)
+        {
+            coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
+            coral.tempColor.a += 0.4f;
+            coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
+            holdingCoral = false;
+            Destroy(rainbowCoral);
         }
 
         //if (collision.gameObject.tag == "Fish")
