@@ -35,7 +35,7 @@ public class CrustSpawner : MonoBehaviour
             randomTargetPosition = new Vector3(transform.position.x + Random.Range(-4.0f, 4.0f), transform.position.y + Random.Range(-0.2f, 0.2f), 0); //A random position is selected
             clone = Instantiate(crust, spawningPosition, Quaternion.identity);
             clone.transform.parent = transform; //Make the crust a child of this game object
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
         }
         StartCoroutine(WaitForSpawn());
     }
@@ -45,7 +45,7 @@ public class CrustSpawner : MonoBehaviour
         //If there are no children (CrustTrashSpawners that spawn trash) then start the coroutine to make more
         if (transform.childCount <= 0)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(60);
             StartCoroutine(SpawnCrust());
         }
         else

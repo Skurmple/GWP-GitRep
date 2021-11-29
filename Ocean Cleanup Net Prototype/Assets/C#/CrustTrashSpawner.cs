@@ -22,10 +22,11 @@ public class CrustTrashSpawner : MonoBehaviour
     //spawning food between 1-3 seconds
     IEnumerator Spawn()
     {
+        yield return new WaitForSeconds(6);
         int amountOfTrash = Random.Range(4, 8);
         for (int i = 0; i < amountOfTrash; i++)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(Random.Range(3, 7));
 
             //Generate a random number between 0 and 100
             int trashChoice = Random.Range(0, 100);
@@ -38,12 +39,12 @@ public class CrustTrashSpawner : MonoBehaviour
                 if (plasticChoice < 50)
                 {
                     Rigidbody2D clone;
-                    clone = Instantiate(plasticBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
+                    clone = Instantiate(plasticBottle, spawningPosition, Quaternion.identity); //Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25)))
                 }
                 else
                 {
                     Rigidbody2D clone;
-                    clone = Instantiate(plasticBag, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
+                    clone = Instantiate(plasticBag, spawningPosition, Quaternion.identity);
                 }
             }
             else if (trashChoice > 33 && trashChoice <= 66)
@@ -53,18 +54,18 @@ public class CrustTrashSpawner : MonoBehaviour
                 if (metalChoice < 50)
                 {
                     Rigidbody2D clone;
-                    clone = Instantiate(metalScrap, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
+                    clone = Instantiate(metalScrap, spawningPosition, Quaternion.identity);
                 }
                 else
                 {
                     Rigidbody2D clone;
-                    clone = Instantiate(metalCan, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
+                    clone = Instantiate(metalCan, spawningPosition, Quaternion.identity);
                 }
             }
             else if (trashChoice > 66)
             {
                 Rigidbody2D clone;
-                clone = Instantiate(glassBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
+                clone = Instantiate(glassBottle, spawningPosition, Quaternion.identity);
             }
         }
         Destroy(gameObject);

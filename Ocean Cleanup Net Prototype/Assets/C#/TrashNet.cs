@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrashNet : MonoBehaviour
 {
@@ -27,9 +28,9 @@ public class TrashNet : MonoBehaviour
         {
             for (int i = 0; i < trashList.Count; i++)
             {
-                coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
-                coral.tempColor.a += 0.05f;
-                coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
+                //coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
+                //coral.tempColor.a += 0.05f;
+                //coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
                 trashToDestroy = trashList[0];
                 trashList.RemoveAt(0);
                 droneParent.moveSpeed /= droneParent.speedReduction;
@@ -77,15 +78,17 @@ public class TrashNet : MonoBehaviour
         }
 
         //For the dying coral
-        if(collision.gameObject.name == "Coral" && holdingCoral)
+        if(collision.gameObject.tag == "Reef" && holdingCoral)
         {
-            coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
-            coral.tempColor.a += 0.4f;
-            coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
+            //coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
+            //coral.tempColor.a += 0.4f;
+            //coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
             holdingCoral = false;
             Destroy(rainbowCoral);
-        }
 
+            //GameWon (For playtest only)
+            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        }
         //if (collision.gameObject.tag == "Fish")
         //{
         //    collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x * -1, Random.Range(-1, 1));
