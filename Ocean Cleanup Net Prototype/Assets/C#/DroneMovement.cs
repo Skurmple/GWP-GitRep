@@ -76,6 +76,11 @@ public class DroneMovement : MonoBehaviour
             //Sets that flag to false
             netChild.onBoat = false;
         }
+
+        if (collision.gameObject.tag == "Pufferfish")
+        {
+            Debug.Log("Ouchie pufferfish!!");
+        }
     }
 
     //Method to increase the net's speed when called
