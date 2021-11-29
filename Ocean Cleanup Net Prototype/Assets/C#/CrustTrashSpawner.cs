@@ -22,7 +22,8 @@ public class CrustTrashSpawner : MonoBehaviour
     //spawning food between 1-3 seconds
     IEnumerator Spawn()
     {
-        for (int i = 0; i < 5; i++)
+        int amountOfTrash = Random.Range(4, 8);
+        for (int i = 0; i < amountOfTrash; i++)
         {
             yield return new WaitForSeconds(3);
 
