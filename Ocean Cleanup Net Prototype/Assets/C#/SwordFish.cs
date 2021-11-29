@@ -12,6 +12,7 @@ public class SwordFish : MonoBehaviour
     bool dashing;
     float time;
     Vector3 distanceNormalized;
+    bool canBeDestroyed;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,14 @@ public class SwordFish : MonoBehaviour
         net = GameObject.Find("Net");
         rotating = true;
         time = 0;
+    }
+
+    void OnBecameInvisible()
+    {
+        if (canBeDestroyed)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +70,7 @@ public class SwordFish : MonoBehaviour
         rotating = false;
         yield return new WaitForSeconds(2.0f);
         gameObject.GetComponent<Rigidbody2D>().velocity = distanceNormalized * 20;
+        canBeDestroyed = true;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

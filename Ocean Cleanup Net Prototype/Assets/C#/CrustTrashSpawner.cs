@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatTrashSpawner : MonoBehaviour
+public class CrustTrashSpawner : MonoBehaviour
 {
 
     public Rigidbody2D plasticBottle, plasticBag;
@@ -22,9 +22,11 @@ public class BoatTrashSpawner : MonoBehaviour
     //spawning food between 1-3 seconds
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(20);
-        for (int i = 0; i < 5; i++)
+        int amountOfTrash = Random.Range(4, 8);
+        for (int i = 0; i < amountOfTrash; i++)
         {
+            yield return new WaitForSeconds(3);
+
             //Generate a random number between 0 and 100
             int trashChoice = Random.Range(0, 100);
 
@@ -64,8 +66,8 @@ public class BoatTrashSpawner : MonoBehaviour
                 Rigidbody2D clone;
                 clone = Instantiate(glassBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
             }
-            yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
         }
-        StartCoroutine(Spawn());
+        Destroy(gameObject);
+        yield break;
     }
 }

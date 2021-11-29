@@ -15,7 +15,7 @@ public class TrashMovement : MonoBehaviour
     float magnitude = 0.5f;
 
     bool spawnRight;
-    bool spawnByBoat;
+    bool spawnTop;
     bool rotateToZero;
 
     Vector3 pos;
@@ -33,7 +33,7 @@ public class TrashMovement : MonoBehaviour
     {
         if (pos.y > -1)
         {
-            spawnByBoat = true;
+            spawnTop = true;
         }
         else
         {
@@ -51,7 +51,7 @@ public class TrashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnByBoat == true)
+        if (spawnTop == true)
         {
             MoveDown();
         }

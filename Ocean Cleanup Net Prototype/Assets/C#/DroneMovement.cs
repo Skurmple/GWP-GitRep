@@ -12,6 +12,7 @@ public class DroneMovement : MonoBehaviour
     Vector3 localScale = new Vector3(0.25f, 0.25f, 0.25f);
     public float moveSpeed = 7;
     public float speedReduction = 0.8f;
+    public GameController gc;
 
     // FixedUpdate is called once per frame at a set frame rate
     void FixedUpdate()
@@ -36,7 +37,18 @@ public class DroneMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 3.5f, transform.position.z);
         }
+
+        if(transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x)
+        {
+            transform.position = new Vector3(GameObject.Find("Net Blocker Left").transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        if(transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x)
+        {
+            transform.position = new Vector3(GameObject.Find("Net Blocker Right").transform.position.x, transform.position.y, transform.position.z);
+        }
     }
+
 
     //Collision detection of triggers
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,6 +77,18 @@ public class DroneMovement : MonoBehaviour
                 netChild.HitFish();
             }
         }
+
+        if(collision.gameObject.tag == "Pufferfish")
+        {
+            gc.isDisabled = true;
+            enabled = false;
+        }
+
+        if(collision.gameObject.tag == "Swordfish")
+        {
+            gc.isDisabled = true;
+            enabled = false;
+        }
     }
 
     //Collision detection for when the drone leaves the collision of something
@@ -75,6 +99,11 @@ public class DroneMovement : MonoBehaviour
         {
             //Sets that flag to false
             netChild.onBoat = false;
+        }
+
+        if (collision.gameObject.tag == "Pufferfish")
+        {
+
         }
     }
 
