@@ -33,7 +33,6 @@ public class TrashNet : MonoBehaviour
                 //coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
                 trashToDestroy = trashList[0];
                 trashList.RemoveAt(0);
-                droneParent.moveSpeed /= droneParent.speedReduction;
                 if (trashToDestroy.gameObject.tag == "PlasticTrash")
                 {
                     plasticTrashAmt++;
@@ -64,7 +63,6 @@ public class TrashNet : MonoBehaviour
                 trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
                 trash.gameObject.transform.localPosition = Vector2.zero;
                 trash.gameObject.GetComponent<TrashMovement>().enabled = false;
-                droneParent.moveSpeed *= droneParent.speedReduction;
             }
         }
 
@@ -116,6 +114,5 @@ public class TrashNet : MonoBehaviour
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
         Destroy(trashToLose.gameObject);
-        droneParent.moveSpeed /= droneParent.speedReduction;
     }
 }
