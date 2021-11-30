@@ -11,7 +11,7 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 localScale = new Vector3(0.25f, 0.25f, 0.25f);
     public float moveSpeed = 7;
-    public float speedReduction = 0.8f;
+    public float speedReduction = 0.9f;
     public GameController gc;
 
     // FixedUpdate is called once per frame at a set frame rate

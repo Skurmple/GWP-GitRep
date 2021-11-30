@@ -10228,6 +10228,7 @@ MonoBehaviour:
   netChild: {fileID: 5635968452180481352}
   moveSpeed: 7
   speedReduction: 0.8
+  gc: {fileID: 0}
 --- !u!1 &5635968452180481351
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,6 +10262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerLocation: {fileID: 8551827931495380400}
   droneParent: {fileID: 5235252045085662689}
+  coral: {fileID: 0}
   trashList: []
   onBoat: 0
   score: 0
