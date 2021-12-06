@@ -6,6 +6,7 @@ public class CrustSpawner : MonoBehaviour
 {
 
     public GameObject crust;
+    public GameController gameController;
     GameObject clone;
     float smoothFactor = 0.5f;
     Vector3 spawningPosition, randomTargetPosition;
@@ -14,7 +15,8 @@ public class CrustSpawner : MonoBehaviour
     void Start()
     {
         spawningPosition = new Vector3(transform.position.x + 20, transform.position.y, 0); //Crust will spawn to the far right of the screen
-        StartCoroutine(SpawnCrust());
+        //StartCoroutine(SpawnCrust());
+        StartCoroutine(WaitForSpawn());
     }
 
     // amie wuz here
@@ -30,6 +32,7 @@ public class CrustSpawner : MonoBehaviour
 
     IEnumerator SpawnCrust()
     {
+        gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < 3; i++)
         {
@@ -46,6 +49,7 @@ public class CrustSpawner : MonoBehaviour
         //If there are no children (CrustTrashSpawners that spawn trash) then start the coroutine to make more
         if (transform.childCount <= 0)
         {
+            gameController.cameraDisabled = false;
             yield return new WaitForSeconds(60);
             StartCoroutine(SpawnCrust());
         }

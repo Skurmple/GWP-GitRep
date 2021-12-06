@@ -9,10 +9,15 @@ public class GameController : MonoBehaviour
     float time;
     public SwordFish swordfish;
 
+    GameObject mainCamera;
+
+    public bool cameraDisabled = true;
+    bool oneTime = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GameObject.Find("CM StateDrivenCamera1");
     }
 
     // Update is called once per frame
@@ -25,11 +30,23 @@ public class GameController : MonoBehaviour
             time = 0;
         }
 
-
         if (!drone.enabled && isDisabled)
         {
             StartCoroutine(RestartDrone());
             isDisabled = false; 
+        }
+
+        if (cameraDisabled == true && oneTime == false)
+        {
+            drone.ResetPosition();
+            mainCamera.SetActive(false);
+            oneTime = true;
+        }
+        else if (cameraDisabled == false)
+        {
+            drone.droneClamp.SetActive(false);
+            mainCamera.SetActive(true);
+            oneTime = false;
         }
     }
 

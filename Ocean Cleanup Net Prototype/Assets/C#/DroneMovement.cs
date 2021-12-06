@@ -9,9 +9,21 @@ public class DroneMovement : MonoBehaviour
 
     Vector2 mousePosition;
     Vector3 forwardVector;
-    Vector3 localScale = new Vector3(0.25f, 0.25f, 0.25f);
+    Vector3 startingPosition;
     public float moveSpeed = 7;
     public GameController gc;
+    public GameObject droneClamp;
+
+    GameObject droneLight;
+    GameObject globalLight;
+
+    void Start()
+    {
+        startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        droneLight = GameObject.Find("Drone Light");
+        globalLight = GameObject.Find("Global Light");
+        droneLight.SetActive(false);
+    }
 
     // FixedUpdate is called once per frame at a set frame rate
     void FixedUpdate()
@@ -32,9 +44,14 @@ public class DroneMovement : MonoBehaviour
         transform.right = forwardVector;
 
         //Quick check to make sure the drone can't go above the water
-        if (transform.position.y > 3.5f)
+        if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
         {
-            transform.position = new Vector3(transform.position.x, 3.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, GameObject.Find("Ocean Surface").transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.y < droneClamp.transform.position.y && droneClamp.activeSelf == true)
+        {
+            transform.position = new Vector3(transform.position.x, droneClamp.transform.position.y, transform.position.z);
         }
 
         if(transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x)
@@ -45,6 +62,18 @@ public class DroneMovement : MonoBehaviour
         if(transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x)
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Right").transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)
+        {
+            droneLight.SetActive(true);
+            globalLight.SetActive(false);
+        }
+
+        if (transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
+        {
+            droneLight.SetActive(false);
+            globalLight.SetActive(true);
         }
     }
 
@@ -104,6 +133,11 @@ public class DroneMovement : MonoBehaviour
         {
 
         }
+    }
+    public void ResetPosition()
+    {
+        transform.position = startingPosition;
+        droneClamp.SetActive(true);
     }
 
 }
