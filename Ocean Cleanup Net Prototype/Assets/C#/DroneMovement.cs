@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class DroneMovement : MonoBehaviour
 {
@@ -14,15 +15,15 @@ public class DroneMovement : MonoBehaviour
     public GameController gc;
     public GameObject droneClamp;
 
-    GameObject droneLight;
-    GameObject globalLight;
+    private float lightTimer = 0f;
+    public Light2D droneLight;
+    public Light2D globalLight;
 
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        droneLight = GameObject.Find("Drone Light");
-        globalLight = GameObject.Find("Global Light");
-        droneLight.SetActive(false);
+        droneLight.intensity = 0;
+        globalLight.intensity = 1;
     }
 
     // FixedUpdate is called once per frame at a set frame rate
@@ -63,20 +64,30 @@ public class DroneMovement : MonoBehaviour
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Right").transform.position.x, transform.position.y, transform.position.z);
         }
+    }
 
+    void Update()
+    {
         if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)
         {
-            droneLight.SetActive(true);
-            globalLight.SetActive(false);
+            droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+            globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
+            if(lightTimer < 1)
+            {
+                lightTimer += 0.5f * Time.deltaTime;
+            }
         }
 
         if (transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
         {
-            droneLight.SetActive(false);
-            globalLight.SetActive(true);
+            droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+            globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
+            if (lightTimer > 0)
+            {
+                lightTimer -= 0.5f * Time.deltaTime;
+            }
         }
     }
-
 
     //Collision detection of triggers
     private void OnTriggerEnter2D(Collider2D collision)
