@@ -16,7 +16,7 @@ public class CrustSpawner : MonoBehaviour
     {
         spawningPosition = new Vector3(transform.position.x + 20, transform.position.y, 0); //Crust will spawn to the far right of the screen
         //StartCoroutine(SpawnCrust());
-        StartCoroutine(WaitForSpawn());
+        StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
     }
 
     // amie wuz here

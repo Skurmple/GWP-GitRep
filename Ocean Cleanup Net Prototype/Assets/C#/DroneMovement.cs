@@ -18,6 +18,7 @@ public class DroneMovement : MonoBehaviour
     private float lightTimer = 0f;
     public Light2D droneLight;
     public Light2D globalLight;
+    public Light2D uiLight;
 
     void Start()
     {
@@ -70,20 +71,22 @@ public class DroneMovement : MonoBehaviour
     {
         if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)
         {
-            droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-            globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
-            if(lightTimer < 1)
+            if (lightTimer < 1)
             {
+                droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
                 lightTimer += 0.5f * Time.deltaTime;
             }
         }
 
         if (transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
         {
-            droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-            globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
             if (lightTimer > 0)
             {
+                droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
                 lightTimer -= 0.5f * Time.deltaTime;
             }
         }
