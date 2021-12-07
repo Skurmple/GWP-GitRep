@@ -10,13 +10,15 @@ public class CrustSpawner : MonoBehaviour
     GameObject clone;
     float smoothFactor = 0.5f;
     Vector3 spawningPosition, randomTargetPosition;
+    GameObject clamp;
 
     // Start is called before the first frame update
     void Start()
     {
+        clamp = GameObject.Find("Drone Clamp");
         spawningPosition = new Vector3(transform.position.x + 20, transform.position.y, 0); //Crust will spawn to the far right of the screen
-        //StartCoroutine(SpawnCrust());
-        StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
+        StartCoroutine(SpawnCrust());
+        //StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
     }
 
     // amie wuz here
@@ -32,6 +34,7 @@ public class CrustSpawner : MonoBehaviour
 
     IEnumerator SpawnCrust()
     {
+        clamp.SetActive(true);
         gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < 3; i++)
@@ -50,6 +53,7 @@ public class CrustSpawner : MonoBehaviour
         if (transform.childCount <= 0)
         {
             gameController.cameraDisabled = false;
+            clamp.SetActive(false);
             yield return new WaitForSeconds(60);
             StartCoroutine(SpawnCrust());
         }

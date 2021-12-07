@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
     float time;
     public SwordFish swordfish;
 
-    GameObject cinemachineCamera;
     GameObject mainCamera;
     Vector3 mainCameraStartPos;
 
@@ -19,7 +18,6 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cinemachineCamera = GameObject.Find("CM StateDrivenCamera1");
         mainCamera = GameObject.Find("Main Camera");
         mainCameraStartPos = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
     }
@@ -44,15 +42,9 @@ public class GameController : MonoBehaviour
         {
             drone.ResetPosition();
             mainCamera.transform.position = mainCameraStartPos;
-            cinemachineCamera.SetActive(false);
             oneTime = true;
         }
-        else if (cameraDisabled == false)
-        {
-            drone.droneClamp.SetActive(false);
-            cinemachineCamera.SetActive(true);
-            oneTime = false;
-        }
+        
     }
 
     public IEnumerator RestartDrone()

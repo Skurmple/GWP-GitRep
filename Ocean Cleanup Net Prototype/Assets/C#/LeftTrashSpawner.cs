@@ -17,7 +17,7 @@ public class LeftTrashSpawner : MonoBehaviour
 
     void Update()
     {
-        spawningPosition = new Vector3(transform.position.x, Random.Range(-2, 2), 0);
+        spawningPosition = new Vector3(Random.Range(-12, -6), 25.5f, 0);
     }
     //spawning food between 1-3 seconds
     IEnumerator Spawn()

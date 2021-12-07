@@ -55,6 +55,7 @@ public class DroneMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, droneClamp.transform.position.y, transform.position.z);
         }
+        
 
         if(transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
         {

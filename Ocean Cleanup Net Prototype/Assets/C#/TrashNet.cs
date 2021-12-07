@@ -53,7 +53,7 @@ public class TrashNet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (trashList.Count < 5)
+        if (trashList.Count < 7)
         {
             if (collision.gameObject.tag.Contains("Trash"))
             {

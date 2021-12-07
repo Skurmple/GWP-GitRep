@@ -1,34 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraMovement : MonoBehaviour
 {
     float wantedXPosition;
     public GameObject caveEntrance;
     GameObject drone;
+    bool cameraLocked;
+    GameObject clamp;
+    Vector3 startingPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = transform.position;
         wantedXPosition = transform.position.x;
         drone = GameObject.Find("Drone");
+        clamp = GameObject.Find("Drone Clamp");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject.name != "Zoomed Out" && transform.position.y > caveEntrance.transform.position.y)
+        if (clamp.activeInHierarchy)
+        {
+            transform.position = startingPosition;
+        }
+        
+        else
         {
             Vector3 newPosition = drone.transform.position;
-            newPosition.x = wantedXPosition;
-            transform.position = newPosition;
-        }
+            newPosition.z = -10;
 
-        if(this.gameObject.name == "Zoomed Out" && transform.position.y > caveEntrance.transform.position.y)
-        {
-            Vector3 newPosition = transform.position;
-            newPosition.x = wantedXPosition;
+            if (transform.position.y > caveEntrance.transform.position.y)
+            {
+                newPosition.x = wantedXPosition;
+            }
+
             transform.position = newPosition;
         }
     }

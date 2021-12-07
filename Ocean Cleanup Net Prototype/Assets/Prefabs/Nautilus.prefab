@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3198194681944865943}
   - component: {fileID: 7440835144793029217}
   - component: {fileID: 8556290762928433840}
+  - component: {fileID: 7418750918787141987}
   m_Layer: 0
   m_Name: Nautilus
   m_TagString: Fish
@@ -122,3 +123,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7418750918787141987
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068146532975093005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 412c9b46d1c241546b77ef4e04c827f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
