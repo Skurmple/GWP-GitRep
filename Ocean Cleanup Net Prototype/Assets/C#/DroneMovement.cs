@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class DroneMovement : MonoBehaviour
 {
@@ -16,9 +16,9 @@ public class DroneMovement : MonoBehaviour
     public GameObject droneClamp;
 
     private float lightTimer = 0f;
-    public Light2D droneLight;
-    public Light2D globalLight;
-    public Light2D uiLight;
+    public UnityEngine.Rendering.Universal.Light2D droneLight;
+    public UnityEngine.Rendering.Universal.Light2D globalLight;
+    public UnityEngine.Rendering.Universal.Light2D uiLight;
 
     void Start()
     {
