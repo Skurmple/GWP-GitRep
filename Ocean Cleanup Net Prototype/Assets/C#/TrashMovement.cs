@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +27,8 @@ public class TrashMovement : MonoBehaviour
         pos = transform.position;
 
         stopMoving = false;
+
+        magnitude = Random.Range(0.3f, 1.5f);
 
         CheckWhereSpawn();
     }

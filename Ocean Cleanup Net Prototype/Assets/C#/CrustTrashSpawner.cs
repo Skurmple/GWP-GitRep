@@ -17,7 +17,7 @@ public class CrustTrashSpawner : MonoBehaviour
 
     void Update()
     {
-        spawningPosition = new Vector3(transform.position.x + Random.Range(-2, 2), transform.position.y, 0);
+        
     }
     //spawning food between 1-3 seconds
     IEnumerator Spawn()
@@ -32,6 +32,8 @@ public class CrustTrashSpawner : MonoBehaviour
 
             for (int j = 0; j < amountOfTrash; j++)
             {
+                spawningPosition = new Vector3(transform.position.x + Random.Range(-5, 5), transform.position.y, 0);
+
                 //Generate a random number between 0 and 100
                 int trashChoice = Random.Range(0, 100);
 

@@ -9,7 +9,7 @@ public class CrustSpawner : MonoBehaviour
     public GameController gameController;
     GameObject clone;
     float smoothFactor = 0.5f;
-    Vector3 spawningPosition, randomTargetPosition;
+    Vector3 spawningPosition, targetPosition;
     GameObject clamp;
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class CrustSpawner : MonoBehaviour
         //Allows for smooth movement between the spawning position to the random target position
         if (clone != null)
         {
-            clone.transform.position = Vector3.Lerp(clone.transform.position, randomTargetPosition, Time.deltaTime * smoothFactor);
+            clone.transform.position = Vector3.Lerp(clone.transform.position, targetPosition, Time.deltaTime * smoothFactor);
         }
     }
 
@@ -38,7 +38,7 @@ public class CrustSpawner : MonoBehaviour
         gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
 
-        randomTargetPosition = new Vector3(transform.position.x + Random.Range(-4.0f, 0.0f), transform.position.y, 0); //A random position is selected
+        targetPosition = new Vector3(0, transform.position.y, 0); //A random position is selected
         clone = Instantiate(crust, spawningPosition, Quaternion.identity);
         clone.transform.parent = transform; //Make the crust a child of this game object
         yield return new WaitForSeconds(5f);
