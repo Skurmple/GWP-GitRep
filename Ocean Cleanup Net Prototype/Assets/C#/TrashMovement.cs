@@ -17,6 +17,7 @@ public class TrashMovement : MonoBehaviour
     bool spawnRight;
     bool spawnTop;
     bool rotateToZero;
+    bool stopMoving;
 
     Vector3 pos;
     Quaternion targetRot = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -25,6 +26,8 @@ public class TrashMovement : MonoBehaviour
     void Start()
     {
         pos = transform.position;
+
+        stopMoving = false;
 
         CheckWhereSpawn();
     }
@@ -53,17 +56,23 @@ public class TrashMovement : MonoBehaviour
     {
         if (spawnTop == true)
         {
-            MoveDown();
+            if (stopMoving == false)
+            {
+                MoveDown();
+            }
         }
         else
         {
-            if (spawnRight == true)
+            if (stopMoving == false)
             {
-                MoveLeft();
-            }
-            else
-            {
-                MoveRight();
+                if (spawnRight == true)
+                {
+                    MoveLeft();
+                }
+                else
+                {
+                    MoveRight();
+                }
             }
         }
 
@@ -96,6 +105,11 @@ public class TrashMovement : MonoBehaviour
         if (collision.gameObject.name == "Surface" || collision.gameObject.name == "Floor")
         {
             rotateToZero = true;
+        }
+
+        if (collision.gameObject.name == "Rock_ss")
+        {
+            stopMoving = true;
         }
     }
 

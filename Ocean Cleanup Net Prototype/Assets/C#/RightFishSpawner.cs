@@ -29,16 +29,15 @@ public class RightFishSpawner : MonoBehaviour
         if (fishChoice < 70)
         {
             Rigidbody2D clone;
-            float randomSize = Random.Range(0.2f, 0.4f);
             clone = Instantiate(fish, spawningPosition, transform.rotation);
-            clone.transform.localScale = new Vector3(-randomSize, randomSize, randomSize);
+            clone.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
             clone.velocity = new Vector2(Random.Range(-5, -10), 0f);
         }
         else
         {
             Rigidbody2D clone;
             clone = Instantiate(nautilus, spawningPosition, transform.rotation);
-            clone.transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
+            clone.transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
             clone.velocity = new Vector2(Random.Range(-2, -6), 0f);
         }
 

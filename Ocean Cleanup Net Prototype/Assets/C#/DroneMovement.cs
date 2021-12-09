@@ -76,7 +76,7 @@ public class DroneMovement : MonoBehaviour
             {
                 droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
+                globalLight.intensity = Mathf.Lerp(1, 0.2f, lightTimer);
                 lightTimer += 0.5f * Time.deltaTime;
             }
         }
@@ -87,7 +87,7 @@ public class DroneMovement : MonoBehaviour
             {
                 droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                globalLight.intensity = Mathf.Lerp(1, 0, lightTimer);
+                globalLight.intensity = Mathf.Lerp(1, 0.2f, lightTimer);
                 lightTimer -= 0.5f * Time.deltaTime;
             }
         }

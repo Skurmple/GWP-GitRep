@@ -35,9 +35,7 @@ public class LeftFishSpawner : MonoBehaviour
         {
             //Instantiates the fish with slight size variation, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
-            float randomSize = Random.Range(0.2f, 0.4f);
             clone = Instantiate(fish, spawningPosition, transform.rotation);
-            clone.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
             clone.velocity = new Vector2(Random.Range(5, 10), 0f);
         }
 
@@ -47,7 +45,6 @@ public class LeftFishSpawner : MonoBehaviour
             //Instantiates the nautilus, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
             clone = Instantiate(nautilus, spawningPosition, transform.rotation);
-            clone.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
             clone.velocity = new Vector2(Random.Range(2, 6), 0f);
         }
 
