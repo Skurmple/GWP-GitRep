@@ -16,9 +16,9 @@ public class CrustSpawner : MonoBehaviour
     void Start()
     {
         clamp = GameObject.Find("Drone Clamp");
-        spawningPosition = new Vector3(transform.position.x + 20, transform.position.y, 0); //Crust will spawn to the far right of the screen
-        //StartCoroutine(SpawnCrust());
-        StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
+        spawningPosition = new Vector3(transform.position.x - 20, transform.position.y, 0); //Crust will spawn to the far right of the screen
+        StartCoroutine(SpawnCrust());
+        //StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
     }
 
     // amie wuz here
@@ -37,13 +37,12 @@ public class CrustSpawner : MonoBehaviour
         clamp.SetActive(true);
         gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
-        for (int i = 0; i < 3; i++)
-        {
-            randomTargetPosition = new Vector3(transform.position.x + Random.Range(-4.0f, 0.0f), transform.position.y + Random.Range(-0.2f, 0.2f), 0); //A random position is selected
-            clone = Instantiate(crust, spawningPosition, Quaternion.identity);
-            clone.transform.parent = transform; //Make the crust a child of this game object
-            yield return new WaitForSeconds(5f);
-        }
+
+        randomTargetPosition = new Vector3(transform.position.x + Random.Range(-4.0f, 0.0f), transform.position.y, 0); //A random position is selected
+        clone = Instantiate(crust, spawningPosition, Quaternion.identity);
+        clone.transform.parent = transform; //Make the crust a child of this game object
+        yield return new WaitForSeconds(5f);
+
         StartCoroutine(WaitForSpawn());
     }
 
