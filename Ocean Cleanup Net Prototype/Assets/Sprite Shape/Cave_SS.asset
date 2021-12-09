@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
-  m_Name: Rock_test
+  m_Name: Cave_SS
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: 46
-    m_End: 312
+  - m_Start: 45
+    m_End: 315
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: f78d5345594a66c49839e3b3cb257073, type: 3}
-  - m_Start: -48
-    m_End: 46
+    - {fileID: 21300000, guid: ac3662369dd536447ab392c7046c1b0c, type: 3}
+  - m_Start: -45
+    m_End: 45
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 6422eaf7c83ec4041b44cc93b3702523, type: 3}
-    - {fileID: 21300000, guid: 5a80729709524c4439fe335f246c3f71, type: 3}
-    - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
+    - {fileID: 21300000, guid: 31a39f1968b7378468a3c97b5e74fa57, type: 3}
+    - {fileID: 21300000, guid: dbb231471110a184288b17c68b24caec, type: 3}
+    - {fileID: 21300000, guid: e41a22a3613ada040987c21b8ad90ca7, type: 3}
   m_FillTexture: {fileID: 0}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
+    - {fileID: 0}
   - m_CornerType: 1
     m_Sprites:
     - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
+    - {fileID: 21300000, guid: 8e1367fd09b5a2748973833e918b104e, type: 3}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
+    - {fileID: 21300000, guid: 3626eb079e5511145859913578349f26, type: 3}
   - m_CornerType: 4
     m_Sprites:
     - {fileID: 21300000, guid: 25de8c87eb444db4abbea81dc33de0a1, type: 3}
