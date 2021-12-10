@@ -78,14 +78,18 @@ public class TrashNet : MonoBehaviour
         //For the dying coral
         if(collision.gameObject.tag == "Reef" && holdingCoral)
         {
-            //coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
-            //coral.tempColor.a += 0.4f;
-            //coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
             holdingCoral = false;
             Destroy(rainbowCoral);
-
-            //GameWon (For playtest only)
-            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+            if(coral.coralHealth <= 4)
+            {
+                coral.coralHealth += 4;
+                coral.spriteChange = true;
+            }
+            else if(coral.coralHealth > 4)
+            {
+                coral.coralHealth = 8;
+                coral.spriteChange = true;
+            }
         }
         //if (collision.gameObject.tag == "Fish")
         //{
