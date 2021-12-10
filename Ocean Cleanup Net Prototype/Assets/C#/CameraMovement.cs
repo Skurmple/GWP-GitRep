@@ -27,8 +27,7 @@ public class CameraMovement : MonoBehaviour
         if (clamp.activeInHierarchy)
         {
             transform.position = startingPosition;
-        }
-        
+        }   
         else
         {
             Vector3 newPosition = drone.transform.position;
@@ -40,6 +39,11 @@ public class CameraMovement : MonoBehaviour
             }
 
             transform.position = newPosition;
+        }
+
+        if (transform.position.y > startingPosition.y)
+        {
+            transform.position = startingPosition;
         }
     }
 }

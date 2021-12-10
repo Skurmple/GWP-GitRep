@@ -118,6 +118,6 @@ public class TrashNet : MonoBehaviour
     {
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
-        Destroy(trashToLose.gameObject);
+        Destroy(trashToLose);
     }
 }
