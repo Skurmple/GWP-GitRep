@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
 {
 
     public TrashNet player;
-    //public Text scoreUI;
+    public Text scoreUI;
     public Text plasticTrashUI;
     public Text metalTrashUI;
     public Text glassTrashUI;
@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour
             ExitToMenu();
         }
 
-        //scoreUI.text = player.score.ToString();
+        scoreUI.text = "Score: " + player.score.ToString();
         plasticTrashUI.text = player.plasticTrashAmt.ToString();
         metalTrashUI.text = player.metalTrashAmt.ToString();
         glassTrashUI.text = player.glassTrashAmt.ToString();
