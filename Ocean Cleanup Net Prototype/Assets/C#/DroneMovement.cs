@@ -70,6 +70,8 @@ public class DroneMovement : MonoBehaviour
 
     void Update()
     {
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
         if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)
         {
             if (lightTimer < 1)
@@ -126,12 +128,6 @@ public class DroneMovement : MonoBehaviour
             gc.isDisabled = true;
             enabled = false;
         }
-
-        if(collision.gameObject.tag == "Swordfish")
-        {
-            gc.isDisabled = true;
-            enabled = false;
-        }
     }
 
     //Collision detection for when the drone leaves the collision of something
@@ -143,16 +139,20 @@ public class DroneMovement : MonoBehaviour
             //Sets that flag to false
             netChild.onBoat = false;
         }
-
-        if (collision.gameObject.tag == "Pufferfish")
-        {
-
-        }
     }
     public void ResetPosition()
     {
         transform.position = startingPosition;
         droneClamp.SetActive(true);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Swordfish")
+        {
+            gc.isDisabled = true;
+            enabled = false;
+        }
     }
 
 }

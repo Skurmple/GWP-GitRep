@@ -5,6 +5,8 @@ using UnityEngine;
 public class Pufferfish : MonoBehaviour
 {
     public GameObject[] waypoints;
+    public SpriteRenderer sr;
+    public Sprite[] sps;
 
     int current;
     float rotationSpeed;
@@ -43,6 +45,13 @@ public class Pufferfish : MonoBehaviour
     }
 
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            sr.sprite = sps[1];
+        }
+    }
 
     //When the player is near then it expands
     void OnTriggerStay2D(Collider2D other)
@@ -64,6 +73,7 @@ public class Pufferfish : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             shrink = true;
+            sr.sprite = sps[0];
             speed = 6;
         }
     }

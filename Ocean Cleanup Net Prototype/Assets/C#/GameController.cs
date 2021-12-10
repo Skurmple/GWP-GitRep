@@ -25,13 +25,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if(time >= 30)
-        {
-            Instantiate(swordfish, new Vector3(1, -24, 0), swordfish.transform.rotation);
-            time = 0;
-        }
-
         if (!drone.enabled && isDisabled)
         {
             StartCoroutine(RestartDrone());
