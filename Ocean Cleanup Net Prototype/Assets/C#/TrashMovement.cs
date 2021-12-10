@@ -108,7 +108,7 @@ public class TrashMovement : MonoBehaviour
             rotateToZero = true;
         }
 
-        if (collision.gameObject.name == "Rock_ss")
+        if (collision.gameObject.tag == "CaveEntrance")
         {
             stopMoving = true;
         }

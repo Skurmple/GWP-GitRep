@@ -9,6 +9,8 @@ public class Coral : MonoBehaviour
     public int coralHealth = 2;
     int previousHealth;
 
+    public TrashNet trashNet;
+
     public SpriteRenderer[] coral1Array, coral2Array, coral3Array, coral4Array, coral5Array;
     SpriteRenderer[][] allCoralArrays = new SpriteRenderer[5][];
     public Sprite[] coralSprites;
@@ -195,10 +197,15 @@ public class Coral : MonoBehaviour
             case "MetalTrash":
             case "GlassTrash":
             case "PlasticTrash":
-                if(coralHealth >= 1)
-                {
-                    coralHealth -= 1;
-                }
+                //Trash hitting the coral will decrease the score
+                trashNet.score--;
+
+
+                //Allows for trash to damage coral, may want this in the future
+                //if(coralHealth >= 1)
+                //{
+                //    coralHealth -= 1;
+                //}
                 Destroy(collision.gameObject);
                 break;
         }
