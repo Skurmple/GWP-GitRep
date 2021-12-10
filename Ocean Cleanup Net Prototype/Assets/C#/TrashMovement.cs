@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +26,6 @@ public class TrashMovement : MonoBehaviour
     void Start()
     {
         pos = transform.position;
-
-        magnitude = Random.Range(0.3f, 1.5f);
 
         stopMoving = false;
 
@@ -108,7 +107,7 @@ public class TrashMovement : MonoBehaviour
             rotateToZero = true;
         }
 
-        if (collision.gameObject.tag == "CaveEntrance")
+        if (collision.gameObject.name == "Rock_ss")
         {
             stopMoving = true;
         }
