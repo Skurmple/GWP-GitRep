@@ -81,16 +81,8 @@ public class TrashNet : MonoBehaviour
         {
             holdingCoral = false;
             Destroy(rainbowCoral);
-            if(coral.coralHealth <= 4)
-            {
-                coral.coralHealth += 4;
-                coral.spriteChange = true;
-            }
-            else if(coral.coralHealth > 4)
-            {
-                coral.coralHealth = 8;
-                coral.spriteChange = true;
-            }
+            coral.coralHealth += 2;
+            coral.spriteChange = true;
         }
         //if (collision.gameObject.tag == "Fish")
         //{

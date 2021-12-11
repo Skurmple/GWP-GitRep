@@ -19,10 +19,15 @@ public class ScoreManager : MonoBehaviour
     public bool timerIsRunning = true;
 
     public TrashNet trashNet;
-    public TrashTideSpawner trashTide;
+    public Coral coral;
     public GameObject netCounter0, netCounter1, netCounter2, netCounter3, netCounter4, netCounter5;
-    public GameObject GamePlay, GameWon, GameLost;
+    public GameObject GamePlay, GameWon;
+    GameObject drone;
 
+    public void Start()
+    {
+        drone = GameObject.Find("Drone");
+    }
     public void Update()
     {
         if (timerIsRunning)
@@ -34,11 +39,16 @@ public class ScoreManager : MonoBehaviour
             }
             else
             {
-                trashTide.SpawnTide();
-                LostGame();
+                //trashTide.SpawnTide();
+                //LostGame();
                 timer = 0;
                 timerIsRunning = false;
             }
+        }
+
+        if (coral.coralHealth >= 8)
+        {
+            StartEndGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -112,12 +122,9 @@ public class ScoreManager : MonoBehaviour
         timerUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void DroneSwarmLaunched()
+    public void StartEndGame()
     {
-        if (trashNet.plasticTrashAmt > 19 && trashNet.metalTrashAmt > 19 && trashNet.glassTrashAmt > 19)
-        {
-            StartCoroutine(EndGame());
-        }
+        StartCoroutine(EndGame());
     }
     private void LostGame()
     {
@@ -125,16 +132,13 @@ public class ScoreManager : MonoBehaviour
     }
     IEnumerator EndGame()
     {
-        trashNet.plasticTrashAmt -= 20;
-        trashNet.metalTrashAmt -= 20;
-        trashNet.glassTrashAmt -= 20;
-
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         Time.timeScale = 0;
 
+        drone.transform.position = new Vector3(-6, 10, 0);
+        drone.transform.rotation = Quaternion.identity;
         GamePlay.SetActive(false);
-        GameLost.SetActive(false);
         GameWon.SetActive(true);
     }
 
@@ -145,7 +149,6 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 0;
 
         GamePlay.SetActive(false);
-        GameLost.SetActive(true);
     }
 
     public void ExitToMenu()

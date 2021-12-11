@@ -153,7 +153,7 @@ public class Coral : MonoBehaviour
                 break;
 
             case 7:
-            case 8:
+            case >=8:
                 if (spriteChange)
                 {
                     foreach (SpriteRenderer[] srs in allCoralArrays)
