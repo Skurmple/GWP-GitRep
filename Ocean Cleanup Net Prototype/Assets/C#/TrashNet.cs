@@ -8,6 +8,7 @@ public class TrashNet : MonoBehaviour
     public GameObject centerLocation;
     public DroneMovement droneParent;
     public Coral coral;
+    public CrustTrashSpawner trashSpawn;
 
     GameObject trash;
     GameObject trashToDestroy;
@@ -111,5 +112,6 @@ public class TrashNet : MonoBehaviour
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
         Destroy(trashToLose);
+        trashSpawn.SpawnReplaceTrash(trashToLose.GetComponent<Rigidbody2D>(), this.transform.position);
     }
 }

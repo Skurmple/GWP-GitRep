@@ -9,6 +9,7 @@ public class CrustTrashSpawner : MonoBehaviour
     public Rigidbody2D metalScrap, metalCan;
     public Rigidbody2D glassBottle;
     Vector3 spawningPosition;
+    Vector3 droppedPosition;
 
     void Start()
     {
@@ -79,5 +80,13 @@ public class CrustTrashSpawner : MonoBehaviour
         }
         Destroy(gameObject);
         yield break;
+    }
+    public void SpawnReplaceTrash(Rigidbody2D trashType, Vector3 dronePosition)
+    {
+        droppedPosition = dronePosition;
+        droppedPosition.y = dronePosition.y - 2;
+
+        Rigidbody2D clone;
+        clone = Instantiate(trashType, droppedPosition, Quaternion.identity);
     }
 }
