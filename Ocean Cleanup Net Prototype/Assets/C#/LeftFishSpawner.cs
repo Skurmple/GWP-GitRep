@@ -28,7 +28,7 @@ public class LeftFishSpawner : MonoBehaviour
         int fishChoice = Random.Range(0, 100);
 
         //Sets the position to spawn the fish to a set position with a random height
-        spawningPosition = new Vector3(transform.position.x, Random.Range(12, 23), 0);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
         if (fishChoice < 70)
