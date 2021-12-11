@@ -69,7 +69,7 @@ public class TrashNet : MonoBehaviour
         }
 
         //For the pick-uppable coral
-        if(collision.gameObject.tag == "Coral")
+        if(collision.gameObject.tag == "Coral" && !holdingCoral)
         {
             rainbowCoral = collision.gameObject;
             rainbowCoral.gameObject.transform.SetParent(centerLocation.gameObject.transform);
@@ -111,7 +111,7 @@ public class TrashNet : MonoBehaviour
     {
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
+        trashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
         Destroy(trashToLose);
-        trashSpawn.SpawnReplaceTrash(trashToLose.GetComponent<Rigidbody2D>(), this.transform.position);
     }
 }

@@ -11,6 +11,7 @@ public class CrustSpawner : MonoBehaviour
     float smoothFactor = 0.5f;
     Vector3 spawningPosition, targetPosition;
     GameObject clamp;
+    public bool crustCleaned;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class CrustSpawner : MonoBehaviour
         if (transform.childCount <= 0)
         {
             gameController.cameraDisabled = false;
+            crustCleaned = true;
             clamp.SetActive(false);
             yield return new WaitForSeconds(60);
             StartCoroutine(SpawnCrust());
@@ -59,6 +61,7 @@ public class CrustSpawner : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(0.1f);
+            crustCleaned = false;
             StartCoroutine(WaitForSpawn());
         }
     }

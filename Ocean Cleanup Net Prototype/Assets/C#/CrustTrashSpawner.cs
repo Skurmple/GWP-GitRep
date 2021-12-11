@@ -81,12 +81,14 @@ public class CrustTrashSpawner : MonoBehaviour
         Destroy(gameObject);
         yield break;
     }
-    public void SpawnReplaceTrash(Rigidbody2D trashType, Vector3 dronePosition)
+    public void SpawnReplaceTrash(Vector3 dronePosition, GameObject trash)
     {
         droppedPosition = dronePosition;
         droppedPosition.y = dronePosition.y - 2;
 
         Rigidbody2D clone;
-        clone = Instantiate(trashType, droppedPosition, Quaternion.identity);
+        clone = Instantiate(trash.GetComponent<Rigidbody2D>(), droppedPosition, Quaternion.identity);
+        clone.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        clone.gameObject.GetComponent<TrashMovement>().enabled = true;
     }
 }

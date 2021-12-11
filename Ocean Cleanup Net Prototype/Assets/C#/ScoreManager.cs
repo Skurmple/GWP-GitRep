@@ -15,21 +15,33 @@ public class ScoreManager : MonoBehaviour
     public Text glassTrashUI;
     public Text timerUI;
 
-    public float timer = 300;
-    public bool timerIsRunning = true;
+    public float timer = 60;
+    public bool timerIsRunning;
 
     public TrashNet trashNet;
     public Coral coral;
     public GameObject netCounter0, netCounter1, netCounter2, netCounter3, netCounter4, netCounter5;
     public GameObject GamePlay, GameWon;
     GameObject drone;
+    CrustSpawner crustGone;
 
     public void Start()
     {
+        timerIsRunning = false;
         drone = GameObject.Find("Drone");
+        crustGone = GameObject.Find("TrashCrust").gameObject.GetComponent<CrustSpawner>();
     }
     public void Update()
     {
+        if (crustGone.crustCleaned)
+        {
+            timerIsRunning = true;
+        }
+        else
+        {
+            timerIsRunning = false;
+            timer = 60;
+        }
         if (timerIsRunning)
         {
             if (timer > 0)
@@ -39,10 +51,9 @@ public class ScoreManager : MonoBehaviour
             }
             else
             {
-                //trashTide.SpawnTide();
-                //LostGame();
                 timer = 0;
                 timerIsRunning = false;
+                timerUI.text = null;
             }
         }
 
