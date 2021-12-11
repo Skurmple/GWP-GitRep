@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 
 public class DroneMovement : MonoBehaviour
@@ -16,14 +17,17 @@ public class DroneMovement : MonoBehaviour
     public GameObject droneClamp;
 
     private float lightTimer = 0f;
-    public UnityEngine.Rendering.Universal.Light2D droneLight;
-    public UnityEngine.Rendering.Universal.Light2D globalLight;
-    public UnityEngine.Rendering.Universal.Light2D uiLight;
+    public Light2D droneLight;
+    public Light2D globalLight;
+    public Light2D uiLight;
+    public Light2D scoreLight;
 
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         droneLight.intensity = 0;
+        uiLight.intensity = 0;
+        scoreLight.intensity = 0;
         globalLight.intensity = 1;
     }
 
@@ -78,6 +82,7 @@ public class DroneMovement : MonoBehaviour
             {
                 droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                scoreLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 globalLight.intensity = Mathf.Lerp(1, 0.2f, lightTimer);
                 lightTimer += 0.5f * Time.deltaTime;
             }
@@ -89,6 +94,7 @@ public class DroneMovement : MonoBehaviour
             {
                 droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
+                scoreLight.intensity = Mathf.Lerp(0, 1, lightTimer);
                 globalLight.intensity = Mathf.Lerp(1, 0.2f, lightTimer);
                 lightTimer -= 0.5f * Time.deltaTime;
             }

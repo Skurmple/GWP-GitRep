@@ -18,8 +18,8 @@ public class CrustSpawner : MonoBehaviour
     {
         clamp = GameObject.Find("Drone Clamp");
         spawningPosition = new Vector3(transform.position.x - 25, transform.position.y, 0); //Crust will spawn to the far right of the screen
-        StartCoroutine(SpawnCrust());
-        //StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
+        //StartCoroutine(SpawnCrust());
+        StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
     }
 
     // amie wuz here

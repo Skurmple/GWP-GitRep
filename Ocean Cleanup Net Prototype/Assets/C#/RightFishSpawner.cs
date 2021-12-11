@@ -24,7 +24,7 @@ public class RightFishSpawner : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         int fishChoice = Random.Range(0, 100);
-        spawningPosition = new Vector3(transform.position.x, Random.Range(12, 23), 0);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
 
         if (fishChoice < 70)
         {

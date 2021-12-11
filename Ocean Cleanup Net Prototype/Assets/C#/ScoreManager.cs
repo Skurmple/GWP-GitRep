@@ -10,10 +10,12 @@ public class ScoreManager : MonoBehaviour
 
     public TrashNet player;
     public Text scoreUI;
+    public Text scoreDrop;
     public Text plasticTrashUI;
     public Text metalTrashUI;
     public Text glassTrashUI;
     public Text timerUI;
+    public Text timerDrop;
 
     public float timer = 60;
     public bool timerIsRunning;
@@ -54,6 +56,7 @@ public class ScoreManager : MonoBehaviour
                 timer = 0;
                 timerIsRunning = false;
                 timerUI.text = null;
+                timerDrop.text = null;
             }
         }
 
@@ -67,7 +70,8 @@ public class ScoreManager : MonoBehaviour
             ExitToMenu();
         }
 
-        scoreUI.text = "Score: " + player.score.ToString();
+        scoreUI.text = player.score.ToString();
+        scoreDrop.text = player.score.ToString();
         plasticTrashUI.text = player.plasticTrashAmt.ToString();
         metalTrashUI.text = player.metalTrashAmt.ToString();
         glassTrashUI.text = player.glassTrashAmt.ToString();
@@ -131,6 +135,7 @@ public class ScoreManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(timer % 60);
 
         timerUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerDrop.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void StartEndGame()
