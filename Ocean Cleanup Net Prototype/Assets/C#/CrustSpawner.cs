@@ -39,7 +39,9 @@ public class CrustSpawner : MonoBehaviour
         gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
 
-        targetPosition = new Vector3(0, transform.position.y + Random.Range(-0.2f, 0.2f), 0); //A random position is selected
+        //targetPosition = new Vector3(0, transform.position.y + Random.Range(-0.2f, 0.2f), 0); //A random position is selected
+        targetPosition = new Vector3(0, transform.position.y, 0);
+
         clone = Instantiate(crust, spawningPosition, Quaternion.identity);
         clone.transform.parent = transform; //Make the crust a child of this game object
         yield return new WaitForSeconds(5f);

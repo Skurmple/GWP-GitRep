@@ -35,7 +35,7 @@ public class CrustTrashSpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
 
-                spawningPosition = new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y, 0);
+                spawningPosition = new Vector3(transform.position.x + Random.Range(-17, 17), transform.position.y - 2, 0);
 
                 //Generate a random number between 0 and 100
                 int trashChoice = Random.Range(0, 100);
