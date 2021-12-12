@@ -11,18 +11,18 @@ public class ScoreManager : MonoBehaviour
     public TrashNet player;
     public Text scoreUI;
     public Text scoreDrop;
-    public Text plasticTrashUI;
-    public Text metalTrashUI;
-    public Text glassTrashUI;
+    //public Text plasticTrashUI;
+    //public Text metalTrashUI;
+    //public Text glassTrashUI;
     public Text timerUI;
     public Text timerDrop;
 
     public float timer = 60;
     public bool timerIsRunning;
 
-    public TrashNet trashNet;
+    //public TrashNet trashNet;
     public Coral coral;
-    public GameObject netCounter0, netCounter1, netCounter2, netCounter3, netCounter4, netCounter5;
+    //public GameObject netCounter0, netCounter1, netCounter2, netCounter3, netCounter4, netCounter5;
     public GameObject GamePlay, GameWon;
     GameObject drone;
     CrustSpawner crustGone;
@@ -72,61 +72,61 @@ public class ScoreManager : MonoBehaviour
 
         scoreUI.text = player.score.ToString();
         scoreDrop.text = player.score.ToString();
-        plasticTrashUI.text = player.plasticTrashAmt.ToString();
-        metalTrashUI.text = player.metalTrashAmt.ToString();
-        glassTrashUI.text = player.glassTrashAmt.ToString();
+        //plasticTrashUI.text = player.plasticTrashAmt.ToString();
+        //metalTrashUI.text = player.metalTrashAmt.ToString();
+        //glassTrashUI.text = player.glassTrashAmt.ToString();
 
-        switch (trashNet.trashList.Count)
-        {
-            case 0:
-                netCounter0.SetActive(true);
-                netCounter1.SetActive(false);
-                netCounter2.SetActive(false);
-                netCounter3.SetActive(false);
-                netCounter4.SetActive(false);
-                netCounter5.SetActive(false);
-                break;
-            case 1:
-                netCounter0.SetActive(false);
-                netCounter1.SetActive(true);
-                netCounter2.SetActive(false);
-                netCounter3.SetActive(false);
-                netCounter4.SetActive(false);
-                netCounter5.SetActive(false);
-                break;
-            case 2:
-                netCounter0.SetActive(false);
-                netCounter1.SetActive(false);
-                netCounter2.SetActive(true);
-                netCounter3.SetActive(false);
-                netCounter4.SetActive(false);
-                netCounter5.SetActive(false);
-                break;
-            case 3:
-                netCounter0.SetActive(false);
-                netCounter1.SetActive(false);
-                netCounter2.SetActive(false);
-                netCounter3.SetActive(true);
-                netCounter4.SetActive(false);
-                netCounter5.SetActive(false);
-                break;
-            case 4:
-                netCounter0.SetActive(false);
-                netCounter1.SetActive(false);
-                netCounter2.SetActive(false);
-                netCounter3.SetActive(false);
-                netCounter4.SetActive(true);
-                netCounter5.SetActive(false);
-                break;
-            case 5:
-                netCounter0.SetActive(false);
-                netCounter1.SetActive(false);
-                netCounter2.SetActive(false);
-                netCounter3.SetActive(false);
-                netCounter4.SetActive(false);
-                netCounter5.SetActive(true);
-                break;
-        }
+        //switch (trashNet.trashList.Count)
+        //{
+        //    case 0:
+        //        netCounter0.SetActive(true);
+        //        netCounter1.SetActive(false);
+        //        netCounter2.SetActive(false);
+        //        netCounter3.SetActive(false);
+        //        netCounter4.SetActive(false);
+        //        netCounter5.SetActive(false);
+        //        break;
+        //    case 1:
+        //        netCounter0.SetActive(false);
+        //        netCounter1.SetActive(true);
+        //        netCounter2.SetActive(false);
+        //        netCounter3.SetActive(false);
+        //        netCounter4.SetActive(false);
+        //        netCounter5.SetActive(false);
+        //        break;
+        //    case 2:
+        //        netCounter0.SetActive(false);
+        //        netCounter1.SetActive(false);
+        //        netCounter2.SetActive(true);
+        //        netCounter3.SetActive(false);
+        //        netCounter4.SetActive(false);
+        //        netCounter5.SetActive(false);
+        //        break;
+        //    case 3:
+        //        netCounter0.SetActive(false);
+        //        netCounter1.SetActive(false);
+        //        netCounter2.SetActive(false);
+        //        netCounter3.SetActive(true);
+        //        netCounter4.SetActive(false);
+        //        netCounter5.SetActive(false);
+        //        break;
+        //    case 4:
+        //        netCounter0.SetActive(false);
+        //        netCounter1.SetActive(false);
+        //        netCounter2.SetActive(false);
+        //        netCounter3.SetActive(false);
+        //        netCounter4.SetActive(true);
+        //        netCounter5.SetActive(false);
+        //        break;
+        //    case 5:
+        //        netCounter0.SetActive(false);
+        //        netCounter1.SetActive(false);
+        //        netCounter2.SetActive(false);
+        //        netCounter3.SetActive(false);
+        //        netCounter4.SetActive(false);
+        //        netCounter5.SetActive(true);
+        //        break;
+        //}
     }
 
     private void DisplayTime(float timer)
