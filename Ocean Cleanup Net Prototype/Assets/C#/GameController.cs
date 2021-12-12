@@ -15,11 +15,19 @@ public class GameController : MonoBehaviour
     public bool cameraDisabled = true;
     bool oneTime = false;
 
+    //*by Vojta
+    GameObject lookForEmotions;
+    protected Emotions EmotionsScript;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = GameObject.Find("Main Camera");
         mainCameraStartPos = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
+
+        //*by Vojta - Getting a reference to the emotions script
+        lookForEmotions = GameObject.Find("Emotions_test");
+        EmotionsScript = lookForEmotions.GetComponent<Emotions>();
     }
 
     // Update is called once per frame
@@ -27,6 +35,9 @@ public class GameController : MonoBehaviour
     {
         if (!drone.enabled && isDisabled)
         {
+            //*by Vojta
+            EmotionsScript.StunnedFace();
+
             StartCoroutine(RestartDrone());
             isDisabled = false; 
         }

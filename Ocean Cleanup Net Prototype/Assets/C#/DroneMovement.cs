@@ -22,6 +22,10 @@ public class DroneMovement : MonoBehaviour
     public Light2D uiLight;
     public Light2D scoreLight;
 
+    //*by Vojta
+    GameObject lookForEmotions;
+    protected Emotions EmotionsScript;
+
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -29,6 +33,10 @@ public class DroneMovement : MonoBehaviour
         uiLight.intensity = 0;
         scoreLight.intensity = 0;
         globalLight.intensity = 1;
+
+        //*by Vojta - Getting a reference to the emotions script
+        lookForEmotions = GameObject.Find("Emotions_test");
+        EmotionsScript = lookForEmotions.GetComponent<Emotions>();
     }
 
     // FixedUpdate is called once per frame at a set frame rate
@@ -102,13 +110,20 @@ public class DroneMovement : MonoBehaviour
     }
 
     //Collision detection of triggers
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         //Checks to see if the drone is over the boat
         if (collision.gameObject.tag == "Boat")
         {
             //If the drone is on the boat, set that flag to true
             netChild.onBoat = true;
+
+            //*by Vojta - Changes the emotion of the drone
+            if (netChild.trashList.Count > 0)
+            {
+                EmotionsScript.HappyFace();
+            }
+
         }
 
         //Checks to see if the drone is over a fish
@@ -120,6 +135,9 @@ public class DroneMovement : MonoBehaviour
             
             //Decreases the score, although this at the moment isnt useful or being kept afaik
             netChild.score--;
+
+            //*by Vojta
+            EmotionsScript.SadFace();
 
             //Checks to see if the net has any trash in it
             if (netChild.trashList.Count > 0)
