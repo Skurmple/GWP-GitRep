@@ -192,27 +192,24 @@ public class Coral : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < trashNet.trashList.Count; i++)
+        if (!trashNet.trashList.Contains(collision.gameObject))
         {
-            if (!trashNet.trashList.Contains(collision.gameObject))
+            switch (collision.gameObject.tag)
             {
-                switch (collision.gameObject.tag)
-                {
-                    case "MetalTrash":
-                    case "GlassTrash":
-                    case "PlasticTrash":
-                        //Trash hitting the coral will decrease the score
-                        trashNet.score--;
+                case "MetalTrash":
+                case "GlassTrash":
+                case "PlasticTrash":
+                    //Trash hitting the coral will decrease the score
+                    trashNet.score--;
 
 
-                        //Allows for trash to damage coral, may want this in the future
-                        //if(coralHealth >= 1)
-                        //{
-                        //    coralHealth -= 1;
-                        //}
-                        Destroy(collision.gameObject);
-                        break;
-                }
+                    //Allows for trash to damage coral, may want this in the future
+                    //if(coralHealth >= 1)
+                    //{
+                    //    coralHealth -= 1;
+                    //}
+                    Destroy(collision.gameObject);
+                    break;
             }
         }
     }

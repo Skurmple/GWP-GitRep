@@ -55,7 +55,7 @@ public class LeftFishSpawner : MonoBehaviour
             int turtleChance = Random.Range(0, 100);
 
             //Sets the position of where to spawn the turtle
-            spawningPosition = new Vector3(transform.position.x, -2.5f, 0);
+            spawningPosition = new Vector3(transform.position.x, transform.position.y - 5, 0);
 
             //Makes it a 25% chance to spawn a turtle
             if (turtleChance > 75)
@@ -63,7 +63,7 @@ public class LeftFishSpawner : MonoBehaviour
                 //Instantiates the turtle and sets its speed
                 Rigidbody2D clone;
                 clone = Instantiate(turtle, spawningPosition, transform.rotation);
-                clone.transform.localScale = new Vector3(-0.30f, 0.30f, 0.30f);
+                clone.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
             }
         }
 

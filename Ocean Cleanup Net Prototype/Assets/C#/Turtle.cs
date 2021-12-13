@@ -18,13 +18,13 @@ public class Turtle : MonoBehaviour
         Vector3 distanceToNetVector = net.transform.position - transform.position;
         float distanceToNet = distanceToNetVector.magnitude;
 
-        if(distanceToNet < 3)
+        if(distanceToNet < 6)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
         else
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0.4f, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0.6f, 0);
         }
     }
 }
