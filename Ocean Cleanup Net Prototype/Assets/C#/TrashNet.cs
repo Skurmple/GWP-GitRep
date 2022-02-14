@@ -7,8 +7,9 @@ public class TrashNet : MonoBehaviour
 {
     public GameObject centerLocation;
     public DroneMovement droneParent;
-    public Coral coral;
+    public List<Coral> coralReefs = new List<Coral>();
     public CrustTrashSpawner trashSpawn;
+    public RainbowCoralSpawner coralSpawner;
 
     GameObject trash;
     GameObject trashToDestroy;
@@ -74,6 +75,7 @@ public class TrashNet : MonoBehaviour
             rainbowCoral = collision.gameObject;
             rainbowCoral.gameObject.transform.SetParent(centerLocation.gameObject.transform);
             rainbowCoral.gameObject.transform.localPosition = Vector2.zero;
+            rainbowCoral.gameObject.GetComponent<RainbowCoral>().enabled = false;
             holdingCoral = true;
         }
 
@@ -82,9 +84,38 @@ public class TrashNet : MonoBehaviour
         {
             holdingCoral = false;
             Destroy(rainbowCoral);
-            coral.coralHealth += 2;
-            coral.spriteChange = true;
+            coralSpawner.coralSpawned = false;
+            
+
+            //!!Coral reefs are now stored in a list so there can be multiple coral reefs
+            //This switch statement checks to see which coral reef was in the collision but this is a clumsy way of doing it as it relys on the reefs having specific names
+            //and being is specific locations in the list
+            //There must be a way of doing this automatically no matter how many coral reefs there are and no matter what they're names are but my dumby brain cant think of it rn
+            switch (collision.gameObject.name)
+            {
+                case "CoralReef1":
+                    coralReefs[0].coralHealth += 2;
+                    coralReefs[0].spriteChange = true;
+                    break;
+
+                case "CoralReef2":
+                    coralReefs[1].coralHealth += 2;
+                    coralReefs[1].spriteChange = true;
+                    break;
+
+                case "CoralReef3":
+                    coralReefs[2].coralHealth += 2;
+                    coralReefs[2].spriteChange = true;
+                    break;
+
+                case "CoralReef4":
+                    coralReefs[3].coralHealth += 2;
+                    coralReefs[3].spriteChange = true;
+                    break;
+            }
         }
+
+
         //if (collision.gameObject.tag == "Fish")
         //{
         //    collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x * -1, Random.Range(-1, 1));
