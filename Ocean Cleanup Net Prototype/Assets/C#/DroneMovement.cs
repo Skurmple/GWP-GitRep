@@ -47,7 +47,7 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        if((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f)
+        if((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f && !Input.GetKey(KeyCode.LeftControl))
         {
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         }
