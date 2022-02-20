@@ -14,6 +14,7 @@ public class DroneMovement : MonoBehaviour
     Vector3 startingPosition;
     public float moveSpeed = 7;
     public GameController gc;
+    public Menu menu;
     public GameObject droneClamp;
 
     private float lightTimer = 0f;
@@ -82,6 +83,20 @@ public class DroneMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            menu.PlayStage1();
+            Debug.Log("test");
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            menu.PlayStage2();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            menu.PlayStage3();
+        }
+
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 
         if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)

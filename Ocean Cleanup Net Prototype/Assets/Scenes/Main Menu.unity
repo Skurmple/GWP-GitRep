@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 109812803}
   - component: {fileID: 109812802}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Stage 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1207939607}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: PlayStage1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1901,7 +1901,7 @@ GameObject:
   - component: {fileID: 1908897336}
   - component: {fileID: 1908897335}
   m_Layer: 5
-  m_Name: Level3
+  m_Name: Stage 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1973,7 +1973,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1207939607}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: PlayLvl3
+        m_MethodName: PlayStage2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

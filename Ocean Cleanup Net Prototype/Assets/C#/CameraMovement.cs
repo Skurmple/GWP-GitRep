@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject caveEntrance;
     GameObject drone;
     bool cameraLocked;
-    GameObject clamp;
+    public GameObject clamp;
     Vector3 startingPosition;
 
     // Start is called before the first frame update
@@ -18,7 +19,10 @@ public class CameraMovement : MonoBehaviour
         startingPosition = transform.position;
         wantedXPosition = transform.position.x;
         drone = GameObject.Find("Drone");
-        clamp = GameObject.Find("Drone Clamp");
+        if(SceneManager.GetActiveScene().name == "Stage 3")
+        {
+            clamp.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +54,7 @@ public class CameraMovement : MonoBehaviour
             transform.position = newPosition;
         }
 
-        if (transform.position.y > startingPosition.y)
+        if (transform.position.y > startingPosition.y && SceneManager.GetActiveScene().name != "Stage 3")
         {
             transform.position = startingPosition;
         }

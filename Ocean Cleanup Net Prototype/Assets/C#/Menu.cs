@@ -12,15 +12,21 @@ public class Menu : MonoBehaviour
     public GameObject helpMenu;
     public GameObject creditMenu;
 
-    public void Play()
+    public void PlayStage1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Stage 1");
         Time.timeScale = 1;
     }
 
-    public void PlayLvl3()
+    public void PlayStage2()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("Stage 2");
+        Time.timeScale = 1;
+    }
+
+    public void PlayStage3()
+    {
+        SceneManager.LoadScene("Stage 3");
         Time.timeScale = 1;
     }
 
