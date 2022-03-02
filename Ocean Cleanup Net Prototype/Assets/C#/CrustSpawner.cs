@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrustSpawner : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class CrustSpawner : MonoBehaviour
     {
         clamp = GameObject.Find("Drone Clamp");
         spawningPosition = new Vector3(transform.position.x - 25, transform.position.y, 0); //Crust will spawn to the far right of the screen
-        StartCoroutine(SpawnCrust());
-        //StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement
+        //StartCoroutine(SpawnCrust());
+        StartCoroutine(WaitForSpawn()); //For testing, uncomment this, comment line above to start with free camera movement.
     }
 
     // amie wuz here
@@ -57,8 +58,9 @@ public class CrustSpawner : MonoBehaviour
             gameController.cameraDisabled = false;
             crustCleaned = true;
             clamp.SetActive(false);
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(1);
             StartCoroutine(SpawnCrust());
+            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
         }
         else
         {
