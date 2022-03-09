@@ -2910,6 +2910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377920425}
   - component: {fileID: 377920426}
+  - component: {fileID: 377920427}
   m_Layer: 0
   m_Name: TrashShredder
   m_TagString: Untagged
@@ -2939,7 +2940,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377920424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2958,6 +2959,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 43.01844, y: 1}
   m_EdgeRadius: 0
+--- !u!68 &377920427
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377920424}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -19.156155, y: 7.534896}
+  - {x: -16.64278, y: 5.9080167}
+  - {x: -13.89522, y: 5.0549426}
+  - {x: -11.0702715, y: 4.0879936}
+  - {x: -7.6136823, y: 3.1544437}
+  - {x: -5.4030066, y: 2.7991061}
+  - {x: 0.0022958517, y: 1.3994417}
+  - {x: 3.3647223, y: 2.6819844}
+  - {x: 7.206593, y: 3.0624666}
+  - {x: 9.196777, y: 4.249898}
+  - {x: 12.539021, y: 4.9385633}
+  - {x: 20.345058, y: 7.021348}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &399616249
 GameObject:
   m_ObjectHideFlags: 0

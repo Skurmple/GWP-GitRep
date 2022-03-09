@@ -38,10 +38,10 @@ public class CrustTrashSpawner : MonoBehaviour
                 spawningPosition = new Vector3(transform.position.x + Random.Range(-17, 17), transform.position.y - 2, 0);
 
                 //Generate a random number between 0 and 100
-                int trashChoice = Random.Range(0, 100);
+                int trashChoice = Random.Range(0, 101);
 
-                //If random number is less than 50, clone red trash, if it is greater than 50, spawn green trash
-                if (trashChoice <= 33)
+                //If random number is less than 50, clone plastic trash, this means plastic trash is the most likely to appear (50%), then metal (35%) and then glass (15%)
+                if (trashChoice <= 50)
                 {
                     int plasticChoice = Random.Range(0, 100);
 
@@ -56,7 +56,7 @@ public class CrustTrashSpawner : MonoBehaviour
                         clone = Instantiate(plasticBag, spawningPosition, Quaternion.identity);
                     }
                 }
-                else if (trashChoice > 33 && trashChoice <= 66)
+                else if (trashChoice > 50 && trashChoice <= 85)
                 {
                     int metalChoice = Random.Range(0, 100);
 
@@ -71,7 +71,7 @@ public class CrustTrashSpawner : MonoBehaviour
                         clone = Instantiate(metalCan, spawningPosition, Quaternion.identity);
                     }
                 }
-                else if (trashChoice > 66)
+                else if (trashChoice > 85)
                 {
                     Rigidbody2D clone;
                     clone = Instantiate(glassBottle, spawningPosition, Quaternion.identity);

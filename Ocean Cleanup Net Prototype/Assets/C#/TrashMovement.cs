@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrashMovement : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class TrashMovement : MonoBehaviour
 
     bool spawnRight;
     bool spawnTop;
-    bool rotateToZero;
     bool stopMoving;
+
+    [Header("Radial Timer")]
+    bool dissolvePlastic = false;
+    float indicatorTimer = 10.0f;
+    float maxIndicatorTimer = 1.0f;
+    [SerializeField] private Image DissolveTimer = null;
+
 
     Vector3 pos;
     Quaternion targetRot = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -77,9 +84,24 @@ public class TrashMovement : MonoBehaviour
             }
         }
 
-        if (rotateToZero == true)
+        if (dissolvePlastic)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, Time.time * 0.05f);
+            indicatorTimer -= Time.deltaTime;
+            DissolveTimer.enabled = true;
+            DissolveTimer.fillAmount = indicatorTimer / 10;
+
+            if (indicatorTimer <= 5 && indicatorTimer > 2.5f)
+            {
+                DissolveTimer.color = new Color32(255, 105, 0, 150);
+            }
+            else if (indicatorTimer <= 2.5f && indicatorTimer > 0)
+            {
+                DissolveTimer.color = new Color32(255, 0, 0, 150);
+            }
+            else if (indicatorTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -103,11 +125,6 @@ public class TrashMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Surface" || collision.gameObject.name == "Floor")
-        {
-            rotateToZero = true;
-        }
-
         if (collision.gameObject.tag == "CaveEntrance")
         {
             stopMoving = true;
@@ -115,15 +132,12 @@ public class TrashMovement : MonoBehaviour
 
         if (collision.gameObject.name == "TrashShredder")
         {
-            Destroy(gameObject);
-        }
-    }
+            stopMoving = true;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Surface")
-        {
-            rotateToZero = false;
+            if (this.gameObject.tag == "PlasticTrash")
+            {
+                dissolvePlastic = true;
+            }
         }
     }
 }

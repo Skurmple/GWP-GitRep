@@ -208,7 +208,7 @@ public class Coral : MonoBehaviour
                     //{
                     //    coralHealth -= 1;
                     //}
-                    Destroy(collision.gameObject);
+                    
                     break;
             }
         }
