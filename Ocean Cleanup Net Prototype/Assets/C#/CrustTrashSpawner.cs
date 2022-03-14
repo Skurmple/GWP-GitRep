@@ -48,12 +48,12 @@ public class CrustTrashSpawner : MonoBehaviour
                     if (plasticChoice < 50)
                     {
                         Rigidbody2D clone;
-                        clone = Instantiate(plasticBottle, spawningPosition, Quaternion.identity); //Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25)))
+                        clone = Instantiate(plasticBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25)))); 
                     }
                     else
                     {
                         Rigidbody2D clone;
-                        clone = Instantiate(plasticBag, spawningPosition, Quaternion.identity);
+                        clone = Instantiate(plasticBag, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
                     }
                 }
                 else if (trashChoice > 50 && trashChoice <= 85)
@@ -63,18 +63,18 @@ public class CrustTrashSpawner : MonoBehaviour
                     if (metalChoice < 50)
                     {
                         Rigidbody2D clone;
-                        clone = Instantiate(metalScrap, spawningPosition, Quaternion.identity);
+                        clone = Instantiate(metalScrap, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
                     }
                     else
                     {
                         Rigidbody2D clone;
-                        clone = Instantiate(metalCan, spawningPosition, Quaternion.identity);
+                        clone = Instantiate(metalCan, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
                     }
                 }
                 else if (trashChoice > 85)
                 {
                     Rigidbody2D clone;
-                    clone = Instantiate(glassBottle, spawningPosition, Quaternion.identity);
+                    clone = Instantiate(glassBottle, spawningPosition, Quaternion.Euler(new Vector3(0, 0, Random.Range(-25, 25))));
                 }
             }
         }
