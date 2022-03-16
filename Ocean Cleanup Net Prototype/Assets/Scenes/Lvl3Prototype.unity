@@ -2769,7 +2769,7 @@ SpriteRenderer:
   m_Size: {x: 10.45, y: 8.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &182514700
@@ -4848,6 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caveEntrance: {fileID: 1399669799}
+  clamp: {fileID: 526596835}
 --- !u!114 &415981885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6095,6 +6096,7 @@ MonoBehaviour:
   netChild: {fileID: 1549840948}
   moveSpeed: 7
   gc: {fileID: 1207947479}
+  menu: {fileID: 0}
   droneClamp: {fileID: 526596835}
   droneLight: {fileID: 1092497319}
   globalLight: {fileID: 465458963}
@@ -14375,6 +14377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caveEntrance: {fileID: 1399669799}
+  clamp: {fileID: 526596835}
 --- !u!1 &1375709004
 GameObject:
   m_ObjectHideFlags: 0
