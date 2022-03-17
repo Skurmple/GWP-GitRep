@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour
 
     public Coral coral;
     public GameObject GamePlay, GameWon;
+    List<GameObject> trashItems = new List<GameObject>();
     GameObject drone;
     CrustSpawner crustGone;
 
@@ -69,6 +70,11 @@ public class ScoreManager : MonoBehaviour
             ExitToMenu();
         }
 
+        if (player.score >= 100)
+        {
+            StartEndGame();
+        }
+
         scoreUI.text = player.score.ToString();
         scoreDrop.text = player.score.ToString();
         //plasticTrashUI.text = player.plasticTrashAmt.ToString();
@@ -98,9 +104,31 @@ public class ScoreManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
+        foreach (GameObject trashToAdd in GameObject.FindGameObjectsWithTag("PlasticTrash"))
+        {
+            trashItems.Add(trashToAdd);
+        }
+        foreach (GameObject trashToAdd in GameObject.FindGameObjectsWithTag("MetalTrash"))
+        {
+            trashItems.Add(trashToAdd);
+        }
+        foreach (GameObject trashToAdd in GameObject.FindGameObjectsWithTag("GlassTrash"))
+        {
+            trashItems.Add(trashToAdd);
+        }
+        foreach (GameObject trashToAdd in GameObject.FindGameObjectsWithTag("TrashCrust"))
+        {
+            trashItems.Add(trashToAdd);
+        }
+
+        for (int i = 0; i < trashItems.Count; i++)
+        {
+            Destroy(trashItems[i]);
+        }
+
         Time.timeScale = 0;
 
-        drone.transform.position = new Vector3(-6, 10, 0);
+        drone.transform.position = new Vector3(-6, 20, 0);
         drone.transform.rotation = Quaternion.identity;
         GamePlay.SetActive(false);
         GameWon.SetActive(true);
