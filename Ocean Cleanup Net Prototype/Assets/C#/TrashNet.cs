@@ -51,12 +51,6 @@ public class TrashNet : MonoBehaviour
                 Destroy(trashToDestroy.gameObject);
             }
         }
-
-        if (score >= 100)
-        {
-            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
