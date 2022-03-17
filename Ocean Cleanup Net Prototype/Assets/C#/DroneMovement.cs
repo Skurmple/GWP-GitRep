@@ -27,6 +27,8 @@ public class DroneMovement : MonoBehaviour
     GameObject lookForEmotions;
     protected Emotions EmotionsScript;
 
+    public ParticleSystem bubbles;
+
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -38,6 +40,8 @@ public class DroneMovement : MonoBehaviour
         //*by Vojta - Getting a reference to the emotions script
         lookForEmotions = GameObject.Find("Emotions_test");
         EmotionsScript = lookForEmotions.GetComponent<Emotions>();
+
+        CreateDust();
     }
 
     // FixedUpdate is called once per frame at a set frame rate
@@ -51,6 +55,8 @@ public class DroneMovement : MonoBehaviour
         if((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f && !Input.GetKey(KeyCode.LeftControl))
         {
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+
+            
         }
 
         //Gets the direction the drone is moving in, and rotates it to face that direction
@@ -192,6 +198,12 @@ public class DroneMovement : MonoBehaviour
             gc.isDisabled = true;
             enabled = false;
         }
+    }
+
+    void CreateDust()
+    {
+        bubbles.Play();
+
     }
 
 }
