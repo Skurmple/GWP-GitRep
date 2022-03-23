@@ -11,6 +11,13 @@ public class ScoreManager : MonoBehaviour
     public TrashNet player;
     public Text scoreUI;
     public Text scoreDrop;
+
+    //Temp text for playtest
+    public Text explainText;
+    float explainTextTimer = 5f;
+    //----------------------
+
+
     //public Text plasticTrashUI;
     //public Text metalTrashUI;
     //public Text glassTrashUI;
@@ -27,11 +34,25 @@ public class ScoreManager : MonoBehaviour
     CrustSpawner crustGone;
 
     public void Start()
-    {
+    { 
         //timerIsRunning = false;
         drone = GameObject.Find("Drone");
         crustGone = GameObject.Find("TrashCrust").gameObject.GetComponent<CrustSpawner>();
+
+        StartCoroutine(FadeExplainText(explainTextTimer, explainText));
     }
+
+    IEnumerator FadeExplainText(float t, Text eText)
+    {
+        yield return new WaitForSeconds(10);
+        eText.color = new Color(eText.color.r, eText.color.g, eText.color.b, 1);
+        while (eText.color.a > 0.0f)
+        {
+            eText.color = new Color(eText.color.r, eText.color.g, eText.color.b, eText.color.a - (Time.deltaTime / t));
+            yield return null;
+        }
+    }
+
     public void Update()
     {
         //Timer code, may be useful later
@@ -68,11 +89,6 @@ public class ScoreManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ExitToMenu();
-        }
-
-        if (player.score >= 100)
-        {
-            StartEndGame();
         }
 
         scoreUI.text = player.score.ToString();

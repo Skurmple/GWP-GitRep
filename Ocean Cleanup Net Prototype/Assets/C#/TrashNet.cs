@@ -51,6 +51,11 @@ public class TrashNet : MonoBehaviour
                 Destroy(trashToDestroy.gameObject);
             }
         }
+
+        if (score >= 100)
+        {
+            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 3"));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -113,14 +118,6 @@ public class TrashNet : MonoBehaviour
                     break;
             }
         }
-
-
-        //if (collision.gameObject.tag == "Fish")
-        //{
-        //    collision.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x * -1, Random.Range(-1, 1));
-        //    collision.gameObject.transform.Rotate(new Vector2(0, 180));
-        //    score--;
-        //}
     }
 
     public void UpgradeNet()

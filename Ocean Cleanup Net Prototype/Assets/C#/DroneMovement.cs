@@ -17,11 +17,8 @@ public class DroneMovement : MonoBehaviour
     public Menu menu;
     public GameObject droneClamp;
 
-    private float lightTimer = 0f;
     public Light2D droneLight;
     public Light2D globalLight;
-    public Light2D uiLight;
-    public Light2D scoreLight;
 
     //*by Vojta
     GameObject lookForEmotions;
@@ -32,10 +29,6 @@ public class DroneMovement : MonoBehaviour
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        droneLight.intensity = 0;
-        uiLight.intensity = 0;
-        scoreLight.intensity = 0;
-        globalLight.intensity = 1;
 
         //*by Vojta - Getting a reference to the emotions script
         lookForEmotions = GameObject.Find("Emotions_test");
@@ -102,30 +95,6 @@ public class DroneMovement : MonoBehaviour
         }
 
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-
-        if (transform.position.y < GameObject.Find("Cave Entrance").transform.position.y)
-        {
-            if (lightTimer < 1)
-            {
-                droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                scoreLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                globalLight.intensity = Mathf.Lerp(1, 0.1f, lightTimer);
-                lightTimer += 0.5f * Time.deltaTime;
-            }
-        }
-
-        if (transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
-        {
-            if (lightTimer > 0)
-            {
-                droneLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                uiLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                scoreLight.intensity = Mathf.Lerp(0, 1, lightTimer);
-                globalLight.intensity = Mathf.Lerp(1, 0.1f, lightTimer);
-                lightTimer -= 0.5f * Time.deltaTime;
-            }
-        }
     }
 
     //Collision detection of triggers
@@ -166,7 +135,23 @@ public class DroneMovement : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.tag == "Pufferfish")
+        if (collision.gameObject.tag == "Otter")
+        {
+            //Decreases the score, although this at the moment isnt useful or being kept afaik
+            netChild.score--;
+
+            //*by Vojta
+            EmotionsScript.SadFace();
+
+            //Checks to see if the net has any trash in it
+            if (netChild.trashList.Count > 0)
+            {
+                //Runs the HitFish() method in the nets code
+                netChild.HitFish();
+            }
+        }
+
+        if (collision.gameObject.tag == "Pufferfish")
         {
             gc.isDisabled = true;
             enabled = false;
