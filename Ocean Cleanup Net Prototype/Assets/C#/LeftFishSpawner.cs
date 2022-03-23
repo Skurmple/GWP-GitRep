@@ -31,7 +31,7 @@ public class LeftFishSpawner : MonoBehaviour
         spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
-        if (fishChoice < 70)
+        if (fishChoice < 75)
         {
             //Instantiates the fish with slight size variation, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
@@ -45,7 +45,7 @@ public class LeftFishSpawner : MonoBehaviour
             //Instantiates the nautilus, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
             clone = Instantiate(nautilus, spawningPosition, transform.rotation);
-            clone.velocity = new Vector2(Random.Range(2, 6), 0f);
+            clone.velocity = new Vector2(Random.Range(3.5f, 6), 0f);
         }
 
         //Checks to see if there is currently a sea turtle on the screen, and if not, enters the if statement
@@ -68,7 +68,7 @@ public class LeftFishSpawner : MonoBehaviour
         }
 
         //Waits randomly between 1 and 3 seconds before trying to spawn another fish
-        yield return new WaitForSeconds(Random.Range(1, 4));
+        yield return new WaitForSeconds(Random.Range(3, 4));
         StartCoroutine(Spawn());
     }
 }
