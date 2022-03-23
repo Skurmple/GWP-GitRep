@@ -8,8 +8,8 @@ public class FishDexManager : MonoBehaviour
     public Image Nautilus_NotScanned;
     public Sprite Nautilus_Scanned;
 
-    public Image SeaTurtle_NotScanned;
-    public Sprite SeaTurtle_Scanned;
+    public Image Oarfish_NotScanned;
+    public Sprite Oarfish_Scanned;
 
     public Image Salmon_NotScanned;
     public Sprite Salmon_Scanned;
@@ -20,15 +20,15 @@ public class FishDexManager : MonoBehaviour
     public Image AnglerFish_NotScanned;
     public Sprite AnglerFish_Scanned;
 
-    public Image SwordFish_NotScanned;
-    public Sprite Swordfish_Scanned;
+    public Image Squid_NotScanned;
+    public Sprite Squid_Scanned;
 
     public Text nautilus;
-    public Text seaTurtle;
+    public Text oarfish;
     public Text salmon;
     public Text pufferfish;
     public Text anglerfish;
-    public Text swordfish;
+    public Text squid;
 
     public bool isScanned_0;
     public bool isScanned_1;
@@ -48,8 +48,8 @@ public class FishDexManager : MonoBehaviour
 
         if(isScanned_1)
         {
-            SeaTurtle_NotScanned.sprite = SeaTurtle_Scanned;
-            seaTurtle.text = "Sea Turtle";
+            Oarfish_NotScanned.sprite = Oarfish_Scanned;
+            oarfish.text = "Oarfish";
         }
 
         if (isScanned_2)
@@ -72,8 +72,8 @@ public class FishDexManager : MonoBehaviour
 
         if (isScanned_5)
         {
-            SwordFish_NotScanned.sprite = Swordfish_Scanned;
-            swordfish.text = "Swordfish";
+            Squid_NotScanned.sprite = Squid_Scanned;
+            squid.text = "Squid";
         }
 
     }

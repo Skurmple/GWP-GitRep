@@ -6,13 +6,15 @@ public class Scanner : MonoBehaviour
 {
     public GameObject[] scannedFish;
     ScannableFish scannableFish;
+    FishDexManager fdm;
     int i;
 
     // Start is called before the first frame update
     void Start()
     {
-        scannedFish = new GameObject[20];
+        scannedFish = new GameObject[10];
         i = 0;
+        fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
     }
 
     // Update is called once per frame
@@ -41,9 +43,20 @@ public class Scanner : MonoBehaviour
             else if(scannableFish.scanProgress >= 100 && !scannableFish.finishedScanning)
             {
                 scannableFish.finishedScanning = true;
-                scannableFish.GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
                 scannedFish[i] = collision.gameObject;
                 i++;
+                switch (scannableFish.name)
+                {
+                    case "Nautilus":
+                        fdm.isScanned_0 = true;
+                        break;
+                    case "Oarfish":
+                        fdm.isScanned_1 = true;
+                        break;
+                    case "Squid":
+                        fdm.isScanned_5 = true;
+                        break;
+                }
             }
 
         }

@@ -25,7 +25,7 @@ public class ScannableFish : MonoBehaviour
 
         if (!finishedScanning)
         {
-            colour = new Vector4(1 - (scanProgress / 100), scanProgress / 100, 0, 255);
+            colour = new Vector4(scanProgress/ 100, scanProgress / 100, scanProgress / 100, 1);
             gameObject.GetComponent<SpriteRenderer>().color = colour;
         }
         
