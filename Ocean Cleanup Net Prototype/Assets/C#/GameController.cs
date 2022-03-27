@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
         mainCameraStartPos = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
 
         //*by Vojta - Getting a reference to the emotions script
-        lookForEmotions = GameObject.Find("Emotions_test");
+        lookForEmotions = GameObject.Find("DroneEmotions");
         EmotionsScript = lookForEmotions.GetComponent<Emotions>();
 
         phoneOpen = 1;

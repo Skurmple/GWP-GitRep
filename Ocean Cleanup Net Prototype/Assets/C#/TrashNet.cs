@@ -9,7 +9,6 @@ public class TrashNet : MonoBehaviour
     public DroneMovement droneParent;
     public List<Coral> coralReefs = new List<Coral>();
     public CrustTrashSpawner trashSpawn;
-    public RainbowCoralSpawner coralSpawner;
 
     GameObject trash;
     GameObject trashToDestroy;
@@ -22,7 +21,6 @@ public class TrashNet : MonoBehaviour
 
     public int score;
     public int plasticTrashAmt = 0, metalTrashAmt = 0, glassTrashAmt = 0;
-    int netUpgradeTimes = 0;
 
     void Update()
     {
@@ -30,9 +28,6 @@ public class TrashNet : MonoBehaviour
         {
             for (int i = 0; i < trashList.Count; i++)
             {
-                //coral.tempColor = coral.GetComponent<SpriteRenderer>().color;
-                //coral.tempColor.a += 0.05f;
-                //coral.GetComponent<SpriteRenderer>().color = coral.tempColor;
                 trashToDestroy = trashList[0];
                 trashList.RemoveAt(0);
                 if (trashToDestroy.gameObject.tag == "PlasticTrash")
@@ -60,16 +55,23 @@ public class TrashNet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //If net is not full
         if (trashList.Count < 7)
         {
+            //And if object is a trash item
             if (collision.gameObject.tag.Contains("Trash"))
             {
                 trash = collision.gameObject;
-                trashList.Add(trash);
-                trash.gameObject.transform.SetParent(centerLocation.gameObject.transform);
-                trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-                trash.gameObject.transform.localPosition = Vector2.zero;
-                trash.gameObject.GetComponent<TrashMovement>().enabled = false;
+
+                //And the trash is not stuck in coral
+                if (trash.GetComponent<TrashMovement>().stuckInCoral == false)
+                {
+                    trashList.Add(trash);
+                    trash.gameObject.transform.SetParent(centerLocation.gameObject.transform);
+                    trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+                    trash.gameObject.transform.localPosition = Vector2.zero;
+                    trash.gameObject.GetComponent<TrashMovement>().enabled = false;
+                }
             }
         }
 
@@ -79,7 +81,6 @@ public class TrashNet : MonoBehaviour
             rainbowCoral = collision.gameObject;
             rainbowCoral.gameObject.transform.SetParent(centerLocation.gameObject.transform);
             rainbowCoral.gameObject.transform.localPosition = Vector2.zero;
-            rainbowCoral.gameObject.GetComponent<RainbowCoral>().enabled = false;
             holdingCoral = true;
         }
 
@@ -88,7 +89,6 @@ public class TrashNet : MonoBehaviour
         {
             holdingCoral = false;
             Destroy(rainbowCoral);
-            coralSpawner.coralSpawned = false;
             
 
             //!!Coral reefs are now stored in a list so there can be multiple coral reefs
@@ -116,20 +116,6 @@ public class TrashNet : MonoBehaviour
                     coralReefs[3].coralHealth += 2;
                     coralReefs[3].spriteChange = true;
                     break;
-            }
-        }
-    }
-
-    public void UpgradeNet()
-    {
-        if (netUpgradeTimes < 3)
-        {
-            if (plasticTrashAmt > 3 && metalTrashAmt > 1 && glassTrashAmt > 1)
-            {
-                plasticTrashAmt -= 4;
-                metalTrashAmt -= 2;
-                glassTrashAmt -= 2;
-                netUpgradeTimes += 1;
             }
         }
     }

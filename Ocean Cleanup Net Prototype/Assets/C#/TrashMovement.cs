@@ -17,6 +17,8 @@ public class TrashMovement : MonoBehaviour
     bool spawnRight;
     bool spawnTop;
     bool stopMoving;
+    public bool reefBlown;
+    public bool stuckInCoral = false;
 
     [Header("Radial Timer")]
     bool dissolvePlastic = false;
@@ -35,7 +37,7 @@ public class TrashMovement : MonoBehaviour
 
         magnitude = Random.Range(0.3f, 1.5f);
 
-        stopMoving = false;
+        stopMoving = true;
 
         CheckWhereSpawn();
     }
@@ -45,16 +47,19 @@ public class TrashMovement : MonoBehaviour
         if (pos.y > -1)
         {
             spawnTop = true;
+            stopMoving = false;
         }
         else
         {
-            if (pos.x > 10)
+            if (pos.x > 20)
             {
                 spawnRight = true;
+                stopMoving = false;
             }
-            else
+            else if (pos.x < -20)
             {
                 spawnRight = false;
+                stopMoving = false;
             }
         }
     }
@@ -62,7 +67,14 @@ public class TrashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTop == true)
+        if (reefBlown == true)
+        {
+            stuckInCoral = false;
+            stopMoving = false;
+            StartCoroutine(MoveBlown());
+        }
+
+        if (spawnTop == true && reefBlown == false)
         {
             if (stopMoving == false)
             {
@@ -71,7 +83,7 @@ public class TrashMovement : MonoBehaviour
         }
         else
         {
-            if (stopMoving == false)
+            if (stopMoving == false && reefBlown == false)
             {
                 if (spawnRight == true)
                 {
@@ -123,11 +135,25 @@ public class TrashMovement : MonoBehaviour
         transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
     }
 
+    IEnumerator MoveBlown()
+    {
+        pos += transform.up * Time.deltaTime * moveSpeed;
+        transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
+        yield return new WaitForSeconds(5);
+        reefBlown = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "CaveEntrance")
         {
             stopMoving = true;
+        }
+
+        if (collision.gameObject.tag == "Reef")
+        {
+            stopMoving = true;
+            stuckInCoral = true;
         }
 
         if (collision.gameObject.name == "TrashShredder")

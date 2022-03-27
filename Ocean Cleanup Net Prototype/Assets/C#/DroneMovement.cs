@@ -31,7 +31,7 @@ public class DroneMovement : MonoBehaviour
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         //*by Vojta - Getting a reference to the emotions script
-        lookForEmotions = GameObject.Find("Emotions_test");
+        lookForEmotions = GameObject.Find("DroneEmotions");
         EmotionsScript = lookForEmotions.GetComponent<Emotions>();
 
         CreateDust();
@@ -54,6 +54,16 @@ public class DroneMovement : MonoBehaviour
         forwardVector = (new Vector3(mousePosition.x, mousePosition.y, 0) - transform.position);
         forwardVector.Normalize();
         transform.right = forwardVector;
+
+        ////Stop drone from swimming upside down
+        //if (mousePosition.x < transform.position.x)
+        //{
+        //    GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 180, 0);
+        //}
+        //if (mousePosition.x > transform.position.x)
+        //{
+        //    GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
+        //}
 
         //Quick check to make sure the drone can't go above the water
         if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
@@ -186,7 +196,6 @@ public class DroneMovement : MonoBehaviour
     void CreateDust()
     {
         bubbles.Play();
-
     }
 
 }
