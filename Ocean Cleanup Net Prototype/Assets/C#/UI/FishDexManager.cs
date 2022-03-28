@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class FishDexManager : MonoBehaviour
 {
-    public Image Nautilus_NotScanned;
-    public Sprite Nautilus_Scanned;
+    public Image Nautilus;
+    public Image SeaTurtle;
+    public Image Salmon;
+    public Image Pufferfish;
+    public Image AnglerFish;
+    public Image SwordFish;
 
-    public Image Oarfish_NotScanned;
-    public Sprite Oarfish_Scanned;
+    public Image SeaTurtle_NotScanned;
+    public Sprite SeaTurtle_Scanned;
 
     public Image Salmon_NotScanned;
     public Sprite Salmon_Scanned;
@@ -20,8 +24,8 @@ public class FishDexManager : MonoBehaviour
     public Image AnglerFish_NotScanned;
     public Sprite AnglerFish_Scanned;
 
-    public Image Squid_NotScanned;
-    public Sprite Squid_Scanned;
+    public Image SwordFish_NotScanned;
+    public Sprite Swordfish_Scanned;
 
     public Text nautilus;
     public Text oarfish;
@@ -29,52 +33,135 @@ public class FishDexManager : MonoBehaviour
     public Text pufferfish;
     public Text anglerfish;
     public Text squid;
+    public Text seaTurtle;
+    public Text swordfish;
 
-    public bool isScanned_0;
-    public bool isScanned_1;
-    public bool isScanned_2;
-    public bool isScanned_3;
-    public bool isScanned_4;
-    public bool isScanned_5;
+    public bool[] hasScanned;
+
+    public GameObject NautilusInfo;
+    public GameObject SeaTurtleInfo;
+
+    public GameObject Fishdex;
+
+    public bool[] opened;
+
+    public GameObject DrawingTurtle;
+    public GameObject PictureTurtle;
+
+    public GameObject DrawingNautilus;
+    public GameObject PictureNautilus;
+
 
 
     void Update()
     {
-        if(isScanned_0)
-        {
-            Nautilus_NotScanned.sprite = Nautilus_Scanned;
-            nautilus.text = "Nautilus";
-        } 
+        DiscoveryOfSpecies();
+    }
 
-        if(isScanned_1)
+    public void DiscoveryOfSpecies()
+    {
+        if (hasScanned[0])
         {
-            Oarfish_NotScanned.sprite = Oarfish_Scanned;
-            oarfish.text = "Oarfish";
+            Nautilus.color = new Color32(255, 255, 255, 255);
+            nautilus.text = "Nautilus";
+        }
+        else
+        {
+            Nautilus.color = new Color32(0, 0, 0, 100);
         }
 
-        if (isScanned_2)
+        if (hasScanned[1])
         {
-            Salmon_NotScanned.sprite = Salmon_Scanned;
+            SeaTurtle_NotScanned.sprite = SeaTurtle_Scanned;
+            seaTurtle.text = "Sea Turtle";
+        }
+        else
+        {
+            SeaTurtle.color = new Color32(0, 0, 0, 100);
+        }
+
+        if (hasScanned[2])
+        {
+            Salmon.color = new Color32(255, 255, 255, 255);
             salmon.text = "Salmon";
         }
-
-        if (isScanned_3)
+        else
         {
-            Pufferfish_NotScanned.sprite = Pufferfish_Scanned;
+            Salmon.color = new Color32(0, 0, 0, 100);
+        }
+
+        if (hasScanned[3])
+        {
+            Pufferfish.color = new Color32(255, 255, 255, 255);
             pufferfish.text = "Pufferfish";
         }
-
-        if (isScanned_4)
+        else
         {
-            AnglerFish_NotScanned.sprite = AnglerFish_Scanned;
+            Pufferfish.color = new Color32(0, 0, 0, 100);
+        }
+
+        if (hasScanned[4])
+        {
+            AnglerFish.color = new Color32(255, 255, 255, 255);
             anglerfish.text = "Anglerfish";
         }
-
-        if (isScanned_5)
+        else
         {
-            Squid_NotScanned.sprite = Squid_Scanned;
-            squid.text = "Squid";
+            AnglerFish.color = new Color32(0, 0, 0, 100);
         }
 
+        if (hasScanned[5])
+        {
+            SwordFish_NotScanned.sprite = Swordfish_Scanned;
+            swordfish.text = "Swordfish";
+        }
+        else
+        {
+            SwordFish.color = new Color32(0, 0, 0, 100);
+        }
     }
+    public void BackToFishDex()
+    {
+        SeaTurtleInfo.SetActive(false);
+        NautilusInfo.SetActive(false);
+        Fishdex.SetActive(true);
+
+        //sets all to false
+        for (int i = 0; i < opened.Length; i++) { opened[i] = false; }
+    }
+
+    public void NextOrPrevious()
+    {
+        if(opened[0])
+        {
+            DrawingNautilus.SetActive(!DrawingNautilus.activeSelf);
+            PictureNautilus.SetActive(!PictureNautilus.activeSelf);
+        }
+        if(opened[1])
+        {
+            DrawingTurtle.SetActive(!DrawingTurtle.activeSelf);
+            PictureTurtle.SetActive(!PictureTurtle.activeSelf);
+        }
+    }
+
+
+    public void OpenNautilus()
+    {
+        if (hasScanned[0])
+        {
+            opened[0] = true;
+            NautilusInfo.SetActive(true);
+            Fishdex.SetActive(false);
+        }
+    }
+    public void OpenSeaTurtle()
+    {
+        if (hasScanned[1])
+        {
+            opened[1] = true;
+            SeaTurtleInfo.SetActive(true);
+            Fishdex.SetActive(false);
+        }
+    }
+
 }

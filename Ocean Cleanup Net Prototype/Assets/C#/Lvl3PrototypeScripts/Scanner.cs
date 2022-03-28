@@ -54,13 +54,13 @@ public class Scanner : MonoBehaviour
                 switch (scannableFish.name)
                 {
                     case "Nautilus":
-                        fdm.isScanned_0 = true;
+                        fdm.hasScanned[0] = true;
                         break;
                     case "Oarfish":
-                        fdm.isScanned_1 = true;
+                        fdm.hasScanned[1] = true;
                         break;
                     case "Squid":
-                        fdm.isScanned_5 = true;
+                        fdm.hasScanned[2] = true;
                         break;
                 }
             }
