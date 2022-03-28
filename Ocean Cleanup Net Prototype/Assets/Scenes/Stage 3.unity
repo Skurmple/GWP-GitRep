@@ -313,7 +313,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.18
+  m_Intensity: 0.25
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -9393,8 +9393,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 15.6
-  m_PointLightOuterAngle: 27.65
+  m_PointLightInnerAngle: 34.49
+  m_PointLightOuterAngle: 47.49
   m_PointLightInnerRadius: 1.81
   m_PointLightOuterRadius: 10.339933
   m_ShapeLightParametricSides: 5
@@ -10546,9 +10546,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.8964876, y: 0.78275263}
+    - - {x: 0.89648753, y: 0.8975298}
       - {x: -0.50782895, y: -1.4211372}
-      - {x: 0.87914795, y: -4.307904}
+      - {x: 0.704744, y: -5.5705543}
 --- !u!50 &962759736
 Rigidbody2D:
   serializedVersion: 4
@@ -11517,7 +11517,7 @@ GameObject:
   - component: {fileID: 1227310385}
   - component: {fileID: 1227310386}
   m_Layer: 0
-  m_Name: Emotions_test
+  m_Name: DroneEmotions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16158,7 +16158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052691690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -14.02, z: 0}
+  m_LocalPosition: {x: -0.42, y: -14.43, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16212,7 +16212,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   trashSpawn: {fileID: 4718034605265146658, guid: 54cc122e7779cab41a71e097a40098b6, type: 3}
-  coralSpawner: {fileID: 0}
   trashList: []
   onBoat: 0
   score: 0

@@ -59,7 +59,7 @@ public class TrashNet : MonoBehaviour
         if (trashList.Count < 7)
         {
             //And if object is a trash item
-            if (collision.gameObject.tag.Contains("Trash"))
+            if (collision.gameObject.tag.Contains("Trash") && !droneParent.dashing)
             {
                 trash = collision.gameObject;
 

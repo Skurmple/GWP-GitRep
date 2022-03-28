@@ -6,9 +6,7 @@ public class Scanner : MonoBehaviour
 {
     public GameObject[] scannedFish;
     ScannableFish scannableFish;
-    TrashMovement reefBlower;
     FishDexManager fdm;
-    bool stage3; //Allows for a check to see if it is stage 3 or stage 2 so the collider can be used as a scanner or reefblower
     int i;
 
     // Start is called before the first frame update
@@ -17,16 +15,6 @@ public class Scanner : MonoBehaviour
         scannedFish = new GameObject[10];
         i = 0;
         fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
-
-        //If FishDexManager is found then it is stage 3
-        if (fdm != null)
-        {
-            stage3 = true;
-        }
-        else
-        {
-            stage3 = false;
-        }
     }
 
     // Update is called once per frame
@@ -37,22 +25,22 @@ public class Scanner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Scannable" && stage3)
+        if (collision.gameObject.tag == "Scannable")
         {
             scannableFish = collision.GetComponent<ScannableFish>();
             scannableFish.beingScanned = true;
         }
 
-        if (collision.gameObject.tag.Contains("Trash") && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true && !stage3)
+        if (collision.gameObject.tag.Contains("Trash") && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true)
         {
-            reefBlower = collision.GetComponent<TrashMovement>();
-            reefBlower.reefBlown = true;
+            //reefBlower = collision.GetComponent<TrashMovement>();
+            //reefBlower.reefBlown = true;
         }
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Scannable" && stage3)
+        if (collision.gameObject.tag == "Scannable")
         {
             if(scannableFish.scanProgress < 100)
             {

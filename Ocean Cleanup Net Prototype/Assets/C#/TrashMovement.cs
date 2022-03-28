@@ -17,7 +17,7 @@ public class TrashMovement : MonoBehaviour
     bool spawnRight;
     bool spawnTop;
     bool stopMoving;
-    public bool reefBlown;
+    public bool reefDashed;
     public bool stuckInCoral = false;
 
     [Header("Radial Timer")]
@@ -67,14 +67,14 @@ public class TrashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (reefBlown == true)
+        if (reefDashed == true)
         {
             stuckInCoral = false;
             stopMoving = false;
-            StartCoroutine(MoveBlown());
+            MoveBlown();
         }
 
-        if (spawnTop == true && reefBlown == false)
+        if (spawnTop == true && reefDashed == false)
         {
             if (stopMoving == false)
             {
@@ -83,7 +83,7 @@ public class TrashMovement : MonoBehaviour
         }
         else
         {
-            if (stopMoving == false && reefBlown == false)
+            if (stopMoving == false && reefDashed == false)
             {
                 if (spawnRight == true)
                 {
@@ -135,12 +135,15 @@ public class TrashMovement : MonoBehaviour
         transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
     }
 
-    IEnumerator MoveBlown()
+    private void MoveBlown()
     {
         pos += transform.up * Time.deltaTime * moveSpeed;
         transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
-        yield return new WaitForSeconds(5);
-        reefBlown = false;
+
+        if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
+        {
+            reefDashed = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

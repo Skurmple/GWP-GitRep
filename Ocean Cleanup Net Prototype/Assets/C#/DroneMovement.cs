@@ -13,6 +13,8 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 startingPosition;
     public float moveSpeed = 7;
+    public bool dashing;
+    TrashMovement dashedTrash;
     public GameController gc;
     public Menu menu;
     public GameObject droneClamp;
@@ -45,7 +47,7 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        if((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f && !Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2)
+        if ((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f && !Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2)
         {
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         }
@@ -77,15 +79,24 @@ public class DroneMovement : MonoBehaviour
         }
         
 
-        if(transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
+        if (transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Left").transform.position.x, transform.position.y, transform.position.z);
         }
 
-        if(transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
+        if (transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Right").transform.position.x, transform.position.y, transform.position.z);
         }
+    }
+
+    IEnumerator DroneDash()
+    {
+        moveSpeed += 10;
+        dashing = true;
+        yield return new WaitForSeconds(1);
+        moveSpeed -= 10;
+        dashing = false;
     }
 
     void Update()
@@ -102,6 +113,11 @@ public class DroneMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             menu.PlayStage3();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !dashing)
+        {
+            StartCoroutine(DroneDash());
         }
 
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
@@ -165,6 +181,12 @@ public class DroneMovement : MonoBehaviour
         {
             gc.isDisabled = true;
             enabled = false;
+        }
+
+        if (collision.gameObject.tag.Contains("Trash") && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true && dashing)
+        {
+            dashedTrash = collision.GetComponent<TrashMovement>();
+            dashedTrash.reefDashed = true;
         }
     }
 
