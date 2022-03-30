@@ -37,6 +37,10 @@ public class FishDexManager : MonoBehaviour
     public Image Alicella;
     public Image AnglerFish;
 
+    //checks youve loaded into the scene
+    public bool hasLoadedScene1;
+    public bool hasLoadedScene2;
+
     //checks to see if the fish has been selected or scaneed
     public bool[] hasScanned;
     public bool[] fishSelected;
@@ -49,6 +53,10 @@ public class FishDexManager : MonoBehaviour
 
     //text in front of sea creature images
     public GameObject[] headings;
+
+    //information for each sea creature
+    public GameObject[] information;
+
 
     private void Update()
     {
@@ -84,11 +92,46 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         LevelSelective.SetActive(true);
+        information[0].SetActive(false);
+        information[1].SetActive(false);
+        information[2].SetActive(false);
     }
-
+    public void BackFromLevel1()
+    {
+        Level1.SetActive(true);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        LevelSelective.SetActive(false);
+        information[0].SetActive(false);
+        information[1].SetActive(false);
+        information[2].SetActive(false);
+        information[3].SetActive(false);
+        information[4].SetActive(false);
+        information[5].SetActive(false);
+    }
+    public void BackFromLevel2()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(true);
+        Level3.SetActive(false);
+        LevelSelective.SetActive(false);
+        information[0].SetActive(false);
+        information[1].SetActive(false);
+        information[2].SetActive(false);
+    }
+    public void BackFromLevel3()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(true);
+        LevelSelective.SetActive(false);
+        information[0].SetActive(false);
+        information[1].SetActive(false);
+        information[2].SetActive(false);
+    }
     public void DiscoveryOfSpecies()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && !hasLoadedScene1)
         {
             AtlanticSalmon.color = new Color32(255, 255, 255, 255);
             Otter.color = new Color32(255, 255, 255, 255);
@@ -116,9 +159,10 @@ public class FishDexManager : MonoBehaviour
             headings[4].GetComponent<Text>().text = "Redfish";
             headings[5].GetComponent<Text>().text = "Saithe";
 
+            hasLoadedScene1 = true;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2 && !hasLoadedScene2)
         {
             Seal.color = new Color32(255, 255, 255, 255);
             KillerWhale.color = new Color32(255, 255, 255, 255);
@@ -129,6 +173,8 @@ public class FishDexManager : MonoBehaviour
             headings[7].GetComponent<Text>().text = "Killer Whale";
             headings[8].GetComponent<Text>().text = "Basking Shark";
             headings[9].GetComponent<Text>().text = "Dolphin";
+
+            hasLoadedScene2 = true;
         }
     }
     private void ScannedFish()
@@ -150,5 +196,71 @@ public class FishDexManager : MonoBehaviour
         }
     }
 
+    public void OpenSalmon()
+    {
+        if (hasLoadedScene1)
+        {
+            information[0].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenOtter()
+    {
+        if (hasLoadedScene1)
+        {
+            information[1].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenJellyFish()
+    {
+        if (hasLoadedScene1)
+        {
+            information[2].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenLing()
+    {
+        if (hasLoadedScene1)
+        {
+            information[3].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenRedFish()
+    {
+        if (hasLoadedScene1)
+        {
+            information[4].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false); 
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
 
+    public void OpenSaithe()
+    {
+        if (hasLoadedScene1)
+        {
+            information[5].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false); 
+            Level3.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
 }
