@@ -93,9 +93,13 @@ public class DroneMovement : MonoBehaviour
     IEnumerator DroneDash()
     {
         moveSpeed += 10;
+        bubbles.startColor = new Color(255, 255, 0, 255);
         dashing = true;
+
         yield return new WaitForSeconds(1);
+
         moveSpeed -= 10;
+        bubbles.startColor = new Color(255, 255, 255, 255);
         dashing = false;
     }
 

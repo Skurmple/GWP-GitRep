@@ -22,10 +22,22 @@ public class TrashNet : MonoBehaviour
     public int score;
     public int plasticTrashAmt = 0, metalTrashAmt = 0, glassTrashAmt = 0;
 
+    bool playSound;
+
+    void Start()
+    {
+        playSound = true;
+    }
+
     void Update()
     {
         if (onBoat == true && trashList.Count > 0)
         {
+           
+            FindObjectOfType<AudioManager>().Play("UnloadTrash");
+
+        
+
             for (int i = 0; i < trashList.Count; i++)
             {
                 trashToDestroy = trashList[0];
@@ -55,6 +67,16 @@ public class TrashNet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag.Contains("Trash"))
+        {
+            if (trashList.Count == 7 && playSound == true)
+            {
+                FindObjectOfType<AudioManager>().Play("FullNet");
+                playSound = false;
+                StartCoroutine(SoundTimer());
+            }
+        }
+
         //If net is not full
         if (trashList.Count < 7)
         {
@@ -66,6 +88,8 @@ public class TrashNet : MonoBehaviour
                 //And the trash is not stuck in coral
                 if (trash.GetComponent<TrashMovement>().stuckInCoral == false)
                 {
+                    FindObjectOfType<AudioManager>().Play("PickTrash");
+
                     trashList.Add(trash);
                     trash.gameObject.transform.SetParent(centerLocation.gameObject.transform);
                     trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
@@ -74,6 +98,7 @@ public class TrashNet : MonoBehaviour
                 }
             }
         }
+        
 
         //For the pick-uppable coral
         if(collision.gameObject.tag == "Coral" && !holdingCoral)
@@ -122,9 +147,18 @@ public class TrashNet : MonoBehaviour
 
     public void HitFish()
     {
+        FindObjectOfType<AudioManager>().Play("HitFish");
+
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
         trashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
         Destroy(trashToLose);
     }
+
+    private IEnumerator SoundTimer()
+    {
+        yield return new WaitForSeconds(1.0f);
+        playSound = true;
+    }
+
 }

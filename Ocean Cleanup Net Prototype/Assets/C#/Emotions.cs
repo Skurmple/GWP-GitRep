@@ -28,6 +28,7 @@ public class Emotions : MonoBehaviour
         if (waitT == false && trashNet.trashList.Count == netLimit)
         {
             drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[1];
+
         }
 
     }
@@ -43,6 +44,9 @@ public class Emotions : MonoBehaviour
     {
         waitT = true;
         drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[3];
+
+        //FindObjectOfType<AudioManager>().Play("FullNet");
+
         StartCoroutine(Timer());
     }
 
