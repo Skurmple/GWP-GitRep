@@ -13692,8 +13692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a156b1681890994dac47ef86b62e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
-  nautilus: {fileID: 8556290762928433840, guid: 5ba404c9177ac6045b05b2d411794b15, type: 3}
+  salmon: {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  redFish: {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
+  ling: {fileID: 409677719207453958, guid: a72cb70e4d6ca78448885df3a0cc1fd1, type: 3}
   turtle: {fileID: 693925181634047607, guid: 7d6e1d1ced4dc56489b8d90fef8a9493, type: 3}
 --- !u!4 &1225843102
 Transform:
@@ -19538,8 +19539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8eb21c573bb0e4993341e6c107990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
-  nautilus: {fileID: 8556290762928433840, guid: 5ba404c9177ac6045b05b2d411794b15, type: 3}
+  salmon: {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  redFish: {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
+  ling: {fileID: 409677719207453958, guid: a72cb70e4d6ca78448885df3a0cc1fd1, type: 3}
+  turtle: {fileID: 693925181634047607, guid: 7d6e1d1ced4dc56489b8d90fef8a9493, type: 3}
 --- !u!4 &2059290767
 Transform:
   m_ObjectHideFlags: 0

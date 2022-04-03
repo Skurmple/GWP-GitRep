@@ -5,8 +5,10 @@ using UnityEngine;
 public class RightFishSpawner : MonoBehaviour
 {
 
-    public Rigidbody2D fish;
-    public Rigidbody2D nautilus;
+    public Rigidbody2D salmon;
+    public Rigidbody2D redFish;
+    public Rigidbody2D ling;
+    public Rigidbody2D turtle;
     Vector3 spawningPosition;
 
     void Start()
@@ -26,19 +28,32 @@ public class RightFishSpawner : MonoBehaviour
         int fishChoice = Random.Range(0, 100);
         spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
 
-        if (fishChoice < 75)
+        //Uses the randomly generated number and checks to see what kind of fish should be made
+        if (fishChoice < 33)
         {
+            //Instantiates the fish with slight size variation, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
-            clone = Instantiate(fish, spawningPosition, transform.rotation);
+            clone = Instantiate(salmon, spawningPosition, transform.rotation);
+            clone.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            clone.velocity = new Vector2(Random.Range(-5, -10), 0f); ;
+        }
+
+        //Else statement to spawn the other kind of fish, which is a nautilus
+        else if (fishChoice >= 33 && fishChoice < 66)
+        {
+            //Instantiates the nautilus, and sets it off with a slightly randomised velocity
+            Rigidbody2D clone;
+            clone = Instantiate(redFish, spawningPosition, transform.rotation);
             clone.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
             clone.velocity = new Vector2(Random.Range(-5, -10), 0f);
         }
-        else
+
+        else if (fishChoice > 66)
         {
             Rigidbody2D clone;
-            clone = Instantiate(nautilus, spawningPosition, transform.rotation);
+            clone = Instantiate(ling, spawningPosition, transform.rotation);
             clone.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-            clone.velocity = new Vector2(Random.Range(-3.5f, -6), 0f);
+            clone.velocity = new Vector2(Random.Range(-5, -10), 0f);
         }
 
         yield return new WaitForSeconds(Random.Range(3, 4));

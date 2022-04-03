@@ -5,8 +5,9 @@ using UnityEngine;
 public class LeftFishSpawner : MonoBehaviour
 {
     //Variable initialisation to store values such as copies of each kind of fish, and where to spawn them
-    public Rigidbody2D fish;
-    public Rigidbody2D nautilus;
+    public Rigidbody2D salmon;
+    public Rigidbody2D redFish;
+    public Rigidbody2D ling;
     public Rigidbody2D turtle;
     Vector3 spawningPosition;
 
@@ -31,20 +32,27 @@ public class LeftFishSpawner : MonoBehaviour
         spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
-        if (fishChoice < 75)
+        if (fishChoice < 33)
         {
             //Instantiates the fish with slight size variation, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
-            clone = Instantiate(fish, spawningPosition, transform.rotation);
+            clone = Instantiate(salmon, spawningPosition, transform.rotation);
             clone.velocity = new Vector2(Random.Range(5, 10), 0f);
         }
 
         //Else statement to spawn the other kind of fish, which is a nautilus
-        else
+        else if(fishChoice >= 33 && fishChoice < 66)
         {
             //Instantiates the nautilus, and sets it off with a slightly randomised velocity
             Rigidbody2D clone;
-            clone = Instantiate(nautilus, spawningPosition, transform.rotation);
+            clone = Instantiate(redFish, spawningPosition, transform.rotation);
+            clone.velocity = new Vector2(Random.Range(3.5f, 6), 0f);
+        }
+
+        else if(fishChoice > 66)
+        {
+            Rigidbody2D clone;
+            clone = Instantiate(ling, spawningPosition, transform.rotation);
             clone.velocity = new Vector2(Random.Range(3.5f, 6), 0f);
         }
 
