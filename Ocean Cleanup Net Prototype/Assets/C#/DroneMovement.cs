@@ -57,15 +57,15 @@ public class DroneMovement : MonoBehaviour
         forwardVector.Normalize();
         transform.right = forwardVector;
 
-        ////Stop drone from swimming upside down
-        //if (mousePosition.x < transform.position.x)
-        //{
-        //    GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 180, 0);
-        //}
-        //if (mousePosition.x > transform.position.x)
-        //{
-        //    GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
-        //}
+        //Stop drone from swimming upside down
+        if (mousePosition.x < transform.position.x)
+        {
+            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        if (mousePosition.x > transform.position.x)
+        {
+            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
+        }
 
         //Quick check to make sure the drone can't go above the water
         if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
@@ -93,13 +93,13 @@ public class DroneMovement : MonoBehaviour
     IEnumerator DroneDash()
     {
         moveSpeed += 10;
-        bubbles.startColor = new Color(255, 255, 0, 255);
+        bubbles.emissionRate += 100;
         dashing = true;
 
         yield return new WaitForSeconds(1);
 
         moveSpeed -= 10;
-        bubbles.startColor = new Color(255, 255, 255, 255);
+        bubbles.emissionRate -= 100;
         dashing = false;
     }
 
