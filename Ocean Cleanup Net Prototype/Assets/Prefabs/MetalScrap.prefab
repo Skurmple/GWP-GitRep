@@ -123,6 +123,8 @@ MonoBehaviour:
   moveSpeed: 1
   frequency: 4
   magnitude: 5
+  reefDashed: 0
+  stuckInCoral: 0
   DissolveTimer: {fileID: 0}
 --- !u!70 &8064739094088897589
 CapsuleCollider2D:
@@ -137,6 +139,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048982356, y: -0.0061219996}
-  m_Size: {x: 4.9922147, y: 3.9528666}
+  m_Offset: {x: 0.02524853, y: -0.0001883537}
+  m_Size: {x: 4.9447503, y: 3.8698041}
   m_Direction: 1

@@ -14,6 +14,8 @@ public class DroneMovement : MonoBehaviour
     Vector3 startingPosition;
     public float moveSpeed = 7;
     public bool dashing;
+    float dashMaxCooldown = 2;
+    float dashCooldown;
     TrashMovement dashedTrash;
     public GameController gc;
     public Menu menu;
@@ -31,6 +33,8 @@ public class DroneMovement : MonoBehaviour
     void Start()
     {
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+        dashCooldown = dashMaxCooldown;
 
         //*by Vojta - Getting a reference to the emotions script
         lookForEmotions = GameObject.Find("DroneEmotions");
@@ -101,6 +105,7 @@ public class DroneMovement : MonoBehaviour
         moveSpeed -= 10;
         bubbles.emissionRate -= 100;
         dashing = false;
+        dashCooldown = dashMaxCooldown;
     }
 
     void Update()
@@ -119,7 +124,12 @@ public class DroneMovement : MonoBehaviour
             menu.PlayStage3();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !dashing)
+        if(dashCooldown > 0)
+        {
+            dashCooldown -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !dashing && dashCooldown <= 0)
         {
             StartCoroutine(DroneDash());
         }

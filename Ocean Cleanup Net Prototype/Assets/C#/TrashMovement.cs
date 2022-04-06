@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TrashMovement : MonoBehaviour
 {
@@ -37,7 +38,12 @@ public class TrashMovement : MonoBehaviour
 
         magnitude = Random.Range(0.3f, 1.5f);
 
-        stopMoving = true;
+        stopMoving = false;
+
+        if (SceneManager.GetActiveScene().name == "Stage 2")
+        {
+            stopMoving = true;
+        }
 
         CheckWhereSpawn();
     }
@@ -47,19 +53,16 @@ public class TrashMovement : MonoBehaviour
         if (pos.y > -1)
         {
             spawnTop = true;
-            stopMoving = false;
         }
         else
         {
             if (pos.x > 20)
             {
                 spawnRight = true;
-                stopMoving = false;
             }
             else if (pos.x < -20)
             {
                 spawnRight = false;
-                stopMoving = false;
             }
         }
     }
@@ -155,8 +158,7 @@ public class TrashMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Reef")
         {
-            stopMoving = true;
-            stuckInCoral = true;
+            Invoke("TanglingInCoral", 0.5f);
         }
 
         if (collision.gameObject.name == "TrashShredder")
@@ -168,5 +170,19 @@ public class TrashMovement : MonoBehaviour
                 dissolvePlastic = true;
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Reef")
+        {
+            CancelInvoke("TanglingInCoral");
+        }
+    }
+
+    private void TanglingInCoral()
+    {
+        stopMoving = true;
+        stuckInCoral = true;
     }
 }
