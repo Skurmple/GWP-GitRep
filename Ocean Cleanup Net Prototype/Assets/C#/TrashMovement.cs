@@ -76,6 +76,7 @@ public class TrashMovement : MonoBehaviour
             if (dislodged)
             {
                 moveSpeed *= 2;
+                pos.x += Random.Range(-2, 3);
                 dislodged = false;
             }
             stopMoving = false;
