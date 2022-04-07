@@ -6,6 +6,7 @@ public class Anglerfish : MonoBehaviour
 {
     public GameObject[] nodes = new GameObject[25];
     int i;
+    public float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class Anglerfish : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += (nodes[i].transform.position - transform.position).normalized * 0.5f;
+        transform.position += (nodes[i].transform.position - transform.position).normalized * moveSpeed / 100;
         transform.right = -(nodes[i].transform.position - transform.position).normalized;
     }
 
