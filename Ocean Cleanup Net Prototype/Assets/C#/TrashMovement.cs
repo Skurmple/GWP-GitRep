@@ -18,6 +18,7 @@ public class TrashMovement : MonoBehaviour
     bool spawnRight;
     bool spawnTop;
     bool stopMoving;
+    bool dislodged = true;
     public bool reefDashed;
     public bool stuckInCoral = false;
 
@@ -72,7 +73,11 @@ public class TrashMovement : MonoBehaviour
     {
         if (reefDashed == true)
         {
-            stuckInCoral = false;
+            if (dislodged)
+            {
+                moveSpeed *= 2;
+                dislodged = false;
+            }
             stopMoving = false;
             MoveBlown();
         }
@@ -140,12 +145,16 @@ public class TrashMovement : MonoBehaviour
 
     private void MoveBlown()
     {
+        Invoke("Dislodged", 1);
+
         pos += transform.up * Time.deltaTime * moveSpeed;
         transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
 
         if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
         {
             reefDashed = false;
+            moveSpeed /= 2;
+            dislodged = true;
         }
     }
 
@@ -178,6 +187,11 @@ public class TrashMovement : MonoBehaviour
         {
             CancelInvoke("TanglingInCoral");
         }
+    }
+
+    private void Dislodged()
+    {
+        stuckInCoral = false;
     }
 
     private void TanglingInCoral()
