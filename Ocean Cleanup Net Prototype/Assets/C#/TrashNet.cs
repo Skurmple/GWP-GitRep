@@ -63,7 +63,7 @@ public class TrashNet : MonoBehaviour
 
         if (score >= 100)
         {
-            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 3"));
+            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
         }
     }
 

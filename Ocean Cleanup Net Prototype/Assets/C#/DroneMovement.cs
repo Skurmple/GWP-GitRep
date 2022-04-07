@@ -124,8 +124,12 @@ public class DroneMovement : MonoBehaviour
         {
             menu.PlayStage3();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            menu.CavesTest();
+        }
 
-        if(dashCooldown > 0)
+        if (dashCooldown > 0)
         {
             dashCooldown -= Time.deltaTime;
         }

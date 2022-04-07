@@ -29,6 +29,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Stage 3");
         Time.timeScale = 1;
     }
+    public void CavesTest()
+    {
+        SceneManager.LoadScene("CavesTest");
+        Time.timeScale = 1;
+    }
 
     public void Help()
     {

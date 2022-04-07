@@ -13,12 +13,17 @@ public class LeftFishSpawner : MonoBehaviour
     public Rigidbody2D[] fishSchools;
     private GameObject[] myGameObjects;
 
+    float top;
+    float bottom;
     Vector3 spawningPosition;
 
 
     //Start is called when the game starts
     void Start()
     {
+        top = this.transform.Find("LeftTop").position.y;
+        bottom = this.transform.Find("LeftBottom").position.y;
+
         //Starts the looping coroutine that spawns the fish
         StartCoroutine(Spawn());
     }
@@ -33,7 +38,7 @@ public class LeftFishSpawner : MonoBehaviour
         int fishChoice = Random.Range(0, 100);
 
         //Sets the position to spawn the fish to a set position with a random height
-        spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0f);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
         if (fishChoice < 33)

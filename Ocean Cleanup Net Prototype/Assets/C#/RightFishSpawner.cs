@@ -9,6 +9,9 @@ public class RightFishSpawner : MonoBehaviour
     public Rigidbody2D redFish;
     public Rigidbody2D ling;
     public Rigidbody2D turtle;
+
+    float top;
+    float bottom;
     Vector3 spawningPosition;
 
     public Rigidbody2D[] fishSchools;
@@ -16,6 +19,9 @@ public class RightFishSpawner : MonoBehaviour
 
     void Start()
     {
+        top = this.transform.Find("RightTop").position.y;
+        bottom = this.transform.Find("RightBottom").position.y;
+
         StartCoroutine(Spawn());
     }
 
@@ -29,7 +35,7 @@ public class RightFishSpawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int fishChoice = Random.Range(0, 100);
-        spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
         if (fishChoice < 33)

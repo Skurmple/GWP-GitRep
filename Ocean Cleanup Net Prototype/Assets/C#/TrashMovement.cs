@@ -63,7 +63,12 @@ public class TrashMovement : MonoBehaviour
     {
         if (reefDashed == true)
         {
-            stuckInCoral = false;
+            if (dislodged)
+            {
+                moveSpeed *= 2;
+                pos.x += Random.Range(-2, 3);
+                dislodged = false;
+            }
             stopMoving = false;
             MoveBlown();
         }
@@ -117,6 +122,8 @@ public class TrashMovement : MonoBehaviour
 
     private void MoveBlown()
     {
+        Invoke("Dislodged", 1);
+
         pos += transform.up * Time.deltaTime * moveSpeed;
         transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
 
@@ -130,9 +137,19 @@ public class TrashMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "CaveEntrance")
+        if (collision.gameObject.tag == "Boulders")
         {
-            stopMoving = true;
+            if (reefDashed)
+            {
+                Debug.Log("HitUp");
+                reefDashed = false;
+                moveSpeed = originalMoveSpeed;
+                dislodged = true;
+            }
+            else
+            {
+                stopMoving = true;
+            }
         }
 
         if (collision.gameObject.tag == "Reef")
@@ -157,6 +174,11 @@ public class TrashMovement : MonoBehaviour
         {
             CancelInvoke("TanglingInCoral");
         }
+    }
+
+    private void Dislodged()
+    {
+        stuckInCoral = false;
     }
 
     private void TanglingInCoral()
