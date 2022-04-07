@@ -11,6 +11,7 @@ public class Oarfish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rotatePoint = GameObject.Find("OarfishPOI");
         rotationDirection = 1;
     }
 

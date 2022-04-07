@@ -9,6 +9,10 @@ public class LeftFishSpawner : MonoBehaviour
     public Rigidbody2D redFish;
     public Rigidbody2D ling;
     public Rigidbody2D turtle;
+
+    public Rigidbody2D[] fishSchools;
+    private GameObject[] myGameObjects;
+
     Vector3 spawningPosition;
 
 
@@ -29,7 +33,7 @@ public class LeftFishSpawner : MonoBehaviour
         int fishChoice = Random.Range(0, 100);
 
         //Sets the position to spawn the fish to a set position with a random height
-        spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0f);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
         if (fishChoice < 33)
@@ -73,10 +77,45 @@ public class LeftFishSpawner : MonoBehaviour
                 clone = Instantiate(turtle, spawningPosition, transform.rotation);
                 clone.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
             }
+
+         
         }
 
-        //Waits randomly between 1 and 3 seconds before trying to spawn another fish
-        yield return new WaitForSeconds(Random.Range(3, 4));
+        //by Vojta
+        myGameObjects = GameObject.FindGameObjectsWithTag("FishSchool");
+
+        if (myGameObjects.Length < 3)
+        {
+            int fishSchoolChance = Random.Range(0, 100);
+
+            spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0);
+
+            if (fishSchoolChance < 33)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[0], spawningPosition, transform.rotation);
+                clone.transform.localScale = new Vector3(-1, 1, 1);
+                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+
+            }
+            else if (fishSchoolChance >= 33 && fishSchoolChance <= 66)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[1], spawningPosition, transform.rotation);
+                clone.transform.localScale = new Vector3(-1, 1, 1);
+                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+            }
+            else if (fishSchoolChance > 66)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[2], spawningPosition, transform.rotation);
+                clone.transform.localScale = new Vector3(-1, 1, 1);
+                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+            }
+
+        }
+            //Waits randomly between 1 and 3 seconds before trying to spawn another fish
+            yield return new WaitForSeconds(Random.Range(3, 4));
         StartCoroutine(Spawn());
     }
 }

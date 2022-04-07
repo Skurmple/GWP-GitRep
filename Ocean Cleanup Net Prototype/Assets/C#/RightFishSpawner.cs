@@ -11,6 +11,9 @@ public class RightFishSpawner : MonoBehaviour
     public Rigidbody2D turtle;
     Vector3 spawningPosition;
 
+    public Rigidbody2D[] fishSchools;
+    private GameObject[] myGameObjects;
+
     void Start()
     {
         StartCoroutine(Spawn());
@@ -26,7 +29,7 @@ public class RightFishSpawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int fishChoice = Random.Range(0, 100);
-        spawningPosition = new Vector3(transform.position.x, Random.Range(8, 23), 0);
+        spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0);
 
         //Uses the randomly generated number and checks to see what kind of fish should be made
         if (fishChoice < 33)
@@ -54,6 +57,37 @@ public class RightFishSpawner : MonoBehaviour
             clone = Instantiate(ling, spawningPosition, transform.rotation);
             clone.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
             clone.velocity = new Vector2(Random.Range(-5, -10), 0f);
+        }
+
+        //by Vojta
+        myGameObjects = GameObject.FindGameObjectsWithTag("FishSchool");
+
+        if (myGameObjects.Length < 3)
+        {
+            int fishSchoolChance = Random.Range(0, 100);
+
+            spawningPosition = new Vector3(transform.position.x, Random.Range(0.5f, 22), 0);
+
+            if (fishSchoolChance < 33)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[0], spawningPosition, transform.rotation);
+                clone.velocity = new Vector2(Random.Range(-3, -6), 0f);
+
+            }
+            else if (fishSchoolChance >= 33 && fishSchoolChance <= 66)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[1], spawningPosition, transform.rotation);
+                clone.velocity = new Vector2(Random.Range(-3, -6), 0f);
+            }
+            else if (fishSchoolChance > 66)
+            {
+                Rigidbody2D clone;
+                clone = Instantiate(fishSchools[2], spawningPosition, transform.rotation);
+                clone.velocity = new Vector2(Random.Range(-3, -6), 0f);
+            }
+
         }
 
         yield return new WaitForSeconds(Random.Range(3, 4));

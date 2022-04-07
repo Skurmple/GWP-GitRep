@@ -18,7 +18,7 @@ public class CoralTrashSpawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        int amountOfTrash = Random.Range(2, 5);
+        int amountOfTrash = Random.Range(2, 4);
 
         for (int i = 0; i < amountOfTrash; i++)
         {
