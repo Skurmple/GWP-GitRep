@@ -66,10 +66,4 @@ public class CoralTrashSpawner : MonoBehaviour
         }
         yield break;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

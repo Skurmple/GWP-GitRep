@@ -90,5 +90,8 @@ public class CrustTrashSpawner : MonoBehaviour
         clone = Instantiate(trash.GetComponent<Rigidbody2D>(), droppedPosition, Quaternion.identity);
         clone.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         clone.gameObject.GetComponent<TrashMovement>().enabled = true;
+        clone.gameObject.GetComponent<TrashMovement>().dislodged = false;
+        clone.gameObject.GetComponent<TrashMovement>().reefDashed = false;
+        clone.gameObject.GetComponent<TrashMovement>().netFall = true;
     }
 }

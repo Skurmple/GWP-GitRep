@@ -10,14 +10,17 @@ public class TrashMovement : MonoBehaviour
     float moveSpeed = 2f;
 
     [SerializeField]
+    float originalMoveSpeed;
+
+    [SerializeField]
     float frequency = 10f;
 
     [SerializeField]
     float magnitude = 0.5f;
 
-    bool spawnRight;
-    bool spawnTop;
     bool stopMoving;
+    public bool netFall;
+    public bool dislodged = true;
     public bool reefDashed;
     public bool stuckInCoral = false;
 
@@ -40,30 +43,18 @@ public class TrashMovement : MonoBehaviour
 
         stopMoving = false;
 
-        if (SceneManager.GetActiveScene().name == "Stage 2")
+        if (netFall)
         {
-            stopMoving = true;
-        }
-
-        CheckWhereSpawn();
-    }
-
-    private void CheckWhereSpawn()
-    {
-        if (pos.y > -1)
-        {
-            spawnTop = true;
+            moveSpeed = originalMoveSpeed;
         }
         else
         {
-            if (pos.x > 20)
-            {
-                spawnRight = true;
-            }
-            else if (pos.x < -20)
-            {
-                spawnRight = false;
-            }
+            originalMoveSpeed = moveSpeed;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage 2" && !netFall)
+        {
+            stopMoving = true;
         }
     }
 
@@ -77,25 +68,11 @@ public class TrashMovement : MonoBehaviour
             MoveBlown();
         }
 
-        if (spawnTop == true && reefDashed == false)
+        if (reefDashed == false)
         {
             if (stopMoving == false)
             {
                 MoveDown();
-            }
-        }
-        else
-        {
-            if (stopMoving == false && reefDashed == false)
-            {
-                if (spawnRight == true)
-                {
-                    MoveLeft();
-                }
-                else
-                {
-                    MoveRight();
-                }
             }
         }
 
@@ -146,6 +123,8 @@ public class TrashMovement : MonoBehaviour
         if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
         {
             reefDashed = false;
+            moveSpeed = originalMoveSpeed;
+            dislodged = true;
         }
     }
 
@@ -182,7 +161,7 @@ public class TrashMovement : MonoBehaviour
 
     private void TanglingInCoral()
     {
-        stopMoving = true;
         stuckInCoral = true;
+        stopMoving = true;
     }
 }

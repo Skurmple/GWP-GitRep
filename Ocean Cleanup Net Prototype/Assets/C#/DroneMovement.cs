@@ -168,6 +168,8 @@ public class DroneMovement : MonoBehaviour
             //*by Vojta
             EmotionsScript.SadFace();
 
+            FindObjectOfType<AudioManager>().Play("HitFish");
+
             //Checks to see if the net has any trash in it
             if (netChild.trashList.Count > 0)
             {

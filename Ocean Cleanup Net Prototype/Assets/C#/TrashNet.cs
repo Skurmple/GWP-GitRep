@@ -8,7 +8,9 @@ public class TrashNet : MonoBehaviour
     public GameObject centerLocation;
     public DroneMovement droneParent;
     public List<Coral> coralReefs = new List<Coral>();
-    public CrustTrashSpawner trashSpawn;
+
+    [SerializeField]
+    CrustTrashSpawner crustTrashSpawn;
 
     GameObject trash;
     GameObject trashToDestroy;
@@ -81,7 +83,7 @@ public class TrashNet : MonoBehaviour
         if (trashList.Count < 7)
         {
             //And if object is a trash item
-            if (collision.gameObject.tag.Contains("Trash") && !droneParent.dashing)
+            if (collision.gameObject.tag.Contains("Trash"))
             {
                 trash = collision.gameObject;
 
@@ -147,11 +149,9 @@ public class TrashNet : MonoBehaviour
 
     public void HitFish()
     {
-        FindObjectOfType<AudioManager>().Play("HitFish");
-
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
-        trashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
+        crustTrashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
         Destroy(trashToLose);
     }
 
