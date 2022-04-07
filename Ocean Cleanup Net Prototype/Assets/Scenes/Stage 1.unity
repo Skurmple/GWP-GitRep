@@ -1092,7 +1092,16 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PickTrash
     clip: {fileID: 8300000, guid: 1d2f300cc6dff7143abdd9eefe8aacfe, type: 3}
-    volume: 0.25
+    volume: 0.7
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 64de079158cef764eaa56b0c02413bc7, type: 3}
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

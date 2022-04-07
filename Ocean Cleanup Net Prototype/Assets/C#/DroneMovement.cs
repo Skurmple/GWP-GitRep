@@ -98,9 +98,10 @@ public class DroneMovement : MonoBehaviour
     {
         moveSpeed += 10;
         bubbles.emissionRate += 100;
+        FindObjectOfType<AudioManager>().Play("Dash");
         dashing = true;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         moveSpeed -= 10;
         bubbles.emissionRate -= 100;
