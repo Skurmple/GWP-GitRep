@@ -121,9 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1
+  originalMoveSpeed: 0
   frequency: 7
   magnitude: 0.6
+  netFall: 0
+  dislodged: 1
+  reefDashed: 0
+  stuckInCoral: 0
   DissolveTimer: {fileID: 1004465272414697896}
 --- !u!70 &5974088111165575393
 CapsuleCollider2D:

@@ -36,7 +36,6 @@ public class CrustSpawner : MonoBehaviour
 
     IEnumerator SpawnCrust()
     {
-        clamp.SetActive(true);
         gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
 

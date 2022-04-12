@@ -19,7 +19,6 @@ public class DroneMovement : MonoBehaviour
     TrashMovement dashedTrash;
     public GameController gc;
     public Menu menu;
-    public GameObject droneClamp;
 
     public Light2D droneLight;
     public Light2D globalLight;
@@ -77,18 +76,12 @@ public class DroneMovement : MonoBehaviour
             transform.position = new Vector3(transform.position.x, GameObject.Find("Ocean Surface").transform.position.y, transform.position.z);
         }
 
-        if (transform.position.y < droneClamp.transform.position.y && droneClamp.activeSelf == true)
-        {
-            transform.position = new Vector3(transform.position.x, droneClamp.transform.position.y, transform.position.z);
-        }
-        
-
-        if (transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
+        if (transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x)
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Left").transform.position.x, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x && transform.position.y > GameObject.Find("Cave Entrance").transform.position.y)
+        if (transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x)
         {
             transform.position = new Vector3(GameObject.Find("Net Blocker Right").transform.position.x, transform.position.y, transform.position.z);
         }
@@ -224,7 +217,6 @@ public class DroneMovement : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = startingPosition;
-        droneClamp.SetActive(true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

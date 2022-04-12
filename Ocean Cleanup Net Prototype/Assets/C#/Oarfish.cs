@@ -18,7 +18,7 @@ public class Oarfish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(rotatePoint.transform.position, new Vector3(0, 0, rotationDirection), rotationSpeed * Time.deltaTime);
+        //transform.RotateAround(rotatePoint.transform.position, new Vector3(0, 0, rotationDirection), rotationSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

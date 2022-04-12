@@ -66,7 +66,7 @@ public class TrashMovement : MonoBehaviour
             if (dislodged)
             {
                 moveSpeed *= 2;
-                pos.x += Random.Range(-2, 3);
+                pos.x += Random.Range(-3, 4);
                 dislodged = false;
             }
             stopMoving = false;
@@ -141,7 +141,6 @@ public class TrashMovement : MonoBehaviour
         {
             if (reefDashed)
             {
-                Debug.Log("HitUp");
                 reefDashed = false;
                 moveSpeed = originalMoveSpeed;
                 dislodged = true;
