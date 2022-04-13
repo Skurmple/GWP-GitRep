@@ -14,7 +14,10 @@ public class Scanner : MonoBehaviour
     {
         scannedFish = new GameObject[10];
         i = 0;
-        fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
+        if(GameObject.Find("FishDexManager") != null)
+        {
+            fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
+        }
     }
 
     // Update is called once per frame

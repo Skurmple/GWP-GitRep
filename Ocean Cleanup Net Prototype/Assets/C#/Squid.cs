@@ -9,7 +9,6 @@ public class Squid : MonoBehaviour
     Vector3 moveDirection;
     float time;
     int i;
-    bool reverseOrder;
     GameObject nextNode;
 
     // Start is called before the first frame update
@@ -17,7 +16,6 @@ public class Squid : MonoBehaviour
     {
         nextNode = nodes[0];
         i = 0;
-        reverseOrder = false;
     }
 
     // Update is called once per frame
@@ -32,50 +30,6 @@ public class Squid : MonoBehaviour
         {
             Dash();
         }
-        if(time >= 3.3f)
-        {
-            if (!reverseOrder)
-            {
-                switch (i)
-                {
-                    case 3:
-                        i = 2;
-                        reverseOrder = true;
-                        break;
-                    case 2:
-                        i = 3;
-                        break;
-                    case 1:
-                        i = 2;
-                        break;
-                    case 0:
-                        i = 1;
-                        break;
-                }
-            }
-            else if (reverseOrder)
-            {
-                switch (i)
-                {
-                    case 0:
-                        i = 1;
-                        reverseOrder = false;
-                        break;
-                    case 1:
-                        i = 0;
-                        break;
-                    case 2:
-                        i = 1;
-                        break;
-                    case 3:
-                        i = 2;
-                        break;
-                }
-            }
-
-            nextNode = nodes[i];
-            time = 0;
-        }
     }
 
     void BuildUp()
@@ -83,11 +37,26 @@ public class Squid : MonoBehaviour
         moveDirection = nextNode.transform.position - transform.position;
         moveSpeed = 0.01f;
         transform.position += moveSpeed * moveDirection.normalized;
+        transform.right = -moveDirection.normalized;
     }
 
     void Dash()
     {
         moveSpeed = 0.4f;
         transform.position += moveSpeed * moveDirection.normalized;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == nodes[i])
+        {
+            i++;
+            if (nodes[i] == null)
+            {
+                i = 0;
+            }
+            nextNode = nodes[i];
+            time = 0;
+        }
     }
 }
