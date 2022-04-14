@@ -26,7 +26,7 @@ public class TrashMovement : MonoBehaviour
 
     //[Header("Radial Timer")]
     bool dissolvePlastic = true;
-    public float indicatorTimer = 20.0f;
+    float indicatorTimer = 25.0f;
     //float maxIndicatorTimer = 1.0f;
     //[SerializeField] private Image DissolveTimer = null;
 

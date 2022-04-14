@@ -99,7 +99,6 @@ public class TrashNet : MonoBehaviour
                     trash.gameObject.GetComponent<TrashMovement>().enabled = false;
 
                     Animator animatorTrash;
-                    animatorTrash = trash.transform.GetChild(0).GetComponent<Animator>();
                     animatorTrash = trash.gameObject.GetComponent<Animator>();
                     animatorTrash.SetBool("inNet", true);
                 }
@@ -156,7 +155,7 @@ public class TrashNet : MonoBehaviour
     {
         trashToLose = trashList[0];
         trashList.RemoveAt(0);
-        //crustTrashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
+        crustTrashSpawn.SpawnReplaceTrash(this.transform.position, trashToLose);
         Destroy(trashToLose.gameObject);
     }
 
