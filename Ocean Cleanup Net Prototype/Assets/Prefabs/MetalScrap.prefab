@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 15b64600497c1f448a25f1ac225fa394, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,7 +128,8 @@ MonoBehaviour:
   dislodged: 1
   reefDashed: 0
   stuckInCoral: 0
-  DissolveTimer: {fileID: 0}
+  indicatorTimer: 20
+  animator: {fileID: 0}
 --- !u!70 &8064739094088897589
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

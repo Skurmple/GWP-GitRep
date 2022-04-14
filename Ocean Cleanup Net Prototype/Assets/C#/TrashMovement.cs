@@ -24,19 +24,23 @@ public class TrashMovement : MonoBehaviour
     public bool reefDashed;
     public bool stuckInCoral = false;
 
-    [Header("Radial Timer")]
-    bool dissolvePlastic = false;
-    float indicatorTimer = 10.0f;
-    float maxIndicatorTimer = 1.0f;
-    [SerializeField] private Image DissolveTimer = null;
+    //[Header("Radial Timer")]
+    bool dissolvePlastic = true;
+    public float indicatorTimer = 20.0f;
+    //float maxIndicatorTimer = 1.0f;
+    //[SerializeField] private Image DissolveTimer = null;
 
 
     Vector3 pos;
     Quaternion targetRot = Quaternion.Euler(new Vector3(0, 0, 0));
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator.SetFloat("timerDissolve", indicatorTimer);
+
         pos = transform.position;
 
         magnitude = Random.Range(0.3f, 1.5f);
@@ -81,25 +85,32 @@ public class TrashMovement : MonoBehaviour
             }
         }
 
-        if (dissolvePlastic)
-        {
-            indicatorTimer -= Time.deltaTime;
-            DissolveTimer.enabled = true;
-            DissolveTimer.fillAmount = indicatorTimer / 10;
+        //if (dissolvePlastic)
+        //{
+            animator.SetFloat("timerDissolve", indicatorTimer -= Time.deltaTime);
 
-            if (indicatorTimer <= 5 && indicatorTimer > 2.5f)
-            {
-                DissolveTimer.color = new Color32(255, 105, 0, 150);
-            }
-            else if (indicatorTimer <= 2.5f && indicatorTimer > 0)
-            {
-                DissolveTimer.color = new Color32(255, 0, 0, 150);
-            }
-            else if (indicatorTimer <= 0)
+            if (indicatorTimer <= 0)
             {
                 Destroy(gameObject);
             }
-        }
+
+            //indicatorTimer -= Time.deltaTime;
+            //DissolveTimer.enabled = true;
+            //DissolveTimer.fillAmount = indicatorTimer / 10;
+
+            //if (indicatorTimer <= 5 && indicatorTimer > 2.5f)
+            //{
+            //    DissolveTimer.color = new Color32(255, 105, 0, 150);
+            //}
+            //else if (indicatorTimer <= 2.5f && indicatorTimer > 0)
+            //{
+            //    DissolveTimer.color = new Color32(255, 0, 0, 150);
+            //}
+            //else if (indicatorTimer <= 0)
+            //{
+            //    Destroy(gameObject);
+            //}
+        //}
     }
 
     private void MoveDown()
@@ -158,12 +169,13 @@ public class TrashMovement : MonoBehaviour
 
         if (collision.gameObject.name == "TrashShredder")
         {
-            stopMoving = true;
+           stopMoving = true;
 
-            if (this.gameObject.tag == "PlasticTrash")
-            {
-                dissolvePlastic = true;
-            }
+        //    if (this.gameObject.tag == "PlasticTrash")
+        //    {
+        //        dissolvePlastic = true;
+        //    }
+        
         }
     }
 
