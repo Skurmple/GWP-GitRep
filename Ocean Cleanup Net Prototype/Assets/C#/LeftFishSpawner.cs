@@ -5,10 +5,9 @@ using UnityEngine;
 public class LeftFishSpawner : MonoBehaviour
 {
     //Variable initialisation to store values such as copies of each kind of fish, and where to spawn them
-    public Rigidbody2D salmon;
-    public Rigidbody2D redFish;
-    public Rigidbody2D ling;
     public Rigidbody2D turtle;
+    public Rigidbody2D[] smallFishList;
+    public Rigidbody2D[] largeFishList;
 
     public Rigidbody2D[] fishSchools;
     private GameObject[] myGameObjects;
@@ -32,37 +31,31 @@ public class LeftFishSpawner : MonoBehaviour
     IEnumerator Spawn()
     {
         //Waits 1.5f before each spawn
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(Random.Range(1, 2));
 
-        //Creates a random number to decide which kind of fish is spawned
-        int fishChoice = Random.Range(0, 100);
+        int largeOrSmall = Random.Range(1, 5);
 
-        //Sets the position to spawn the fish to a set position with a random height
-        spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
-
-        //Uses the randomly generated number and checks to see what kind of fish should be made
-        if (fishChoice < 33)
+        if (largeOrSmall == 1)
         {
-            //Instantiates the fish with slight size variation, and sets it off with a slightly randomised velocity
+            int fishChoice = Random.Range(1, largeFishList.Length + 1);
+
+            spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
             Rigidbody2D clone;
-            clone = Instantiate(salmon, spawningPosition, transform.rotation);
-            clone.velocity = new Vector2(Random.Range(5, 10), 0f);
+            clone = Instantiate(largeFishList[fishChoice - 1], spawningPosition, transform.rotation);
+            clone.transform.localScale = new Vector3(clone.transform.localScale.x * -1, clone.transform.localScale.y, clone.transform.localScale.z);
+            clone.velocity = new Vector2(Random.Range(3, 8), 0f);
         }
 
-        //Else statement to spawn the other kind of fish, which is a nautilus
-        else if(fishChoice >= 33 && fishChoice < 66)
+        else if (largeOrSmall > 1)
         {
-            //Instantiates the nautilus, and sets it off with a slightly randomised velocity
-            Rigidbody2D clone;
-            clone = Instantiate(redFish, spawningPosition, transform.rotation);
-            clone.velocity = new Vector2(Random.Range(3.5f, 6), 0f);
-        }
+            int fishChoice = Random.Range(1, smallFishList.Length + 1);
 
-        else if(fishChoice > 66)
-        {
+            spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
+
             Rigidbody2D clone;
-            clone = Instantiate(ling, spawningPosition, transform.rotation);
-            clone.velocity = new Vector2(Random.Range(3.5f, 6), 0f);
+            clone = Instantiate(smallFishList[fishChoice - 1], spawningPosition, transform.rotation);
+            clone.transform.localScale = new Vector3(clone.transform.localScale.x * -1, clone.transform.localScale.y, clone.transform.localScale.z);
+            clone.velocity = new Vector2(Random.Range(3, 8), 0f);
         }
 
         //Checks to see if there is currently a sea turtle on the screen, and if not, enters the if statement
@@ -72,18 +65,18 @@ public class LeftFishSpawner : MonoBehaviour
             int turtleChance = Random.Range(0, 100);
 
             //Sets the position of where to spawn the turtle
-            spawningPosition = new Vector3(transform.position.x, transform.position.y - 5, 0);
+            spawningPosition = new Vector3(transform.position.x, Random.Range(bottom, top), 0f);
 
-            //Makes it a 25% chance to spawn a turtle
-            if (turtleChance > 75)
+            //Makes it a 60% chance to spawn a turtle
+            if (turtleChance > 40)
             {
                 //Instantiates the turtle and sets its speed
-                Rigidbody2D clone;
-                clone = Instantiate(turtle, spawningPosition, transform.rotation);
-                clone.transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+                Rigidbody2D cloneT;
+                cloneT = Instantiate(turtle, spawningPosition, transform.rotation);
+                cloneT.transform.localScale = new Vector3(cloneT.transform.localScale.x*-1, cloneT.transform.localScale.y, cloneT.transform.localScale.z);
+                cloneT.velocity = new Vector2(Random.Range(1, 2), 0);
             }
 
-         
         }
 
         //by Vojta
@@ -97,30 +90,30 @@ public class LeftFishSpawner : MonoBehaviour
 
             if (fishSchoolChance < 33)
             {
-                Rigidbody2D clone;
-                clone = Instantiate(fishSchools[0], spawningPosition, transform.rotation);
-                clone.transform.localScale = new Vector3(-1, 1, 1);
-                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+                Rigidbody2D clone1;
+                clone1 = Instantiate(fishSchools[0], spawningPosition, transform.rotation);
+                clone1.transform.localScale = new Vector3(-1, 1, 1);
+                clone1.velocity = new Vector2(Random.Range(3, 6), 0f);
 
             }
             else if (fishSchoolChance >= 33 && fishSchoolChance <= 66)
             {
-                Rigidbody2D clone;
-                clone = Instantiate(fishSchools[1], spawningPosition, transform.rotation);
-                clone.transform.localScale = new Vector3(-1, 1, 1);
-                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+                Rigidbody2D clone2;
+                clone2 = Instantiate(fishSchools[1], spawningPosition, transform.rotation);
+                clone2.transform.localScale = new Vector3(-1, 1, 1);
+                clone2.velocity = new Vector2(Random.Range(3, 6), 0f);
             }
             else if (fishSchoolChance > 66)
             {
-                Rigidbody2D clone;
-                clone = Instantiate(fishSchools[2], spawningPosition, transform.rotation);
-                clone.transform.localScale = new Vector3(-1, 1, 1);
-                clone.velocity = new Vector2(Random.Range(3, 6), 0f);
+                Rigidbody2D clone3;
+                clone3 = Instantiate(fishSchools[2], spawningPosition, transform.rotation);
+                clone3.transform.localScale = new Vector3(-1, 1, 1);
+                clone3.velocity = new Vector2(Random.Range(3, 6), 0f);
             }
 
         }
             //Waits randomly between 1 and 3 seconds before trying to spawn another fish
-            yield return new WaitForSeconds(Random.Range(3, 4));
+            yield return new WaitForSeconds(Random.Range(4, 5));
         StartCoroutine(Spawn());
     }
 }
