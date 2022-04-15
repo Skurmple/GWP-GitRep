@@ -14,6 +14,7 @@ public class DroneMovement : MonoBehaviour
     Vector3 startingPosition;
     public float moveSpeed = 7;
     public bool dashing;
+    Coroutine dash;
     float dashMaxCooldown = 2;
     float dashCooldown;
     TrashMovement dashedTrash;
@@ -50,7 +51,7 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        if ((mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 0.6f && !Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2)
+        if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18 || dashing)
         {
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         }
@@ -129,7 +130,7 @@ public class DroneMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !dashing && dashCooldown <= 0)
         {
-            StartCoroutine(DroneDash());
+            dash = StartCoroutine(DroneDash());
         }
 
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

@@ -33,7 +33,7 @@ public class LeftFishSpawner : MonoBehaviour
         //Waits 1.5f before each spawn
         yield return new WaitForSeconds(Random.Range(1, 2));
 
-        int largeOrSmall = Random.Range(1, 5);
+        int largeOrSmall = Random.Range(1, 6);
 
         if (largeOrSmall == 1)
         {

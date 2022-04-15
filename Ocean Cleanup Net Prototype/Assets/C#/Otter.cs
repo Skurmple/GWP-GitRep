@@ -14,29 +14,40 @@ public class Otter : MonoBehaviour
     float magnitude = 0.5f;
 
     Vector3 pos;
+    bool spawnRight;
 
     // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
+
+        CheckWhereSpawn();
+    }
+
+    private void CheckWhereSpawn()
+    {
+        if (pos.x > 10)
+        {
+            spawnRight = true;
+        }
+        else if (pos.x < -10)
+        {
+            spawnRight = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        pos += transform.right * Time.deltaTime * moveSpeed;
-        transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
-
-
-        if (transform.position.x < GameObject.Find("Net Blocker Left").transform.position.x - 10)
+        if (spawnRight == true)
         {
-            transform.Rotate(0, 180, 0);
+            pos -= transform.right * Time.deltaTime * moveSpeed;
+            transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
         }
-
-        if (transform.position.x > GameObject.Find("Net Blocker Right").transform.position.x + 10)
+        else
         {
-            transform.Rotate(0, 180, 0);
+            pos += transform.right * Time.deltaTime * moveSpeed;
+            transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
         }
-
     }
 }

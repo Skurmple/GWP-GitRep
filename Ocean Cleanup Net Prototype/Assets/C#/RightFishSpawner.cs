@@ -30,7 +30,7 @@ public class RightFishSpawner : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1, 2));
 
         //smaller chance for large fish species
-        int largeOrSmall = Random.Range(1, 5);
+        int largeOrSmall = Random.Range(1, 6);
         
         if (largeOrSmall == 1)
         {
