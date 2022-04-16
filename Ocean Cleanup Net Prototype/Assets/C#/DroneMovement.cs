@@ -18,6 +18,7 @@ public class DroneMovement : MonoBehaviour
     float dashMaxCooldown = 2;
     float dashCooldown;
     TrashMovement dashedTrash;
+    TrashMovementNoAnim dashedTrashNoAnim;
     public GameController gc;
     public Menu menu;
 
@@ -198,10 +199,18 @@ public class DroneMovement : MonoBehaviour
             enabled = false;
         }
 
-        if (collision.gameObject.tag.Contains("Trash") && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true && dashing)
+        if (collision.gameObject.tag.Contains("Trash") && dashing)
         {
-            dashedTrash = collision.GetComponent<TrashMovement>();
-            dashedTrash.reefDashed = true;
+            if (collision.gameObject.GetComponent<TrashMovement>() != null && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true)
+            {
+                dashedTrash = collision.GetComponent<TrashMovement>();
+                dashedTrash.reefDashed = true;
+            }
+            else if (collision.gameObject.GetComponent<TrashMovementNoAnim>() != null && collision.gameObject.GetComponent<TrashMovementNoAnim>().stuckInCoral == true)
+            {
+                dashedTrashNoAnim = collision.GetComponent<TrashMovementNoAnim>();
+                dashedTrashNoAnim.reefDashed = true;
+            }
         }
     }
 

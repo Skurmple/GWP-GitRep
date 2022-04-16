@@ -60,11 +60,6 @@ public class TrashNet : MonoBehaviour
                 Destroy(trashToDestroy.gameObject);
             }
         }
-
-        if (score >= 100)
-        {
-            StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -88,7 +83,7 @@ public class TrashNet : MonoBehaviour
                 trash = collision.gameObject;
 
                 //And the trash is not stuck in coral
-                if (trash.GetComponent<TrashMovement>().stuckInCoral == false)
+                if (trash.gameObject.GetComponent<TrashMovement>() != null && trash.GetComponent<TrashMovement>().stuckInCoral == false)
                 {
                     FindObjectOfType<AudioManager>().Play("PickTrash");
 
@@ -101,6 +96,16 @@ public class TrashNet : MonoBehaviour
                     Animator animatorTrash;
                     animatorTrash = trash.gameObject.GetComponent<Animator>();
                     animatorTrash.SetBool("inNet", true);
+                }
+                else if (trash.gameObject.GetComponent<TrashMovementNoAnim>() != null && trash.GetComponent<TrashMovementNoAnim>().stuckInCoral == false)
+                {
+                    FindObjectOfType<AudioManager>().Play("PickTrash");
+
+                    trashList.Add(trash);
+                    trash.gameObject.transform.SetParent(centerLocation.gameObject.transform);
+                    trash.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+                    trash.gameObject.transform.localPosition = Vector2.zero;
+                    trash.gameObject.GetComponent<TrashMovementNoAnim>().enabled = false;
                 }
             }
         }

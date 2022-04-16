@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TrashMovement : MonoBehaviour
+public class TrashMovementNoAnim : MonoBehaviour
 {
     [SerializeField]
     float moveSpeed = 2f;
@@ -24,25 +24,11 @@ public class TrashMovement : MonoBehaviour
     public bool reefDashed;
     public bool stuckInCoral = false;
 
-    //[Header("Radial Timer")]
-    float indicatorTimer = 25.0f;
-    //float maxIndicatorTimer = 1.0f;
-    //[SerializeField] private Image DissolveTimer = null;
-
-
     Vector3 pos;
     Quaternion targetRot = Quaternion.Euler(new Vector3(0, 0, 0));
 
-    public Animator animator;
-
-    // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Stage 1")
-        {
-            animator.SetFloat("timerDissolve", indicatorTimer);
-        }
-
         pos = transform.position;
 
         magnitude = Random.Range(0.3f, 1.5f);
@@ -86,18 +72,7 @@ public class TrashMovement : MonoBehaviour
                 MoveDown();
             }
         }
-
-        if (SceneManager.GetActiveScene().name == "Stage 1")
-        {
-            animator.SetFloat("timerDissolve", indicatorTimer -= Time.deltaTime);
-
-            if (indicatorTimer <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
     }
-
     private void MoveDown()
     {
         pos -= transform.up * Time.deltaTime * moveSpeed;
@@ -130,7 +105,6 @@ public class TrashMovement : MonoBehaviour
             dislodged = true;
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Boulders")
@@ -154,13 +128,7 @@ public class TrashMovement : MonoBehaviour
 
         if (collision.gameObject.name == "TrashShredder")
         {
-           stopMoving = true;
-
-        //    if (this.gameObject.tag == "PlasticTrash")
-        //    {
-        //        dissolvePlastic = true;
-        //    }
-        
+            stopMoving = true;
         }
     }
 

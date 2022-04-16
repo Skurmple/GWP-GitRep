@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public DroneMovement drone;
     public bool isDisabled;
-    float time;
-    public SwordFish swordfish;
+
     float phoneOpen;
-
-    GameObject mainCamera;
     public GameObject phone;
-    Vector3 mainCameraStartPos;
-
-    public bool cameraDisabled = true;
-    bool oneTime = false;
 
     //*by Vojta
     GameObject lookForEmotions;
@@ -24,9 +18,6 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.Find("Main Camera");
-        mainCameraStartPos = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
-
         //*by Vojta - Getting a reference to the emotions script
         lookForEmotions = GameObject.Find("DroneEmotions");
         EmotionsScript = lookForEmotions.GetComponent<Emotions>();
@@ -37,6 +28,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitToMenu();
+        }
+
         if (!drone.enabled && isDisabled)
         {
             //*by Vojta
@@ -44,13 +40,6 @@ public class GameController : MonoBehaviour
 
             StartCoroutine(RestartDrone());
             isDisabled = false; 
-        }
-
-        if (cameraDisabled == true && oneTime == false)
-        {
-            drone.ResetPosition();
-            mainCamera.transform.position = mainCameraStartPos;
-            oneTime = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse2))
@@ -73,5 +62,10 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(2.3f);
         drone.enabled = true;
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

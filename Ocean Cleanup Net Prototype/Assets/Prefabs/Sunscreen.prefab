@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 633853296453880285}
   - component: {fileID: 633853296453880284}
   - component: {fileID: 633853296453880287}
-  - component: {fileID: 2711710318854345933}
+  - component: {fileID: 1638622661304953091}
   - component: {fileID: 633853296453880281}
   - component: {fileID: 633853296453880280}
   m_Layer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 633853296453880283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.5833333}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2711710318854345933
+--- !u!114 &1638622661304953091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 633853296453880283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4753827ed80c8484f85f2ba4a435a6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
@@ -103,7 +103,6 @@ MonoBehaviour:
   dislodged: 1
   reefDashed: 0
   stuckInCoral: 0
-  animator: {fileID: 633853296453880280}
 --- !u!212 &633853296453880281
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -2,21 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
 
     public TrashNet player;
-    public Text scoreUI;
+    int previousScore;
+    Vector3 largeTextScale = new Vector3(2, 2, 2);
+    Vector3 smallTextScale = new Vector3(1, 1, 1);
+    public Text scoreText;
     public Text scoreDrop;
-
-    //Temp text for playtest
-    public Text explainText;
-    float explainTextTimer = 5f;
-    //----------------------
-
 
     //public Text plasticTrashUI;
     //public Text metalTrashUI;
@@ -27,34 +23,39 @@ public class ScoreManager : MonoBehaviour
     //public float timer = 60;
     //public bool timerIsRunning;
 
-    public Coral coral;
     public GameObject GamePlay, GameWon;
     List<GameObject> trashItems = new List<GameObject>();
     GameObject drone;
     CrustSpawner crustGone;
 
     public void Start()
-    { 
+    {
         //timerIsRunning = false;
+        previousScore = player.score;
         drone = GameObject.Find("Drone");
         crustGone = GameObject.Find("TrashCrust").gameObject.GetComponent<CrustSpawner>();
-
-        StartCoroutine(FadeExplainText(explainTextTimer, explainText));
-    }
-
-    IEnumerator FadeExplainText(float t, Text eText)
-    {
-        yield return new WaitForSeconds(10);
-        eText.color = new Color(eText.color.r, eText.color.g, eText.color.b, 1);
-        while (eText.color.a > 0.0f)
-        {
-            eText.color = new Color(eText.color.r, eText.color.g, eText.color.b, eText.color.a - (Time.deltaTime / t));
-            yield return null;
-        }
     }
 
     public void Update()
     {
+        if (previousScore != player.score)
+        {
+            StartCoroutine(ScorePop(0.5f));
+            previousScore = player.score;
+        }
+
+        scoreText.text = player.score.ToString();
+        scoreDrop.text = player.score.ToString();
+
+        if (player.score >= 100)
+        {
+            Invoke("NextLevel", 5);
+        }
+        else
+        {
+            CancelInvoke("NextLevel");
+        }
+
         //Timer code, may be useful later
         //if (crustGone.crustCleaned)
         //{
@@ -80,23 +81,33 @@ public class ScoreManager : MonoBehaviour
         //        timerDrop.text = null;
         //    }
         //}
+    }
 
-        if (coral.coralHealth >= 8)
+    private void NextLevel()
+    {
+        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
+    }
+    IEnumerator ScorePop(float duration)
+    {
+        float time = 0;
+
+        while (time < duration)
         {
-            StartEndGame();
+            scoreText.gameObject.transform.localScale = Vector3.Lerp(smallTextScale, largeTextScale, time / duration);
+            scoreDrop.gameObject.transform.localScale = Vector3.Lerp(smallTextScale, largeTextScale, time / duration);
+            time += Time.deltaTime;
+            yield return null;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        time = 0;
+
+        while (time < duration)
         {
-            ExitToMenu();
+            scoreText.gameObject.transform.localScale = Vector3.Lerp(largeTextScale, smallTextScale, time / duration);
+            scoreDrop.gameObject.transform.localScale = Vector3.Lerp(largeTextScale, smallTextScale, time / duration);
+            time += Time.deltaTime;
+            yield return null;
         }
-
-        scoreUI.text = player.score.ToString();
-        scoreDrop.text = player.score.ToString();
-        //plasticTrashUI.text = player.plasticTrashAmt.ToString();
-        //metalTrashUI.text = player.metalTrashAmt.ToString();
-        //glassTrashUI.text = player.glassTrashAmt.ToString();
-
     }
 
     //private void DisplayTime(float timer)
@@ -157,10 +168,5 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 0;
 
         GamePlay.SetActive(false);
-    }
-
-    public void ExitToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

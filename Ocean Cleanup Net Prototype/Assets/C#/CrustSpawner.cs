@@ -36,7 +36,6 @@ public class CrustSpawner : MonoBehaviour
 
     IEnumerator SpawnCrust()
     {
-        gameController.cameraDisabled = true;
         yield return new WaitForSeconds(0.5f);
 
         //targetPosition = new Vector3(0, transform.position.y + Random.Range(-0.2f, 0.2f), 0); //A random position is selected
@@ -54,9 +53,7 @@ public class CrustSpawner : MonoBehaviour
         //If there are no children (CrustTrashSpawners that spawn trash) then start the coroutine to make more
         if (transform.childCount <= 0)
         {
-            gameController.cameraDisabled = false;
             crustCleaned = true;
-            clamp.SetActive(false);
             yield return new WaitForSeconds(1);
             StartCoroutine(SpawnCrust());
         }

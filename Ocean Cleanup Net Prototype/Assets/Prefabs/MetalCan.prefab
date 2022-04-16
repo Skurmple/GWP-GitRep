@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4933465825753098619}
   - component: {fileID: 330679029372991078}
   - component: {fileID: 704607727643106393}
-  - component: {fileID: -4331851738353942666}
+  - component: {fileID: -8988824923447410581}
   - component: {fileID: 2771216969525924891}
   m_Layer: 0
   m_Name: MetalCan
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4331851738353942666
+--- !u!114 &-8988824923447410581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5075768636333217433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4753827ed80c8484f85f2ba4a435a6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
@@ -128,8 +128,6 @@ MonoBehaviour:
   dislodged: 1
   reefDashed: 0
   stuckInCoral: 0
-  indicatorTimer: 20
-  animator: {fileID: 0}
 --- !u!70 &2771216969525924891
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3915621287939403852}
   - component: {fileID: 1348274108050498516}
   - component: {fileID: 5640461058672465548}
-  - component: {fileID: 5266668266975003834}
+  - component: {fileID: -5487081518297938737}
   m_Layer: 0
   m_Name: GlassBottle
   m_TagString: GlassTrash
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5575736, y: 5.570989}
   m_EdgeRadius: 0
---- !u!114 &5266668266975003834
+--- !u!114 &-5487081518297938737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960058840023309659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4753827ed80c8484f85f2ba4a435a6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
@@ -154,5 +154,3 @@ MonoBehaviour:
   dislodged: 1
   reefDashed: 0
   stuckInCoral: 0
-  indicatorTimer: 20
-  animator: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6735724204856264166}
   - component: {fileID: -841347462105215911}
   - component: {fileID: 1426759028181232242}
-  - component: {fileID: 8284317005317685935}
+  - component: {fileID: 7676359229514285382}
   - component: {fileID: 8064739094088897589}
   m_Layer: 0
   m_Name: MetalScrap
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8284317005317685935
+--- !u!114 &7676359229514285382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7511269251608366795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4753827ed80c8484f85f2ba4a435a6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
@@ -128,8 +128,6 @@ MonoBehaviour:
   dislodged: 1
   reefDashed: 0
   stuckInCoral: 0
-  indicatorTimer: 20
-  animator: {fileID: 0}
 --- !u!70 &8064739094088897589
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

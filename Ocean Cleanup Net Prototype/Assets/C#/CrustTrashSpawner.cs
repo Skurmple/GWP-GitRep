@@ -54,13 +54,25 @@ public class CrustTrashSpawner : MonoBehaviour
         Rigidbody2D clone;
         clone = Instantiate(trash.GetComponent<Rigidbody2D>(), droppedPosition, Quaternion.identity);
         clone.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        clone.gameObject.GetComponent<TrashMovement>().enabled = true;
+
+        if (trash.gameObject.GetComponent<TrashMovement>() != null)
+        {
+            clone.gameObject.GetComponent<TrashMovement>().enabled = true;
+
+            clone.gameObject.GetComponent<TrashMovement>().dislodged = false;
+            clone.gameObject.GetComponent<TrashMovement>().reefDashed = false;
+            clone.gameObject.GetComponent<TrashMovement>().netFall = true;
+        }
+        else
+        {
+            clone.gameObject.GetComponent<TrashMovementNoAnim>().enabled = true;
+
+            clone.gameObject.GetComponent<TrashMovementNoAnim>().dislodged = false;
+            clone.gameObject.GetComponent<TrashMovementNoAnim>().reefDashed = false;
+            clone.gameObject.GetComponent<TrashMovementNoAnim>().netFall = true;
+        }
 
         //animatorTrash = clone.gameObject.GetComponent<Animator>();
         //animatorTrash.SetFloat("timerDissolve", 25.0f);
-
-        clone.gameObject.GetComponent<TrashMovement>().dislodged = false;
-        clone.gameObject.GetComponent<TrashMovement>().reefDashed = false;
-        clone.gameObject.GetComponent<TrashMovement>().netFall = true;
     }
 }

@@ -14,6 +14,7 @@ public class Scanner : MonoBehaviour
     {
         scannedFish = new GameObject[10];
         i = 0;
+
         if(GameObject.Find("FishDexManager") != null)
         {
             fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
@@ -32,12 +33,6 @@ public class Scanner : MonoBehaviour
         {
             scannableFish = collision.GetComponent<ScannableFish>();
             scannableFish.beingScanned = true;
-        }
-
-        if (collision.gameObject.tag.Contains("Trash") && collision.gameObject.GetComponent<TrashMovement>().stuckInCoral == true)
-        {
-            //reefBlower = collision.GetComponent<TrashMovement>();
-            //reefBlower.reefBlown = true;
         }
     }
 
