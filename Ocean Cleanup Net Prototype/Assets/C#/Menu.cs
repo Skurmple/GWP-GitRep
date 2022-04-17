@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject helpMenu;
     public GameObject creditMenu;
+    public GameObject settingsMenu;
 
     public void PlayStage1()
     {
@@ -40,6 +41,7 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(false);
         helpMenu.SetActive(true);
         creditMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
 
     public void MainMenu()
@@ -47,6 +49,7 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(true);
         helpMenu.SetActive(false);
         creditMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
 
     public void CreditMenu()
@@ -54,6 +57,28 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(false);
         helpMenu.SetActive(false);
         creditMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+    }
+
+    public void SettingsMenu()
+    {
+        mainMenu.SetActive(false);
+        helpMenu.SetActive(false);
+        creditMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void InGameSettings()
+    {
+        settingsMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void CloseInGameSettings()
+    {
+        settingsMenu.SetActive(false);
+        Time.timeScale = 1;
     }
     public void Quit()
     {
