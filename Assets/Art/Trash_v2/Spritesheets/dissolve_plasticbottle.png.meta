@@ -1,0 +1,870 @@
+fileFormatVersion: 2
+guid: 731c83943de31bd42910c2708ad0166a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e8d09dd7a907b4a81258ba9ee473ca
+      internalID: -1262684425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412701cc43030a94a91fa58a6d374c13
+      internalID: -1748507852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_2
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fe0ef8a5afe114e9d1106a3fc266bd
+      internalID: 217320641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98836be231fc87243b90070ce5323a4e
+      internalID: -1772155865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_4
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ad89fc4faa11241830d957e7c577ea
+      internalID: 1196026119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_5
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e828f5bf4e9724d837b22f93205e36
+      internalID: -883952395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_6
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590b4f94cd6e2664babcff5b3b6f5501
+      internalID: 316905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_7
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1d29d6921e5204a8495b3abce1527c
+      internalID: -26444534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_8
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b7510cd8e629540b84fa8b5b136525
+      internalID: -199599518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_9
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191b092c9380801458f671983dcbdb68
+      internalID: -1867845746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_10
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b2166cf5454e940880441cfdce8c38
+      internalID: 275494376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_11
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 1668
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa5ba3691be1914f85b819ead00f52e
+      internalID: -1283449872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3730b317accfb41a317bf2ad95a973
+      internalID: 1096153194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_13
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886518a062267264fbae2213740ba54f
+      internalID: -1631523086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_14
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa496386bd29632498933245f30528e0
+      internalID: 1873508611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_15
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80e218d1251ada4385e98eea6463e06
+      internalID: 1273351503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_16
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952492f11c6a2ce49b0cdd284c7a26f5
+      internalID: -139719763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_17
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d7a89747aa58644831a02a9f284576
+      internalID: -1667882538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_18
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358a4e8d86793d945b4cc7de909dd5bb
+      internalID: -1209893081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_19
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce7ca44e62830e46894f3fceb1b92cb
+      internalID: 777603807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_20
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee7e28b34ca1f24db1eff31050d90c1
+      internalID: -835221019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_21
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc29d65ddc3eaf64ca757ba80db6740b
+      internalID: -1615452946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_22
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf173b543bd4d94dae9228f747af66a
+      internalID: 863467843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_23
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 1288
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d009070a51bfa434caa61f266717b665
+      internalID: -472466602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4863b99d8c615a44a2f27a175f1a457
+      internalID: -24267993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_25
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d21e07c27d30c4faee3a98c0ca27d0
+      internalID: -1093150140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_26
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e5b00d1d1c4084b983ef33d8e07dd9
+      internalID: -2005392277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_27
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a263a0a3c654374f96914cb5bb6e0d0
+      internalID: -719577455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_28
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e998c275fd3869418ba4a37511adb94
+      internalID: -614117414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_29
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2148e99b64b9fed42a0eed741f55380c
+      internalID: -697609865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_30
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1095c767d59a7242b113e5b8eba9dc6
+      internalID: 1783439974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_31
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a4b1169e74e3446981a32e67acd0a3
+      internalID: -379900031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_32
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3089f87ba7d6fa42be53d0dc05b32a5
+      internalID: 1520130574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dissolve_plasticbottle_33
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 908
+        width: 161
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcc241429be207469ead7d59ca44b17
+      internalID: 2067762124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      dissolve_plasticbottle_0: -1262684425
+      dissolve_plasticbottle_9: -1867845746
+      dissolve_plasticbottle_25: -1093150140
+      dissolve_plasticbottle_16: -139719763
+      dissolve_plasticbottle_24: -24267993
+      dissolve_plasticbottle_8: -199599518
+      dissolve_plasticbottle_26: -2005392277
+      dissolve_plasticbottle_12: 1096153194
+      dissolve_plasticbottle_14: 1873508611
+      dissolve_plasticbottle_17: -1667882538
+      dissolve_plasticbottle_33: 2067762124
+      dissolve_plasticbottle_18: -1209893081
+      dissolve_plasticbottle_22: 863467843
+      dissolve_plasticbottle_1: -1748507852
+      dissolve_plasticbottle_20: -835221019
+      dissolve_plasticbottle_3: -1772155865
+      dissolve_plasticbottle_21: -1615452946
+      dissolve_plasticbottle_19: 777603807
+      dissolve_plasticbottle_31: -379900031
+      dissolve_plasticbottle_10: 275494376
+      dissolve_plasticbottle_15: 1273351503
+      dissolve_plasticbottle_27: -719577455
+      dissolve_plasticbottle_13: -1631523086
+      dissolve_plasticbottle_30: 1783439974
+      dissolve_plasticbottle_2: 217320641
+      dissolve_plasticbottle_6: 316905
+      dissolve_plasticbottle_28: -614117414
+      dissolve_plasticbottle_7: -26444534
+      dissolve_plasticbottle_29: -697609865
+      dissolve_plasticbottle_5: -883952395
+      dissolve_plasticbottle_32: 1520130574
+      dissolve_plasticbottle_23: -472466602
+      dissolve_plasticbottle_11: -1283449872
+      dissolve_plasticbottle_4: 1196026119
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
