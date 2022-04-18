@@ -13,6 +13,11 @@ public class DroneMovement : MonoBehaviour
     Vector2 mousePosition;
     Vector3 forwardVector;
     Vector3 startingPosition;
+
+    float timeCount = 0.0f;
+    Vector3 targetScale;
+    float speed = 1f;
+
     public float moveSpeed = 7;
     public bool dashing;
     Coroutine dash;
@@ -34,6 +39,8 @@ public class DroneMovement : MonoBehaviour
 
     void Start()
     {
+        targetScale = GameObject.Find("DroneEmotions").transform.localScale;
+
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         dashCooldown = dashMaxCooldown;
@@ -66,11 +73,31 @@ public class DroneMovement : MonoBehaviour
         //Stop drone from swimming upside down
         if (mousePosition.x < transform.position.x)
         {
-            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 180, 0);
+            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
+
+            GameObject.Find("DroneEmotions").transform.localScale = Vector3.Lerp(GameObject.Find("DroneEmotions").transform.localScale, targetScale, speed * timeCount);
+            timeCount = timeCount + Time.deltaTime;
+
+            if (GameObject.Find("DroneEmotions").transform.localScale == targetScale)
+            {
+                timeCount = 0;
+
+                targetScale.x = -0.35f;
+            }
         }
         if (mousePosition.x > transform.position.x)
         {
             GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
+
+            GameObject.Find("DroneEmotions").transform.localScale = Vector3.Lerp(GameObject.Find("DroneEmotions").transform.localScale, targetScale, speed * timeCount);
+            timeCount = timeCount + Time.deltaTime;
+
+            if (GameObject.Find("DroneEmotions").transform.localScale == targetScale)
+            {
+                timeCount = 0;
+
+                targetScale.x = 0.35f;
+            }
         }
 
         //Quick check to make sure the drone can't go above the water
