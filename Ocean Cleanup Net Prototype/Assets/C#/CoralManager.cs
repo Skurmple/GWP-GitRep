@@ -156,6 +156,6 @@ public class CoralManager : MonoBehaviour
 
     private void NextLevel()
     {
-        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "CavesTest"));
+        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Caves"));
     }
 }

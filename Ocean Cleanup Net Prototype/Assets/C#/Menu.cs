@@ -32,7 +32,7 @@ public class Menu : MonoBehaviour
     }
     public void CavesTest()
     {
-        SceneManager.LoadScene("CavesTest");
+        SceneManager.LoadScene("Caves");
         Time.timeScale = 1;
     }
 
