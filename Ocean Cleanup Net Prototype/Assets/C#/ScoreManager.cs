@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField]
+    Sprite[] trashPileArray;
 
     public TrashNet player;
     int previousScore;
@@ -46,6 +48,25 @@ public class ScoreManager : MonoBehaviour
 
         scoreText.text = player.score.ToString();
         scoreDrop.text = player.score.ToString();
+
+        switch (player.score)
+        {
+            case < 1:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[0];
+                break;
+
+            case < 40:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[1];
+                break;
+
+            case < 80:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[2];
+                break;
+
+            case >= 80:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[3];
+                break;
+        }
 
         if (player.score >= 100)
         {

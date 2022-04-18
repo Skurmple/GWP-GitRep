@@ -56,7 +56,7 @@ public class TrashNet : MonoBehaviour
                 {
                     glassTrashAmt++;
                 }
-                score += 5;
+                score += 3;
                 Destroy(trashToDestroy.gameObject);
             }
         }

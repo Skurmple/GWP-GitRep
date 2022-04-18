@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CoralManager : MonoBehaviour
 {
+    //Array of sprites used to increase the trash pile inside the dingy net
+    [SerializeField]
+    Sprite[] trashPileArray;
+
     //2 Arrays, one stores the coral reef game objects and the other stores boolean values that turn true when a reef is cleared (No trash touching it)
     [SerializeField]
     GameObject[] coralReefs;
@@ -62,6 +66,25 @@ public class CoralManager : MonoBehaviour
         //Display numReefsCleared onscreen
         scoreText.text = numReefsCleared.ToString()+"/8";
         scoreDrop.text = numReefsCleared.ToString()+"/8";
+
+        switch (numReefsCleared)
+        {
+            case < 1:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[0];
+                break;
+
+            case < 4:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[1];
+                break;
+
+            case < 6:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[2];
+                break;
+
+            case >= 6:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[3];
+                break;
+        }
 
         //Check if all reefs are cleared
         AreReefsClear();
