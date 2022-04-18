@@ -25,14 +25,14 @@ public class CameraMovement : MonoBehaviour
         Vector3 newPosition = drone.transform.position;
         newPosition.z = -10;
 
-        if (SceneManager.GetActiveScene().name != "CavesTest" && SceneManager.GetActiveScene().name != "Caves (with map)")
+        if (SceneManager.GetActiveScene().name != "Caves")
         {
             newPosition.x = wantedXPosition;
         }
 
         transform.position = newPosition;
 
-        if (transform.position.y > startingPosition.y && SceneManager.GetActiveScene().name != "CavesTest")
+        if (transform.position.y > startingPosition.y && SceneManager.GetActiveScene().name != "Caves")
         {
             transform.position = startingPosition;
         }

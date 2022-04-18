@@ -78,6 +78,7 @@ public class DroneMovement : MonoBehaviour
             GameObject.Find("DroneEmotions").transform.localScale = Vector3.Lerp(GameObject.Find("DroneEmotions").transform.localScale, targetScale, speed * timeCount);
             timeCount = timeCount + Time.deltaTime;
 
+
             if (GameObject.Find("DroneEmotions").transform.localScale == targetScale)
             {
                 timeCount = 0;
