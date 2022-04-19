@@ -13,12 +13,10 @@ public class DroneMovement : MonoBehaviour
     Vector2 mousePosition;
     Vector3 forwardVector;
     Vector3 startingPosition;
-
-    float timeCount = 0.0f;
-    Vector3 targetScale;
-    float speed = 1f;
-
     public float moveSpeed = 7;
+    float turnSpeed = 45;
+    float smoothTime = 1f;
+    Vector2 currentVelocity;
     public bool dashing;
     Coroutine dash;
     float dashMaxCooldown = 2;
@@ -39,8 +37,6 @@ public class DroneMovement : MonoBehaviour
 
     void Start()
     {
-        targetScale = GameObject.Find("DroneEmotions").transform.localScale;
-
         startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         dashCooldown = dashMaxCooldown;
@@ -62,7 +58,8 @@ public class DroneMovement : MonoBehaviour
         //Moves the drone towards the mouse position
         if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18 || dashing)
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, moveSpeed);
         }
 
         //Gets the direction the drone is moving in, and rotates it to face that direction
@@ -73,32 +70,11 @@ public class DroneMovement : MonoBehaviour
         //Stop drone from swimming upside down
         if (mousePosition.x < transform.position.x)
         {
-            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
-
-            GameObject.Find("DroneEmotions").transform.localScale = Vector3.Lerp(GameObject.Find("DroneEmotions").transform.localScale, targetScale, speed * timeCount);
-            timeCount = timeCount + Time.deltaTime;
-
-
-            if (GameObject.Find("DroneEmotions").transform.localScale == targetScale)
-            {
-                timeCount = 0;
-
-                targetScale.x = -0.35f;
-            }
+            GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 180, 0);
         }
         if (mousePosition.x > transform.position.x)
         {
             GameObject.Find("DroneEmotions").transform.eulerAngles = new Vector3(0, 0, 0);
-
-            GameObject.Find("DroneEmotions").transform.localScale = Vector3.Lerp(GameObject.Find("DroneEmotions").transform.localScale, targetScale, speed * timeCount);
-            timeCount = timeCount + Time.deltaTime;
-
-            if (GameObject.Find("DroneEmotions").transform.localScale == targetScale)
-            {
-                timeCount = 0;
-
-                targetScale.x = 0.35f;
-            }
         }
 
         //Quick check to make sure the drone can't go above the water
@@ -121,6 +97,7 @@ public class DroneMovement : MonoBehaviour
     IEnumerator DroneDash()
     {
         moveSpeed += 10;
+        smoothTime -= 0.5f;
         bubbles.emissionRate += 100;
         FindObjectOfType<AudioManager>().Play("Dash");
         dashing = true;
@@ -128,6 +105,7 @@ public class DroneMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         moveSpeed -= 10;
+        smoothTime += 0.5f;
         bubbles.emissionRate -= 100;
         dashing = false;
         dashCooldown = dashMaxCooldown;

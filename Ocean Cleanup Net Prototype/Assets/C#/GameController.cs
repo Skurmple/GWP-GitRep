@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameController : MonoBehaviour
 
     float phoneOpen;
     public GameObject phone;
+
+    [SerializeField]
+    GameObject tutorialPopup;
 
     //*by Vojta
     GameObject lookForEmotions;
@@ -23,6 +27,11 @@ public class GameController : MonoBehaviour
         EmotionsScript = lookForEmotions.GetComponent<Emotions>();
 
         phoneOpen = 1;
+
+        if (this.GetComponent<SceneFader>().faded == true)
+        {
+            OpenPopup();
+        }
     }
 
     // Update is called once per frame
@@ -30,16 +39,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ExitToMenu();
-        }
-
-        if (!drone.enabled && isDisabled)
-        {
-            //*by Vojta
-            EmotionsScript.StunnedFace();
-
-            StartCoroutine(RestartDrone());
-            isDisabled = false; 
+            this.GetComponent<Menu>().ExitToMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse2))
@@ -56,16 +56,45 @@ public class GameController : MonoBehaviour
             }
         }
 
+        if (!drone.enabled && isDisabled)
+        {
+            //*by Vojta
+            EmotionsScript.StunnedFace();
+
+            StartCoroutine(RestartDrone());
+            isDisabled = false;
+        }
+    }
+
+    public void OpenPopup()
+    {
+        tutorialPopup.SetActive(!tutorialPopup.activeSelf);
+
+        if (tutorialPopup.activeSelf)
+        {
+            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void ClosePopup()
+    {
+        tutorialPopup.SetActive(!tutorialPopup.activeSelf);
+
+        if (!tutorialPopup.activeSelf)
+        {
+            GameObject.Find("Settings").GetComponent<Button>().enabled = true;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = true;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = true;
+            Time.timeScale = 1f;
+        }
     }
 
     public IEnumerator RestartDrone()
     {
         yield return new WaitForSeconds(2.3f);
         drone.enabled = true;
-    }
-
-    public void ExitToMenu()
-    {
-        SceneManager.LoadScene("Main Menu");
     }
 }

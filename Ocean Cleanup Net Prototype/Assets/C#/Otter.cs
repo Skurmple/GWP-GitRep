@@ -47,11 +47,21 @@ public class Otter : MonoBehaviour
         {
             pos -= transform.right * Time.deltaTime * moveSpeed;
             transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
+
+            if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
+            {
+                transform.position = new Vector3(transform.position.x, GameObject.Find("Ocean Surface").transform.position.y, transform.position.z);
+            }
         }
         else
         {
             pos += transform.right * Time.deltaTime * moveSpeed;
             transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * magnitude;
+
+            if (transform.position.y > GameObject.Find("Ocean Surface").transform.position.y)
+            {
+                transform.position = new Vector3(transform.position.x, GameObject.Find("Ocean Surface").transform.position.y, transform.position.z);
+            }
         }
     }
 }

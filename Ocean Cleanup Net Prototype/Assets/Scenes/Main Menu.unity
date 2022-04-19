@@ -665,7 +665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8451368ccdc0c0b44b4ec2c5d6d47199, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd3e8744a88ead94294798d71c896c22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1071,7 +1071,6 @@ GameObject:
   m_Component:
   - component: {fileID: 470604373}
   - component: {fileID: 470604374}
-  - component: {fileID: 470604375}
   m_Layer: 5
   m_Name: MusicVolumeSlider
   m_TagString: Untagged
@@ -1153,7 +1152,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 470604375}
+      - m_Target: {fileID: 1207939609}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
         m_MethodName: SetMusicLevel
         m_Mode: 0
@@ -1165,9 +1164,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 470604375}
+      - m_Target: {fileID: 1207939609}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: VolumeSliderText
+        m_MethodName: MusicSliderText
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1177,24 +1176,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &470604375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470604372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155eb74c2ab294741aedaecf007a9fa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicMixer: {fileID: 24100000, guid: 6542524844efaef488b84427ca3c033b, type: 2}
-  sfxMixer: {fileID: 24100000, guid: 6c3b3dd9613a214448be1a199cb8a655, type: 2}
-  musicVolumeSlider: {fileID: 470604374}
-  sfxVolumeSlider: {fileID: 1043315801}
-  volumeSliderText: {fileID: 463239492}
-  volumeSliderDrop: {fileID: 1826749216}
 --- !u!1 &485327287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2548,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1043315799}
   - component: {fileID: 1043315801}
-  - component: {fileID: 1043315800}
   m_Layer: 5
   m_Name: SFXVolumeSlider
   m_TagString: Untagged
@@ -2598,24 +2578,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 11}
   m_SizeDelta: {x: 250, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1043315800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043315798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155eb74c2ab294741aedaecf007a9fa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicMixer: {fileID: 24100000, guid: 6542524844efaef488b84427ca3c033b, type: 2}
-  sfxMixer: {fileID: 24100000, guid: 6c3b3dd9613a214448be1a199cb8a655, type: 2}
-  musicVolumeSlider: {fileID: 470604374}
-  sfxVolumeSlider: {fileID: 1043315801}
-  volumeSliderText: {fileID: 71523105}
-  volumeSliderDrop: {fileID: 45053121}
 --- !u!114 &1043315801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,7 +2629,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1043315800}
+      - m_Target: {fileID: 1207939609}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
         m_MethodName: SetSFXLevel
         m_Mode: 0
@@ -2679,9 +2641,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1043315800}
+      - m_Target: {fileID: 1207939609}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: VolumeSliderText
+        m_MethodName: SFXSliderText
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2807,6 +2769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1207939608}
   - component: {fileID: 1207939607}
+  - component: {fileID: 1207939609}
   m_Layer: 0
   m_Name: Menu Manager
   m_TagString: Untagged
@@ -2845,6 +2808,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1207939609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207939606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155eb74c2ab294741aedaecf007a9fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 6542524844efaef488b84427ca3c033b, type: 2}
+  sfxMixer: {fileID: 24100000, guid: 6c3b3dd9613a214448be1a199cb8a655, type: 2}
+  musicVolumeSlider: {fileID: 470604374}
+  sfxVolumeSlider: {fileID: 1043315801}
+  musicSliderText: {fileID: 1826749216}
+  musicSliderDrop: {fileID: 463239492}
+  sfxSliderText: {fileID: 71523105}
+  sfxSliderDrop: {fileID: 45053121}
 --- !u!1 &1241538827
 GameObject:
   m_ObjectHideFlags: 0

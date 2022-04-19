@@ -18,19 +18,30 @@ public class AudioController : MonoBehaviour
     private Slider sfxVolumeSlider = null;
 
     [SerializeField]
-    private Text volumeSliderText = null;
+    private Text musicSliderText = null;
 
     [SerializeField]
-    private Text volumeSliderDrop = null;
+    private Text musicSliderDrop = null;
 
-    void Awake()
+    [SerializeField]
+    private Text sfxSliderText = null;
+
+    [SerializeField]
+    private Text sfxSliderDrop = null;
+
+    void Start()
     {
-        LoadValues(); 
+        LoadValues();
     }
-    public void VolumeSliderText(float volume)
+    public void MusicSliderText(float volume)
     {
-        volumeSliderText.text = volume.ToString("0.0");
-        volumeSliderDrop.text = volume.ToString("0.0");
+        musicSliderText.text = volume.ToString("0.0");
+        musicSliderDrop.text = volume.ToString("0.0");
+    }
+    public void SFXSliderText(float volume)
+    {
+        sfxSliderText.text = volume.ToString("0.0");
+        sfxSliderDrop.text = volume.ToString("0.0");
     }
 
     public void SetMusicLevel(float sliderValue)
@@ -51,7 +62,7 @@ public class AudioController : MonoBehaviour
         LoadValues();
     }
 
-    void LoadValues()
+    public void LoadValues()
     {
         float musicVolumeValue = PlayerPrefs.GetFloat("MusicVolumeValue");
         musicVolumeSlider.value = musicVolumeValue;

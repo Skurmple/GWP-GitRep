@@ -80,6 +80,11 @@ public class Menu : MonoBehaviour
         settingsMenu.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
     public void Quit()
     {
         Application.Quit();

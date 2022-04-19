@@ -60,25 +60,25 @@ public class FishDexManager : MonoBehaviour
     {
         DiscoveryOfSpecies();
         ScannedFish();
-        OpenFishipedia();
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            OpenFishipedia();
+        }
     }
 
-    private void OpenFishipedia()
+    public void OpenFishipedia()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            tablet.SetActive(!tablet.activeSelf);
+        tablet.SetActive(!tablet.activeSelf);
 
-            if(timer == 0)
-            {
-                timer = 1;
-            }
-            else  if (timer == 1)
-            {
-                timer = 0;
-            }
-            Time.timeScale = timer;
+        if (timer == 0)
+        {
+            timer = 1;
         }
+        else if (timer == 1)
+        {
+            timer = 0;
+        }
+        Time.timeScale = timer;
     }
 
     //opening & closing the menus
