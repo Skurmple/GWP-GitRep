@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
     int sceneBuildIndex;
 
     public GameObject mainMenu;

@@ -14,7 +14,6 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 startingPosition;
     public float moveSpeed = 7;
-    float turnSpeed = 45;
     float smoothTime = 1f;
     Vector2 currentVelocity;
     public bool dashing;

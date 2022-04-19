@@ -32,7 +32,7 @@ public class CoralTrashSpawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Contains("Trash"))
+        if (collision.gameObject.tag.Contains("Trash") && collision.transform.parent != GameObject.Find("NetCenter"))
         {
             gotTrash = true;
         }

@@ -9,6 +9,9 @@ public class CoralManager : MonoBehaviour
     [SerializeField]
     Sprite[] trashPileArray;
 
+    [SerializeField]
+    GameObject endingPopup = null;
+
     //2 Arrays, one stores the coral reef game objects and the other stores boolean values that turn true when a reef is cleared (No trash touching it)
     [SerializeField]
     GameObject[] coralReefs;
@@ -156,6 +159,14 @@ public class CoralManager : MonoBehaviour
 
     private void NextLevel()
     {
-        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Caves"));
+        endingPopup.SetActive(!endingPopup.activeSelf);
+
+        if (endingPopup.activeSelf)
+        {
+            Time.timeScale = 0f;
+            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+        }
     }
 }

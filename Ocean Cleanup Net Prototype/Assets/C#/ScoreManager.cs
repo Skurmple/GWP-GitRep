@@ -9,6 +9,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     Sprite[] trashPileArray;
 
+    [SerializeField]
+    GameObject endingPopup = null;
+
     public TrashNet player;
     int previousScore;
     Vector3 largeTextScale = new Vector3(2, 2, 2);
@@ -70,7 +73,7 @@ public class ScoreManager : MonoBehaviour
 
         if (player.score >= 100)
         {
-            Invoke("NextLevel", 5);
+            Invoke("NextLevel", 3);
         }
         else
         {
@@ -106,7 +109,15 @@ public class ScoreManager : MonoBehaviour
 
     private void NextLevel()
     {
-        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
+        endingPopup.SetActive(!endingPopup.activeSelf);
+
+        if (endingPopup.activeSelf)
+        {
+            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+            Time.timeScale = 0f;
+        }
     }
     IEnumerator ScorePop(float duration)
     {
