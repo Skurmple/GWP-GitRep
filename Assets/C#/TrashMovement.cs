@@ -93,6 +93,7 @@ public class TrashMovement : MonoBehaviour
 
             if (indicatorTimer <= 0)
             {
+                GameObject.Find("Net").GetComponent<TrashNet>().score -= 1;
                 Destroy(gameObject);
             }
         }

@@ -14,6 +14,8 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 startingPosition;
     public float moveSpeed = 7;
+    float smoothTime = 0.75f;
+    Vector2 currentVelocity;
     public bool dashing;
     Coroutine dash;
     float dashMaxCooldown = 2;
@@ -53,9 +55,10 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18 || dashing)
+        if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 || dashing) //For corner deadzone : && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, moveSpeed);
         }
 
         //Gets the direction the drone is moving in, and rotates it to face that direction
@@ -93,6 +96,7 @@ public class DroneMovement : MonoBehaviour
     IEnumerator DroneDash()
     {
         moveSpeed += 10;
+        smoothTime -= 0.5f;
         bubbles.emissionRate += 100;
         FindObjectOfType<AudioManager>().Play("Dash");
         dashing = true;
@@ -100,6 +104,7 @@ public class DroneMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         moveSpeed -= 10;
+        smoothTime += 0.5f;
         bubbles.emissionRate -= 100;
         dashing = false;
         dashCooldown = dashMaxCooldown;
@@ -232,7 +237,7 @@ public class DroneMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Scannable")
+        if (collision.gameObject.tag == "Swordfish")
         {
             gc.isDisabled = true;
             enabled = false;

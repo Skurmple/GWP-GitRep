@@ -16,16 +16,17 @@ public class ScannableFish : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!beingScanned && scanProgress > 0)
         {
-            scanProgress -= 0.7f;
+            scanProgress -= 0.25f;
         }
 
         if (!finishedScanning)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Vector4(scanProgress / 100, scanProgress / 100, scanProgress / 100, 1);
+            colour = new Vector4(scanProgress/ 100, scanProgress / 100, scanProgress / 100, 1);
+            gameObject.GetComponent<SpriteRenderer>().color = colour;
         }
         
     }

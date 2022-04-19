@@ -9,6 +9,7 @@ public class SceneFader : MonoBehaviour
 	#region FIELDS
 	public Image fadeOutUIImage;
 	public float fadeSpeed = 0.8f;
+	public bool faded = false;
 
 	public enum FadeDirection
 	{
@@ -34,6 +35,7 @@ public class SceneFader : MonoBehaviour
 			while (alpha >= fadeEndValue)
 			{
 				SetColorImage(ref alpha, fadeDirection);
+				faded = true;
 				yield return null;
 			}
 			fadeOutUIImage.enabled = false;
@@ -44,6 +46,7 @@ public class SceneFader : MonoBehaviour
 			while (alpha <= fadeEndValue)
 			{
 				SetColorImage(ref alpha, fadeDirection);
+				faded = true;
 				yield return null;
 			}
 		}

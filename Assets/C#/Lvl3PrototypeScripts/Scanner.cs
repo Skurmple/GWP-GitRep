@@ -4,37 +4,27 @@ using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
-    public GameObject[] scannedFish;
-    ScannableFish scannableFish;
     public GameObject spotlight;
     public Emotions emotions;
     FishDexManager fdm;
-    int i;
+    ScoreManager scoreManager;
+    int o = 0, c = 0, a = 0, s = 0, l = 0, numScanned = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        scannedFish = new GameObject[10];
-        i = 0;
-
         if(GameObject.Find("FishDexManager") != null)
         {
             fdm = GameObject.Find("FishDexManager").GetComponent<FishDexManager>();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scoreManager = GameObject.FindObjectOfType<ScoreManager>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Scannable")
         {
-            scannableFish = collision.GetComponent<ScannableFish>();
-            scannableFish.beingScanned = true;
+            collision.gameObject.GetComponent<ScannableFish>().beingScanned = true;
         }
     }
 
@@ -42,29 +32,66 @@ public class Scanner : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scannable")
         {
-            if(scannableFish.scanProgress < 100 && !scannableFish.finishedScanning)
+            if(collision.gameObject.GetComponent<ScannableFish>().scanProgress < 100 && !collision.gameObject.GetComponent<ScannableFish>().finishedScanning)
             {
-                scannableFish.scanProgress += 1.5f;
+                collision.gameObject.GetComponent<ScannableFish>().scanProgress += 1.5f;
                 spotlight.GetComponent<SpriteRenderer>().color = new Vector4(0.7f, 1, 0.7f, 1);
             }
-            else if(scannableFish.scanProgress >= 100 && !scannableFish.finishedScanning)
+            else if(collision.gameObject.GetComponent<ScannableFish>().scanProgress >= 100 && !collision.gameObject.GetComponent<ScannableFish>().finishedScanning)
             {
+                numScanned++;
+                scoreManager.scoreText.text = numScanned.ToString() + "/8";
+                scoreManager.scoreDrop.text = numScanned.ToString() + "/8";
+                scoreManager.ScorePop(2.5f);
+
                 spotlight.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 1);
                 emotions.HappyFace();
-                scannableFish.finishedScanning = true;
-                scannedFish[i] = collision.gameObject;
-                i++;
-                switch (scannableFish.name)
+                collision.gameObject.GetComponent<ScannableFish>().finishedScanning = true;
+
+                if (collision.gameObject.name.Contains("Oarfish") && fdm.hasScanned[0] == false)
                 {
-                    case "Nautilus":
+                    o++;
+                    if(o >= 3)
+                    {
                         fdm.hasScanned[0] = true;
-                        break;
-                    case "Oarfish":
+                    }
+                }
+                else if (collision.gameObject.name.Contains("Catshark") && fdm.hasScanned[1] == false)
+                {
+                    c++;
+                    if(c >= 2)
+                    {
                         fdm.hasScanned[1] = true;
-                        break;
-                    case "Squid":
+                    }
+                }
+                else if (collision.gameObject.name.Contains("Anglerfish") && fdm.hasScanned[2] == false)
+                {
+                    a++;
+                    if(a >= 3)
+                    {
                         fdm.hasScanned[2] = true;
-                        break;
+                    }
+                }
+                else if (collision.gameObject.name.Contains("Squid") && fdm.hasScanned[3] == false)
+                {
+                    s++;
+                    if(s >= 2)
+                    {
+                        fdm.hasScanned[3] = true;
+                    }
+                }
+                else if (collision.gameObject.name.Contains("Loosejaw") && fdm.hasScanned[4] == false)
+                {
+                    l++;
+                    if(l >= 2)
+                    {
+                        fdm.hasScanned[4] = true;
+                    }
+                }
+
+                if(numScanned == 8)
+                {
+                    //Put win stuff here
                 }
             }
 

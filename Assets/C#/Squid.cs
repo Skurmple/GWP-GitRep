@@ -37,7 +37,7 @@ public class Squid : MonoBehaviour
         moveDirection = nextNode.transform.position - transform.position;
         moveSpeed = 0.01f;
         transform.position += moveSpeed * moveDirection.normalized;
-        transform.right = -moveDirection.normalized;
+        transform.up = moveDirection.normalized;
     }
 
     void Dash()

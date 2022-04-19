@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class FishDexManager : MonoBehaviour
 {
@@ -49,11 +50,35 @@ public class FishDexManager : MonoBehaviour
     //information for each sea creature
     public GameObject[] information;
 
-
+    public GameObject tablet;
+    int timer;
+    private void Start()
+    {
+        timer = 1;
+    }
     private void Update()
     {
         DiscoveryOfSpecies();
         ScannedFish();
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            OpenFishipedia();
+        }
+    }
+
+    public void OpenFishipedia()
+    {
+        tablet.SetActive(!tablet.activeSelf);
+
+        if (timer == 0)
+        {
+            timer = 1;
+        }
+        else if (timer == 1)
+        {
+            timer = 0;
+        }
+        Time.timeScale = timer;
     }
 
     //opening & closing the menus
@@ -128,7 +153,7 @@ public class FishDexManager : MonoBehaviour
     }
     public void DiscoveryOfSpecies()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1 && !hasLoadedScene1)
+        if (SceneManager.GetActiveScene().buildIndex >= 1 && !hasLoadedScene1)
         {
             AtlanticSalmon.color = new Color32(255, 255, 255, 255);
             Otter.color = new Color32(255, 255, 255, 255);
@@ -147,7 +172,7 @@ public class FishDexManager : MonoBehaviour
             hasLoadedScene1 = true;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 2 && !hasLoadedScene2)
+        if (SceneManager.GetActiveScene().buildIndex >= 2 && !hasLoadedScene2)
         {
             Seal.color = new Color32(255, 255, 255, 255);
             KillerWhale.color = new Color32(255, 255, 255, 255);
@@ -158,10 +183,10 @@ public class FishDexManager : MonoBehaviour
 
             headings[6].GetComponent<Text>().text = "Seal";
             headings[7].GetComponent<Text>().text = "Killer Whale";
-            headings[8].GetComponent<Text>().text = "Basking Shark";
-            headings[9].GetComponent<Text>().text = "Dolphin";
-            headings[8].GetComponent<Text>().text = "Shrimp";
-            headings[9].GetComponent<Text>().text = "Saithe";
+            headings[8].GetComponent<Text>().text = "Dolphin";
+            headings[9].GetComponent<Text>().text = "Basking Shark";
+            headings[10].GetComponent<Text>().text = "Shrimp";
+            headings[11].GetComponent<Text>().text = "Saithe";
 
             hasLoadedScene2 = true;
         }

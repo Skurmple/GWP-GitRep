@@ -102,7 +102,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 252
+        width: 603
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84190022fc762af43b3fb756e469eda6
+      internalID: -534990042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_1
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 256
+        width: 572
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088b92082e94bab48b79cc71442f479e
+      internalID: -1878850274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_2
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 267
+        width: 544
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcbb0d91b3e35249af6738a2fc11d38
+      internalID: 2090336080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_3
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 97
+        width: 494
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7317b0d0530f7b7449e278630ebda1f5
+      internalID: 1920841130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_4
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 95
+        width: 544
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a18e4c97375cae44a599e90fefc867d
+      internalID: 1480263785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blackmouth_catshark_animation_5
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 84
+        width: 572
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74429ae5aed5b74e81c14c82c0fcab6
+      internalID: 295339758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -113,7 +239,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blackmouth_catshark_animation_5: 295339758
+      blackmouth_catshark_animation_3: 1920841130
+      blackmouth_catshark_animation_2: 2090336080
+      blackmouth_catshark_animation_0: -534990042
+      blackmouth_catshark_animation_4: 1480263785
+      blackmouth_catshark_animation_1: -1878850274
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

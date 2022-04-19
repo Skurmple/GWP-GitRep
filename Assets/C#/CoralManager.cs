@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class CoralManager : MonoBehaviour
 {
+    //Array of sprites used to increase the trash pile inside the dingy net
+    [SerializeField]
+    Sprite[] trashPileArray;
+
+    [SerializeField]
+    GameObject endingPopup = null;
+
     //2 Arrays, one stores the coral reef game objects and the other stores boolean values that turn true when a reef is cleared (No trash touching it)
     [SerializeField]
     GameObject[] coralReefs;
@@ -49,8 +56,6 @@ public class CoralManager : MonoBehaviour
         //Count how many reefs have been cleared
         int numReefsCleared = Count(reefCleared, true);
 
-        Debug.Log(numReefsCleared);
-
         //If numReefsCleared has changed
         if (previousScore != numReefsCleared)
         {
@@ -62,6 +67,25 @@ public class CoralManager : MonoBehaviour
         //Display numReefsCleared onscreen
         scoreText.text = numReefsCleared.ToString()+"/8";
         scoreDrop.text = numReefsCleared.ToString()+"/8";
+
+        switch (numReefsCleared)
+        {
+            case < 1:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[0];
+                break;
+
+            case < 4:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[1];
+                break;
+
+            case < 6:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[2];
+                break;
+
+            case >= 6:
+                GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[3];
+                break;
+        }
 
         //Check if all reefs are cleared
         AreReefsClear();
@@ -133,6 +157,14 @@ public class CoralManager : MonoBehaviour
 
     private void NextLevel()
     {
-        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "CavesTest"));
+        endingPopup.SetActive(!endingPopup.activeSelf);
+
+        if (endingPopup.activeSelf)
+        {
+            Time.timeScale = 0f;
+            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+        }
     }
 }

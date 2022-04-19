@@ -3,9 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField]
+    Sprite[] trashPileArray;
+
+    [SerializeField]
+    GameObject endingPopup = null;
 
     public TrashNet player;
     int previousScore;
@@ -30,64 +36,97 @@ public class ScoreManager : MonoBehaviour
 
     public void Start()
     {
+        if(SceneManager.GetActiveScene().name == "Stage 1")
+        {
+            previousScore = player.score;
+            crustGone = GameObject.Find("TrashCrust").gameObject.GetComponent<CrustSpawner>();
+        }
         //timerIsRunning = false;
-        previousScore = player.score;
         drone = GameObject.Find("Drone");
-        crustGone = GameObject.Find("TrashCrust").gameObject.GetComponent<CrustSpawner>();
     }
 
     public void Update()
     {
-        if (previousScore != player.score)
+        if (SceneManager.GetActiveScene().name == "Stage 1")
         {
-            StartCoroutine(ScorePop(0.5f));
-            previousScore = player.score;
-        }
+            if (previousScore != player.score)
+            {
+                StartCoroutine(ScorePop(0.5f));
+                previousScore = player.score;
+            }
 
-        scoreText.text = player.score.ToString();
-        scoreDrop.text = player.score.ToString();
+            scoreText.text = player.score.ToString();
+            scoreDrop.text = player.score.ToString();
 
-        if (player.score >= 100)
-        {
-            Invoke("NextLevel", 5);
-        }
-        else
-        {
-            CancelInvoke("NextLevel");
-        }
+            switch (player.score)
+            {
+                case < 1:
+                    GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[0];
+                    break;
 
-        //Timer code, may be useful later
-        //if (crustGone.crustCleaned)
-        //{
-        //    timerIsRunning = true;
-        //}
-        //else
-        //{
-        //    timerIsRunning = false;
-        //    timer = 60;
-        //}
-        //if (timerIsRunning)
-        //{
-        //    if (timer > 0)
-        //    {
-        //        timer -= Time.deltaTime;
-        //        DisplayTime(timer);
-        //    }
-        //    else
-        //    {
-        //        timer = 0;
-        //        timerIsRunning = false;
-        //        timerUI.text = null;
-        //        timerDrop.text = null;
-        //    }
-        //}
+                case < 40:
+                    GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[1];
+                    break;
+
+                case < 80:
+                    GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[2];
+                    break;
+
+                case >= 80:
+                    GameObject.Find("TrashPile").GetComponent<SpriteRenderer>().sprite = trashPileArray[3];
+                    break;
+            }
+
+            if (player.score >= 100)
+            {
+                Invoke("NextLevel", 3);
+            }
+            else
+            {
+                CancelInvoke("NextLevel");
+            }
+
+            //Timer code, may be useful later
+            //if (crustGone.crustCleaned)
+            //{
+            //    timerIsRunning = true;
+            //}
+            //else
+            //{
+            //    timerIsRunning = false;
+            //    timer = 60;
+            //}
+            //if (timerIsRunning)
+            //{
+            //    if (timer > 0)
+            //    {
+            //        timer -= Time.deltaTime;
+            //        DisplayTime(timer);
+            //    }
+            //    else
+            //    {
+            //        timer = 0;
+            //        timerIsRunning = false;
+            //        timerUI.text = null;
+            //        timerDrop.text = null;
+            //    }
+            //}
+        }
     }
 
     private void NextLevel()
     {
-        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Stage 2"));
+        endingPopup.SetActive(!endingPopup.activeSelf);
+
+        if (endingPopup.activeSelf)
+        {
+            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+            Time.timeScale = 0f;
+        }
     }
-    IEnumerator ScorePop(float duration)
+    public IEnumerator ScorePop(float duration)
     {
         float time = 0;
 

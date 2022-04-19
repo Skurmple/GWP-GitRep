@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
     int sceneBuildIndex;
 
     public GameObject mainMenu;
-    public GameObject helpMenu;
     public GameObject creditMenu;
     public GameObject settingsMenu;
 
@@ -32,22 +30,13 @@ public class Menu : MonoBehaviour
     }
     public void CavesTest()
     {
-        SceneManager.LoadScene("CavesTest");
+        SceneManager.LoadScene("Caves");
         Time.timeScale = 1;
-    }
-
-    public void Help()
-    {
-        mainMenu.SetActive(false);
-        helpMenu.SetActive(true);
-        creditMenu.SetActive(false);
-        settingsMenu.SetActive(false);
     }
 
     public void MainMenu()
     {
         mainMenu.SetActive(true);
-        helpMenu.SetActive(false);
         creditMenu.SetActive(false);
         settingsMenu.SetActive(false);
     }
@@ -55,7 +44,6 @@ public class Menu : MonoBehaviour
     public void CreditMenu()
     {
         mainMenu.SetActive(false);
-        helpMenu.SetActive(false);
         creditMenu.SetActive(true);
         settingsMenu.SetActive(false);
     }
@@ -63,7 +51,6 @@ public class Menu : MonoBehaviour
     public void SettingsMenu()
     {
         mainMenu.SetActive(false);
-        helpMenu.SetActive(false);
         creditMenu.SetActive(false);
         settingsMenu.SetActive(true);
         Time.timeScale = 0;
@@ -79,6 +66,11 @@ public class Menu : MonoBehaviour
     {
         settingsMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
     public void Quit()
     {
