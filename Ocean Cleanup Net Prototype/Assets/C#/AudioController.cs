@@ -29,8 +29,21 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     private Text sfxSliderDrop = null;
 
+    int firstTime = 0;
+
     void Start()
     {
+        if (PlayerPrefs.GetInt("firstTime") == 0)
+        {
+            float musicVolumeValue = 0.5f;
+            musicVolumeSlider.value = musicVolumeValue;
+
+            float sfxVolumeValue = 0.5f;
+            sfxVolumeSlider.value = sfxVolumeValue;
+
+            PlayerPrefs.SetInt("firstTime", 1);
+        }
+
         LoadValues();
     }
     public void MusicSliderText(float volume)

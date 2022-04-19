@@ -14,7 +14,7 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 startingPosition;
     public float moveSpeed = 7;
-    float smoothTime = 1f;
+    float smoothTime = 0.75f;
     Vector2 currentVelocity;
     public bool dashing;
     Coroutine dash;
@@ -55,7 +55,7 @@ public class DroneMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         //Moves the drone towards the mouse position
-        if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18 || dashing)
+        if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 || dashing) //For corner deadzone : && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18
         {
             //transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
             transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, moveSpeed);
