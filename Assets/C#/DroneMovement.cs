@@ -182,7 +182,7 @@ public class DroneMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Otter")
+        if (collision.gameObject.tag == "Otter" || collision.gameObject.tag == "Turtle" || collision.gameObject.tag == "Octo")
         {
             //Decreases the score, although this at the moment isnt useful or being kept afaik
             netChild.score--;
