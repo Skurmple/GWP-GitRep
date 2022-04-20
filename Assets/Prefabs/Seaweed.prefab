@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5337124303762232553}
   - component: {fileID: -2480587377453210709}
   - component: {fileID: -4071870090216404082}
+  - component: {fileID: 5171252852817611306}
   m_Layer: 0
   m_Name: Seaweed
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1220f68f971886f4cba72100a44b8a03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 098fc3753a5415e448b0864b93514ae3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5171252852817611306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485766275400657212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9778fdb6580ee7d43976b7191a964297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: -4071870090216404082}

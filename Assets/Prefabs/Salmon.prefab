@@ -760,7 +760,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 3.09, y: 0.24, z: 0}
+    m_Position: {x: -3.13, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -961,7 +961,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.4
-      minScalar: 0.2
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4915,7 +4915,7 @@ Animator:
   m_GameObject: {fileID: 4554739852528317913}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 823d5c88600d44842b740a06a820f128, type: 2}
+  m_Controller: {fileID: 9100000, guid: f52ed6293547e004d9d2ad0c1e4268c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
