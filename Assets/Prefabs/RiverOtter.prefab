@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8633178091171990673}
   - component: {fileID: -4026417749486131549}
   - component: {fileID: -1402681388847781337}
+  - component: {fileID: 7959613344594317680}
   m_Layer: 0
   m_Name: RiverOtter
   m_TagString: Fish
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4554739852528317913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.5}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 061cf484b1258a44e8b20347e0dfa7cd, type: 3}
+  m_Sprite: {fileID: 1261751827, guid: d5fd1908a476ae54b928f73ebd7fc12d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.8, y: 3.12}
+  m_Size: {x: 12.02, y: 3.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,8 +124,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.94, y: 0.050018184}
-  m_Size: {x: 7.576909, y: 1.7193193}
+  m_Offset: {x: -0.2499029, y: -0.007056537}
+  m_Size: {x: 3.6439862, y: 0.9618141}
   m_Direction: 1
 --- !u!114 &-8633178091171990673
 MonoBehaviour:
@@ -775,7 +776,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -4.72, y: 0.84, z: 0}
+    m_Position: {x: -1.77, y: 0.23, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -976,7 +977,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.4
-      minScalar: 0.2
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4920,3 +4921,23 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &7959613344594317680
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4554739852528317913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8b099a7261e7234680c352f30b6f1ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
