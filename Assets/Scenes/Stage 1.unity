@@ -9666,15 +9666,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Woah that was hard work but you did a great job!
+  m_text: 'Woah, that was hard work but you did a great job!
 
 
-    Oh no, I''m getting
-    a distress call from somewhere near the coral reefs!
+    But wait, I''m
+    getting a distress call from somewhere near the coral reefs at East Mingulay.
 
 
-    We better get there
-    fast!'
+    We
+    better get there fast!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
@@ -9740,7 +9740,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1143938297
@@ -13044,15 +13044,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hi, I''m Naeco!
-
-
-    Please help me catch the falling waste with my net
-    before it does any more damage!
-
-
-    When my net is too heavy, return to the
-    boat to drop it off!'
+  m_text: "Hi, I'm Naeco, and this is Scapa Flow! \r\n\nPlease help me catch the
+    falling waste before it does any more damage! Try to avoid hitting the fish \u2013
+    this is their home after all.\n\nWhen my net is too heavy, return to the boat
+    to drop it off! "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
@@ -13091,9 +13086,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -2
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -12
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4

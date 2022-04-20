@@ -464,12 +464,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Some trash escaped our net and is now entangled in the coral!
-
-
-    Help
-    me clear them by gently dashing nearby (Left-Mouse Click) to dislodge and collect
-    the waste!'
+  m_text: "Welcome to the East Mingulay conservation area!\n\nSome trash escaped
+    our net and got entangled in the coral! \r\n\nHelp me free them by gently dashing
+    nearby (Left-Mouse Click) to disentangle and collect the waste! "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
@@ -508,9 +505,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -4
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -15
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -1672,12 +1669,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Wow thanks for all your help!
+  m_text: 'Wow, thanks for all your help!
 
 
     Collecting all that trash will really
-    help the fish here, you can read all about that by clicking on the tablet to
-    the right (Or Right-Mouse Click)!
+    help the sea life here. You can read all about that by clicking on the tablet
+    to the right (or Right-Mouse Click)!
 
 
     But wait, we seem to be missing some
@@ -1720,9 +1717,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -5
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -15
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
