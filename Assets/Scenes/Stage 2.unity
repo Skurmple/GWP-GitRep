@@ -471,8 +471,8 @@ MonoBehaviour:
     me clear them by gently dashing nearby (Left-Mouse Click) to dislodge and collect
     the waste!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
-  m_sharedMaterial: {fileID: -4391028784199956935, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
+  m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &82954639
@@ -632,7 +632,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1207947484}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: CavesTest
+        m_MethodName: PlayStage3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -797,7 +797,7 @@ MonoBehaviour:
   smallFishList:
   - {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
   - {fileID: 2400270800265844673, guid: d918199f42956fb46a5b3124ef7d020e, type: 3}
-  - {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  - {fileID: 2400270800265844673, guid: 1847dd763d7df4944960a31713269ec8, type: 3}
   largeFishList:
   - {fileID: 2400270800265844673, guid: 0502afc9add338445a783c56ed9cf62f, type: 3}
   - {fileID: 409677719207453958, guid: a72cb70e4d6ca78448885df3a0cc1fd1, type: 3}
@@ -1683,8 +1683,8 @@ MonoBehaviour:
     But wait, we seem to be missing some
     entries...'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
-  m_sharedMaterial: {fileID: -4391028784199956935, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
+  m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10100,7 +10100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83db1d917622a04494b3b6edcfb7e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scannedFish: []
+  spotlight: {fileID: 0}
+  emotions: {fileID: 0}
 --- !u!212 &807709560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13520,7 +13521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
   creditMenu: {fileID: 0}
   settingsMenu: {fileID: 2001457186}
 --- !u!114 &1207947485
@@ -15993,7 +15993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turtle: {fileID: 693925181634047607, guid: 7d6e1d1ced4dc56489b8d90fef8a9493, type: 3}
   smallFishList:
-  - {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  - {fileID: 2400270800265844673, guid: 1847dd763d7df4944960a31713269ec8, type: 3}
   - {fileID: 2400270800265844673, guid: d918199f42956fb46a5b3124ef7d020e, type: 3}
   - {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
   largeFishList:

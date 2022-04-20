@@ -8314,7 +8314,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: a2b7e4fc476ed0f48b74bfa29e90540d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9790,8 +9790,8 @@ MonoBehaviour:
     We better get there
     fast!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
-  m_sharedMaterial: {fileID: -4391028784199956935, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
+  m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9854,7 +9854,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1143938297
@@ -9982,7 +9982,7 @@ MonoBehaviour:
   smallFishList:
   - {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
   - {fileID: 2400270800265844673, guid: d918199f42956fb46a5b3124ef7d020e, type: 3}
-  - {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  - {fileID: 2400270800265844673, guid: 1847dd763d7df4944960a31713269ec8, type: 3}
   largeFishList:
   - {fileID: 2400270800265844673, guid: 0502afc9add338445a783c56ed9cf62f, type: 3}
   - {fileID: 409677719207453958, guid: a72cb70e4d6ca78448885df3a0cc1fd1, type: 3}
@@ -13248,8 +13248,8 @@ MonoBehaviour:
     When my net is too heavy, return to the
     boat to drop it off!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
-  m_sharedMaterial: {fileID: -4391028784199956935, guid: 4f2957ac06e605e499f4112163432b22, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
+  m_sharedMaterial: {fileID: -4391028784199956935, guid: 44861e5b4cadd724ca293c3aec1f0cb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13312,7 +13312,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2000154743
@@ -13534,7 +13534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turtle: {fileID: 693925181634047607, guid: 7d6e1d1ced4dc56489b8d90fef8a9493, type: 3}
   smallFishList:
-  - {fileID: 2400270800265844673, guid: ee4d3f98ee30a4f48bf058b1f1afce03, type: 3}
+  - {fileID: 2400270800265844673, guid: 1847dd763d7df4944960a31713269ec8, type: 3}
   - {fileID: 2400270800265844673, guid: d918199f42956fb46a5b3124ef7d020e, type: 3}
   - {fileID: 9002838135341241269, guid: 64fb25d2e0ba8f84b9e392fa238e0c63, type: 3}
   largeFishList:

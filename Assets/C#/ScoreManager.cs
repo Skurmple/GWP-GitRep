@@ -116,15 +116,13 @@ public class ScoreManager : MonoBehaviour
 
     private void NextLevel()
     {
-        endingPopup.SetActive(!endingPopup.activeSelf);
+        endingPopup.SetActive(true);
 
-        if (endingPopup.activeSelf)
-        {
-            GameObject.Find("Settings").GetComponent<Button>().enabled = false;
-            GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
-            GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
-            Time.timeScale = 0f;
-        }
+        GameObject.Find("Settings").GetComponent<Button>().enabled = false;
+        GameObject.Find("OpenTablet").GetComponent<Button>().enabled = false;
+        GameObject.Find("OpenTutorial").GetComponent<Button>().enabled = false;
+
+        Time.timeScale = 0f;
     }
     public IEnumerator ScorePop(float duration)
     {
