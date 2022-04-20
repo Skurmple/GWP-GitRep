@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -1521894116128552162}
   - component: {fileID: 5812686505272063760}
   - component: {fileID: 5974088111165575393}
+  - component: {fileID: 2315545540963945925}
+  - component: {fileID: 346366706715084551}
   m_Layer: 0
   m_Name: PlasticBag
   m_TagString: PlasticTrash
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1561786064363492746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: ddf7cdbc5fba6fb438f83b2cb2352c31, type: 3}
+  m_Sprite: {fileID: -961081630, guid: beea10a1a29ed8f4d96da56b220dbf78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561786064363492746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4753827ed80c8484f85f2ba4a435a6e6, type: 3}
   m_Name: 
@@ -141,6 +143,47 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6631745, y: -0.30607608}
-  m_Size: {x: 6.4716487, y: 5.099885}
+  m_Offset: {x: 0.022707386, y: 0.008305707}
+  m_Size: {x: 1.2921286, y: 0.8514926}
   m_Direction: 1
+--- !u!95 &2315545540963945925
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561786064363492746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0ffc2d651bb71f44a1d7923e460200a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &346366706715084551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561786064363492746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086bb53cb3b8cd246b200cde532d74d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  originalMoveSpeed: 0
+  frequency: 7
+  magnitude: 0.5
+  netFall: 0
+  dislodged: 1
+  reefDashed: 0
+  stuckInCoral: 0
+  animator: {fileID: 2315545540963945925}
