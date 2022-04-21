@@ -49,6 +49,7 @@ public class FishDexManager : MonoBehaviour
     public GameObject Level2;
     public GameObject Level3;
     public GameObject Habitats;
+    public GameObject AdditionalInfo;
 
     //text in front of sea creature images
     public GameObject[] headings;
@@ -94,6 +95,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
     }
     public void Level_2()
@@ -102,6 +104,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(true);
         Level3.SetActive(false);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
     }
     public void Level_3()
@@ -110,6 +113,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(true);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
     }
     public void Habitats_()
@@ -118,6 +122,16 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         Habitats.SetActive(true);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void Additional_Info()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(true);
         LevelSelective.SetActive(false);
     }
     public void Back()
@@ -126,6 +140,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(true);
         information[0].SetActive(false);
         information[1].SetActive(false);
@@ -137,6 +152,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
         information[0].SetActive(false);
         information[1].SetActive(false);
@@ -151,6 +167,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(true);
         Level3.SetActive(false);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
         information[6].SetActive(false);
         information[7].SetActive(false);
@@ -165,6 +182,7 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(true);
         Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
         information[12].SetActive(false);
         information[13].SetActive(false);
@@ -178,10 +196,25 @@ public class FishDexManager : MonoBehaviour
         Level2.SetActive(false);
         Level3.SetActive(false);
         Habitats.SetActive(true);
+        AdditionalInfo.SetActive(false);
         LevelSelective.SetActive(false);
         information[17].SetActive(false);
         information[18].SetActive(false);
         information[19].SetActive(false);
+    }
+    public void BackFromAdditionalInfo()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(true);
+        LevelSelective.SetActive(false);
+        information[20].SetActive(false);
+        information[21].SetActive(false);
+        information[22].SetActive(false);
+        information[23].SetActive(false);
+        information[24].SetActive(false);
     }
     public void DiscoveryOfSpecies()
     {
@@ -373,6 +406,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -385,6 +419,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -397,6 +432,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -409,6 +445,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -421,6 +458,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false); 
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -433,6 +471,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false); 
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -445,6 +484,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -457,6 +497,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -469,6 +510,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -481,6 +523,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -493,6 +536,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -505,6 +549,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -517,6 +562,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -529,6 +575,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -541,6 +588,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -553,6 +601,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -565,6 +614,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -577,6 +627,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -589,6 +640,7 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -601,7 +653,58 @@ public class FishDexManager : MonoBehaviour
             Level2.SetActive(false);
             Level3.SetActive(false);
             Habitats.SetActive(false);
+            AdditionalInfo.SetActive(false);
             LevelSelective.SetActive(false);
         }
+    }
+    public void OpenRisingSea()
+    {
+        information[20].SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void OpenCoralExinct()
+    {
+        information[21].SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void OpenCans()
+    {
+        information[22].SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void OpenGlass()
+    {
+        information[23].SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void OpenPlastic()
+    {
+        information[24].SetActive(true);
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(false);
+        AdditionalInfo.SetActive(false);
+        LevelSelective.SetActive(false);
     }
 }

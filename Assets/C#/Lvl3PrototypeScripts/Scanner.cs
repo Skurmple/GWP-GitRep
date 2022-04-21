@@ -39,6 +39,8 @@ public class Scanner : MonoBehaviour
         scoreManager.scoreText.text = numScanned.ToString() + "/8";
         scoreManager.scoreDrop.text = numScanned.ToString() + "/8";
 
+        Debug.Log(a);
+
         if (numPrevScanned != numScanned)
         {
             scoreManager.ScorePop(2.5f);
@@ -79,7 +81,7 @@ public class Scanner : MonoBehaviour
                         numScanned++;
                     }
                 }
-                else if (collision.gameObject.name.Contains("Anglerfish") && fdm.hasScanned[2] == false)
+                else if (collision.gameObject.name.Contains("AnglerFish") && fdm.hasScanned[2] == false)
                 {
                     a++;
                     if(a >= 3)

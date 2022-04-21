@@ -67,6 +67,7 @@ public class Emotions : MonoBehaviour
         pinkEyes.SetActive(false);
         waitT = true;
         drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[4];
+        FindObjectOfType<AudioManager>().Play("HitFish");
         StartCoroutine(StunTimer());
     }
 
