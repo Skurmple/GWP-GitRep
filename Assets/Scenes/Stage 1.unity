@@ -436,7 +436,7 @@ MonoBehaviour:
   sounds:
   - name: FullNet
     clip: {fileID: 8300000, guid: 02be40e723d30b44799c4797c4ad711b, type: 3}
-    volume: 0.15
+    volume: 0.25
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -472,6 +472,24 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 64de079158cef764eaa56b0c02413bc7, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Scanning
+    clip: {fileID: 8300000, guid: 7b7c6cfa934447641b53c748da8b6947, type: 3}
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: ScanSuccess
+    clip: {fileID: 8300000, guid: a6d8af64049c5f347b2f9aef43f05c16, type: 3}
     volume: 0.4
     volumeVariance: 0
     pitch: 1
@@ -1501,6 +1519,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c1109c1261bce0b4f91c90f4323db424, type: 3}
   - {fileID: 21300000, guid: 888673500529c15419b859e2b5f1d9e0, type: 3}
   drone: {fileID: 770164108}
+  greenEyes: {fileID: 869227391}
+  pinkEyes: {fileID: 1463002978}
   trashNet: {fileID: 174666224}
 --- !u!4 &352731860
 Transform:
@@ -1515,6 +1535,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 770164110}
+  - {fileID: 869227392}
+  - {fileID: 1463002979}
   m_Father: {fileID: 201134786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8544,6 +8566,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &869227391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869227392}
+  m_Layer: 0
+  m_Name: GreenEyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &869227392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869227391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 352731860}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884166448
 GameObject:
   m_ObjectHideFlags: 0
@@ -11046,6 +11099,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 407071777}
   parallaxEffect: 0.05
+--- !u!1 &1463002978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463002979}
+  m_Layer: 0
+  m_Name: PinkEyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1463002979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463002978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 352731860}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465084859
 GameObject:
   m_ObjectHideFlags: 0

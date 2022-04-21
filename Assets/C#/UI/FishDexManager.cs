@@ -30,6 +30,11 @@ public class FishDexManager : MonoBehaviour
     public Image Squid;
     public Image LooseJaw;
 
+    //Habitats
+    public Image SubWreck;
+    public Image WhaleFall;
+    public Image Vent;
+
     //checks youve loaded into the scene
     public bool hasLoadedScene1;
     public bool hasLoadedScene2;
@@ -43,6 +48,7 @@ public class FishDexManager : MonoBehaviour
     public GameObject Level1;
     public GameObject Level2;
     public GameObject Level3;
+    public GameObject Habitats;
 
     //text in front of sea creature images
     public GameObject[] headings;
@@ -87,6 +93,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(true);
         Level2.SetActive(false);
         Level3.SetActive(false);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(false);
     }
     public void Level_2()
@@ -94,6 +101,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(true);
         Level3.SetActive(false);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(false);
     }
     public void Level_3()
@@ -101,6 +109,15 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(false);
         Level3.SetActive(true);
+        Habitats.SetActive(false);
+        LevelSelective.SetActive(false);
+    }
+    public void Habitats_()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(true);
         LevelSelective.SetActive(false);
     }
     public void Back()
@@ -108,6 +125,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(false);
         Level3.SetActive(false);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(true);
         information[0].SetActive(false);
         information[1].SetActive(false);
@@ -118,6 +136,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(true);
         Level2.SetActive(false);
         Level3.SetActive(false);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(false);
         information[0].SetActive(false);
         information[1].SetActive(false);
@@ -131,6 +150,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(true);
         Level3.SetActive(false);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(false);
         information[6].SetActive(false);
         information[7].SetActive(false);
@@ -144,6 +164,7 @@ public class FishDexManager : MonoBehaviour
         Level1.SetActive(false);
         Level2.SetActive(false);
         Level3.SetActive(true);
+        Habitats.SetActive(false);
         LevelSelective.SetActive(false);
         information[12].SetActive(false);
         information[13].SetActive(false);
@@ -151,8 +172,106 @@ public class FishDexManager : MonoBehaviour
         information[15].SetActive(false);
         information[16].SetActive(false);
     }
+    public void BackFromHabitats()
+    {
+        Level1.SetActive(false);
+        Level2.SetActive(false);
+        Level3.SetActive(false);
+        Habitats.SetActive(true);
+        LevelSelective.SetActive(false);
+        information[17].SetActive(false);
+        information[18].SetActive(false);
+        information[19].SetActive(false);
+    }
     public void DiscoveryOfSpecies()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (PlayerPrefs.GetInt("loadedLevel1") == 1)
+            {
+                AtlanticSalmon.color = new Color32(255, 255, 255, 255);
+                Otter.color = new Color32(255, 255, 255, 255);
+                JellyFish.color = new Color32(255, 255, 255, 255);
+                Ling.color = new Color32(255, 255, 255, 255);
+                RedFish.color = new Color32(255, 255, 255, 255);
+                Octopus.color = new Color32(255, 255, 255, 255);
+
+                headings[0].GetComponent<Text>().text = "Salmon";
+                headings[1].GetComponent<Text>().text = "Otter";
+                headings[2].GetComponent<Text>().text = "Jellyfish";
+                headings[3].GetComponent<Text>().text = "Ling";
+                headings[4].GetComponent<Text>().text = "Redfish";
+                headings[5].GetComponent<Text>().text = "Octopus";
+                hasLoadedScene1 = true;
+            }
+            if (PlayerPrefs.GetInt("loadedLevel2") == 1)
+            {
+                Seal.color = new Color32(255, 255, 255, 255);
+                KillerWhale.color = new Color32(255, 255, 255, 255);
+                BaskingShark.color = new Color32(255, 255, 255, 255);
+                Dolphin.color = new Color32(255, 255, 255, 255);
+                Shrimp.color = new Color32(255, 255, 255, 255);
+                Saithe.color = new Color32(255, 255, 255, 255);
+
+                headings[6].GetComponent<Text>().text = "Seal";
+                headings[7].GetComponent<Text>().text = "Orca";
+                headings[8].GetComponent<Text>().text = "Dolphin";
+                headings[9].GetComponent<Text>().text = "Basking Shark";
+                headings[10].GetComponent<Text>().text = "Shrimp";
+                headings[11].GetComponent<Text>().text = "Saithe";
+                hasLoadedScene2 = true;
+            }
+            if (PlayerPrefs.GetInt("scanned1") == 1)
+            {
+                Oarfish.color = new Color32(255, 255, 255, 255);
+                headings[12].GetComponent<Text>().text = "Oarfish";
+                hasScanned[0] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned2") == 1)
+            {
+                Catshark.color = new Color32(255, 255, 255, 255);
+                headings[13].GetComponent<Text>().text = "Catshark";
+                hasScanned[1] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned3") == 1)
+            {
+                AnglerFish.color = new Color32(255, 255, 255, 255);
+                headings[14].GetComponent<Text>().text = "AnglerFish";
+                hasScanned[2] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned4") == 1)
+            {
+                Squid.color = new Color32(255, 255, 255, 255);
+                headings[15].GetComponent<Text>().text = "Squid";
+                hasScanned[3] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned5") == 1)
+            {
+                LooseJaw.color = new Color32(255, 255, 255, 255);
+                headings[16].GetComponent<Text>().text = "Loose Jaw";
+                hasScanned[4] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned6") == 1)
+            {
+                SubWreck.color = new Color32(255, 255, 255, 255);
+                headings[17].GetComponent<Text>().text = "Submarine Wreck";
+                hasScanned[5] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned7") == 1)
+            {
+                WhaleFall.color = new Color32(255, 255, 255, 255);
+                headings[18].GetComponent<Text>().text = "Whalefall";
+                hasScanned[6] = true;
+            }
+            if (PlayerPrefs.GetInt("scanned8") == 1)
+            {
+                Vent.color = new Color32(255, 255, 255, 255);
+                headings[19].GetComponent<Text>().text = "Hydrothermal Vents";
+                headings[19].GetComponent<Text>().fontSize = 30;
+                hasScanned[7] = true;
+            }
+        }
+
         if (SceneManager.GetActiveScene().buildIndex >= 1 && !hasLoadedScene1)
         {
             AtlanticSalmon.color = new Color32(255, 255, 255, 255);
@@ -170,6 +289,7 @@ public class FishDexManager : MonoBehaviour
             headings[5].GetComponent<Text>().text = "Octopus";
 
             hasLoadedScene1 = true;
+            PlayerPrefs.SetInt("loadedLevel1", 1);
         }
 
         if (SceneManager.GetActiveScene().buildIndex >= 2 && !hasLoadedScene2)
@@ -182,13 +302,14 @@ public class FishDexManager : MonoBehaviour
             Saithe.color = new Color32(255, 255, 255, 255);
 
             headings[6].GetComponent<Text>().text = "Seal";
-            headings[7].GetComponent<Text>().text = "Killer Whale";
+            headings[7].GetComponent<Text>().text = "Orca";
             headings[8].GetComponent<Text>().text = "Dolphin";
             headings[9].GetComponent<Text>().text = "Basking Shark";
             headings[10].GetComponent<Text>().text = "Shrimp";
             headings[11].GetComponent<Text>().text = "Saithe";
 
             hasLoadedScene2 = true;
+            PlayerPrefs.SetInt("loadedLevel2", 1);
         }
     }
     private void ScannedFish()
@@ -197,26 +318,50 @@ public class FishDexManager : MonoBehaviour
         {
             Oarfish.color = new Color32(255, 255, 255, 255);
             headings[12].GetComponent<Text>().text = "Oarfish";
+            PlayerPrefs.SetInt("scanned1", 1);
         }
         if (hasScanned[1])
         {
             Catshark.color = new Color32(255, 255, 255, 255);
             headings[13].GetComponent<Text>().text = "Catshark";
+            PlayerPrefs.SetInt("scanned2", 1);
         }
         if (hasScanned[2])
         {
             AnglerFish.color = new Color32(255, 255, 255, 255);
             headings[14].GetComponent<Text>().text = "AnglerFish";
+            PlayerPrefs.SetInt("scanned3", 1);
         }
         if (hasScanned[3])
         {
             Squid.color = new Color32(255, 255, 255, 255);
             headings[15].GetComponent<Text>().text = "Squid";
+            PlayerPrefs.SetInt("scanned4", 1);
         }
         if (hasScanned[4])
         {
             LooseJaw.color = new Color32(255, 255, 255, 255);
             headings[16].GetComponent<Text>().text = "Loose Jaw";
+            PlayerPrefs.SetInt("scanned5", 1);
+        }
+        if (hasScanned[5])
+        {
+            SubWreck.color = new Color32(255, 255, 255, 255);
+            headings[17].GetComponent<Text>().text = "Submarine Wreck";
+            PlayerPrefs.SetInt("scanned6", 1);
+        }
+        if (hasScanned[6])
+        {
+            WhaleFall.color = new Color32(255, 255, 255, 255);
+            headings[18].GetComponent<Text>().text = "Whalefall";
+            PlayerPrefs.SetInt("scanned7", 1);
+        }
+        if (hasScanned[7])
+        {
+            Vent.color = new Color32(255, 255, 255, 255);
+            headings[19].GetComponent<Text>().text = "Hydrothermal Vents";
+            headings[19].GetComponent<Text>().fontSize = 30;
+            PlayerPrefs.SetInt("scanned8", 1);
         }
     }
     public void OpenSalmon()
@@ -227,6 +372,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -238,6 +384,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -249,6 +396,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -260,6 +408,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -271,6 +420,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false); 
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -282,6 +432,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false); 
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -293,6 +444,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -304,6 +456,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -315,6 +468,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -326,6 +480,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -337,6 +492,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -348,6 +504,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -359,6 +516,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -370,6 +528,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -381,6 +540,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -392,6 +552,7 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }
@@ -403,6 +564,43 @@ public class FishDexManager : MonoBehaviour
             Level1.SetActive(false);
             Level2.SetActive(false);
             Level3.SetActive(false);
+            Habitats.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenSubWreck()
+    {
+        if (hasScanned[5])
+        {
+            information[17].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            Habitats.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenWhaleFall()
+    {
+        if (hasScanned[6])
+        {
+            information[18].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            Habitats.SetActive(false);
+            LevelSelective.SetActive(false);
+        }
+    }
+    public void OpenVents()
+    {
+        if (hasScanned[7])
+        {
+            information[19].SetActive(true);
+            Level1.SetActive(false);
+            Level2.SetActive(false);
+            Level3.SetActive(false);
+            Habitats.SetActive(false);
             LevelSelective.SetActive(false);
         }
     }

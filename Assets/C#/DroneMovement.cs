@@ -14,8 +14,6 @@ public class DroneMovement : MonoBehaviour
     Vector3 forwardVector;
     Vector3 startingPosition;
     public float moveSpeed = 7;
-    float smoothTime = 0.75f;
-    Vector2 currentVelocity;
     public bool dashing;
     Coroutine dash;
     float dashMaxCooldown = 2;
@@ -57,8 +55,7 @@ public class DroneMovement : MonoBehaviour
         //Moves the drone towards the mouse position
         if (!Input.GetKey(KeyCode.LeftControl) && (mousePosition - new Vector2(transform.position.x, transform.position.y)).magnitude > 2 || dashing) //For corner deadzone : && (mousePosition - new Vector2(GameObject.Find("CameraCenter").transform.position.x, GameObject.Find("CameraCenter").transform.position.y)).magnitude < 18
         {
-            //transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
-            transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, moveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         }
 
         //Gets the direction the drone is moving in, and rotates it to face that direction
@@ -96,7 +93,6 @@ public class DroneMovement : MonoBehaviour
     IEnumerator DroneDash()
     {
         moveSpeed += 10;
-        smoothTime -= 0.5f;
         bubbles.emissionRate += 100;
         FindObjectOfType<AudioManager>().Play("Dash");
         dashing = true;
@@ -104,7 +100,6 @@ public class DroneMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         moveSpeed -= 10;
-        smoothTime += 0.5f;
         bubbles.emissionRate -= 100;
         dashing = false;
         dashCooldown = dashMaxCooldown;
@@ -199,7 +194,7 @@ public class DroneMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Pufferfish")
+        if (collision.gameObject.tag == "Scannable")
         {
             gc.isDisabled = true;
             enabled = false;
@@ -237,7 +232,7 @@ public class DroneMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Swordfish")
+        if (collision.gameObject.tag == "Scannable" && !collision.gameObject.name.Contains("Sub") && !collision.gameObject.name.Contains("Fall") && !collision.gameObject.name.Contains("Vent"))
         {
             gc.isDisabled = true;
             enabled = false;

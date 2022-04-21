@@ -114,7 +114,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void NextLevel()
+    public void NextLevel()
     {
         endingPopup.SetActive(true);
 

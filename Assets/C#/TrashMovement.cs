@@ -93,7 +93,7 @@ public class TrashMovement : MonoBehaviour
 
             if (indicatorTimer <= 0)
             {
-                GameObject.Find("Net").GetComponent<TrashNet>().score -= 1;
+                GameObject.Find("Net").GetComponent<TrashNet>().score -= 2;
                 Destroy(gameObject);
             }
         }
@@ -134,7 +134,7 @@ public class TrashMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Boulders")
+        if (collision.gameObject.tag == "Boulders" && !stuckInCoral)
         {
             if (reefDashed)
             {

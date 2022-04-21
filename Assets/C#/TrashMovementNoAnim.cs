@@ -107,7 +107,7 @@ public class TrashMovementNoAnim : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Boulders")
+        if (collision.gameObject.tag == "Boulders" && !stuckInCoral)
         {
             if (reefDashed)
             {

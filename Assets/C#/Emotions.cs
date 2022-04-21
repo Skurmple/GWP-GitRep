@@ -6,6 +6,13 @@ public class Emotions : MonoBehaviour
 {
     public Sprite[] emotionSprites;
     public GameObject drone;
+
+    [SerializeField]
+    GameObject greenEyes = null;
+
+    [SerializeField]
+    GameObject pinkEyes = null;
+
     public TrashNet trashNet;
     int netLimit = 7;
     bool waitT;
@@ -23,6 +30,8 @@ public class Emotions : MonoBehaviour
         if (waitT == false && trashNet.trashList.Count < netLimit && drone.GetComponent<SpriteRenderer>().sprite != emotionSprites[0])
         {
             drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[0];
+            greenEyes.SetActive(true);
+            pinkEyes.SetActive(false);
         }
 
         if (waitT == false && trashNet.trashList.Count == netLimit)
@@ -44,6 +53,8 @@ public class Emotions : MonoBehaviour
     {
         waitT = true;
         drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[3];
+        greenEyes.SetActive(false);
+        pinkEyes.SetActive(true);
 
         //FindObjectOfType<AudioManager>().Play("FullNet");
 
@@ -52,6 +63,8 @@ public class Emotions : MonoBehaviour
 
     public void StunnedFace()
     {
+        greenEyes.SetActive(false);
+        pinkEyes.SetActive(false);
         waitT = true;
         drone.GetComponent<SpriteRenderer>().sprite = emotionSprites[4];
         StartCoroutine(StunTimer());

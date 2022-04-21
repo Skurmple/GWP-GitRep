@@ -42,6 +42,11 @@ public class GameController : MonoBehaviour
             this.GetComponent<Menu>().ExitToMenu();
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             if (phoneOpen == 1)
